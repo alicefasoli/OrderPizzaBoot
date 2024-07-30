@@ -1,2 +1,4 @@
-rasa==1.9.5
-python==3.6.0 
+pip install rasa==3.6.13
+pip install spacy
+python -m spacy download en_core_web_sm
+pip install rasa-x --extra-index-url https://pypi.rasa.com/simple

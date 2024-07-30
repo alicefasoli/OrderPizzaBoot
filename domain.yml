@@ -180,6 +180,7 @@ actions:
 - utter_item_type
 - utter_item_size
 - utter_item_amount
+- utter_change_item
 - utter_pizza_questions
 - utter_order_processing_positive
 - utter_order_processing_negative
@@ -194,4 +195,8 @@ forms:
     - pizza_amount
     - pizza_type
     - pizza_size
+  person_information_form:
+    required_slots:
+    - client_name
+    - phone_number
 
