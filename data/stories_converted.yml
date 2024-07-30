@@ -1,0 +1,116 @@
+version: "3.1"
+stories:
+- story: greeting
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - checkpoint: start_questions_on_pizza
+- story: greeting
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - checkpoint: start_order
+- story: questions_on_pizza
+  steps:
+  - checkpoint: start_questions_on_pizza
+  - intent: init_pizza_question
+  - action: utter_init_pizza_question
+  - checkpoint: start_order
+- story: order pizza vague
+  steps:
+  - checkpoint: start_order
+  - intent: init_request
+  - action: utter_init_request
+  - intent: item_start_generic
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - checkpoint: confirm_order
+- story: order pizza vague
+  steps:
+  - checkpoint: start_order
+  - intent: init_request
+  - action: utter_init_request
+  - intent: item_start_generic
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - checkpoint: confirm_order_pre_question
+- story: order pizza precise
+  steps:
+  - checkpoint: start_order
+  - checkpoint: new_order
+  - intent: item_start_generic
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - checkpoint: confirm_order
+- story: order pizza precise
+  steps:
+  - checkpoint: start_order
+  - checkpoint: new_order
+  - intent: item_start_generic
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - checkpoint: confirm_order_pre_question
+- story: story_to_modify_order
+  steps:
+  - checkpoint: confirm_order
+  - intent: response_negative
+  - action: action_change_order
+  - action: utter_item_change
+  - checkpoint: confirm_order
+- story: story_to_modify_order_2
+  steps:
+  - checkpoint: confirm_order
+  - intent: item_change
+  - action: action_change_order
+  - action: utter_item_change
+  - checkpoint: confirm_order
+- story: story_to_modify_order_3
+  steps:
+  - checkpoint: confirm_order
+  - intent: response_negative
+  - action: utter_order_confirm_negative
+  - intent: item_change
+  - action: action_change_order
+  - action: utter_item_change
+  - checkpoint: confirm_order
+- story: story_to_proceed_furthur
+  steps:
+  - checkpoint: confirm_order
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - action: utter_extra_order
+  - checkpoint: confirmed_order_proceed
+- story: story_to_add_new_order
+  steps:
+  - checkpoint: confirmed_order_proceed
+  - intent: response_positive
+  - action: action_reset_pizza_form
+  - action: utter_order_add
+  - checkpoint: new_order
+- story: story_to_proceed_with_confirm_order
+  steps:
+  - checkpoint: confirmed_order_proceed
+  - intent: response_negative
+  - action: utter_name_phone
+  - intent: response_name_phone
+  - action: action_order_number
+  - action: utter_total_order_final
+  - checkpoint: order_proceed
+- story: order take home
+  steps:
+  - checkpoint: order_proceed
+  - intent: order_take_home
+  - action: utter_order_complete
+- story: order delivery
+  steps:
+  - checkpoint: order_proceed
+  - intent: order_delivery
+  - action: utter_delivery_address
+  - intent: order_delivery_address
+  - action: utter_order_complete
+- story: story_modify_prerequest
+  steps:
+  - checkpoint: confirm_order_pre_question
+  - intent: item_change_request_without_entity
+  - action: utter_item_type
+  - checkpoint: confirm_order
