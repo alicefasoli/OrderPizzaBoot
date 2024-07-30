@@ -7,14 +7,47 @@ rules:
   - action: pizza_order_form
   - active_loop: pizza_order_form
 
-- rule: out-of-scope
+- rule: Out of scope
   steps:
   - intent: out_of_scope
   - action: utter_out_of_scope
 
-
-- rule: start
+- rule: Init 
   steps:
     - intent: init_request
     - action: utter_init_request
 
+- rule: Greet user
+  steps:
+    - intent: welcome_greet
+    - action: utter_welcome_greet
+
+- rule: User declines extra order
+  steps:
+    - intent: extra_order_negative
+    - action: utter_order_no_action
+
+- rule: User confirms extra order
+  steps:
+    - intent: extra_order_positive
+    - action: utter_order_add
+
+- rule: User denies order confirmation
+  steps:
+    - intent: order_confirm_negative
+    - action: utter_order_confirm_negative
+
+- rule: User confirms order
+  steps:
+    - intent: order_confirm_positive
+    - action: utter_order_confirm_positive
+
+- rule: User gives negative response
+  steps:
+    - intent: response_negative
+    - action: utter_order_processing_negative
+
+- rule: User gives positive response
+  steps:
+    - intent: response_positive
+    - action: utter_order_processing_positive

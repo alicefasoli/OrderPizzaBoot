@@ -5,7 +5,7 @@ stories:
   - intent: welcome_greet
   - action: utter_welcome_greet
   - checkpoint: start_questions_on_pizza
-- story: greeting
+- story: greeting order
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
