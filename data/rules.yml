@@ -1,53 +1,211 @@
 version: "3.1"
-
 rules:
-- rule: Activate form
+- rule: activate pizza order form
+  condition:
+    - active_loop: null
   steps:
-  - intent: item_start_generic
+  - intent: init_pizza_question
   - action: pizza_order_form
   - active_loop: pizza_order_form
-
-- rule: Out of scope
+- rule: activate delivery form
+  condition:
+    - active_loop: null
+  steps:
+  - intent: order_delivery
+  - action: delivery_form
+  - active_loop: delivery_form
+- rule: activate take away form
+  condition:
+    - active_loop: null
+  steps:
+  - intent: order_takeaway 
+  - action: takeaway_form
+  - active_loop: takeaway_form
+- rule: greeting
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+- rule: submit form pizza
+  condition:
+    - active_loop: pizza_order_form
+  steps:
+      - action: pizza_order_form      
+      - active_loop: null
+      - action: action_confirm_order
+- rule: submit form delivery
+  condition:
+    - active_loop: delivery_form
+  steps:
+      - action: delivery_form      
+      - active_loop: null
+      - action: action_confirm_delivery
+- rule: submit form takeaway
+  condition:
+    - active_loop: takeaway_form
+  steps:
+      - action: takeaway_form      
+      - active_loop: null
+      - action: action_confirm_takeaway
+- rule: finish dialogue
+  condition:
+    - active_loop: null
+  steps:
+    - action: action_confirm_time
+    - intent: response_positive
+    - action: utter_final_order
+    - action: utter_goodbye
+- rule: out-of-scope
   steps:
   - intent: out_of_scope
   - action: utter_out_of_scope
-
-- rule: Init 
+- rule: pizza type questions
   steps:
-    - intent: init_request
+    - intent: request_pizza_types
     - action: utter_init_request
-
-- rule: Greet user
+- rule: pizza crust questions
   steps:
-    - intent: welcome_greet
-    - action: utter_welcome_greet
-
-- rule: User declines extra order
+    - intent: request_pizza_crusts
+    - action: utter_inform_pizza_crust
+- rule: pizza size questions
   steps:
-    - intent: extra_order_negative
-    - action: utter_order_no_action
-
-- rule: User confirms extra order
+    - intent: request_pizza_sizes
+    - action: utter_inform_pizza_size
+- rule: delivery payment questions
   steps:
-    - intent: extra_order_positive
-    - action: utter_order_add
-
-- rule: User denies order confirmation
+    - intent: request_payment_methods
+    - action: utter_inform_delivery_payment
+- rule: anti pizza
   steps:
-    - intent: order_confirm_negative
-    - action: utter_order_confirm_negative
-
-- rule: User confirms order
+    - intent: order_anti_pizza
+    - action: utter_anti_pizza
+    - action: utter_init_request
+- rule: verbose pizza amount
+  condition:
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
   steps:
-    - intent: order_confirm_positive
-    - action: utter_order_confirm_positive
-
-- rule: User gives negative response
+  - intent: verbose
+  - action: utter_inform_pizza_amount
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+- rule: verbose pizza types
+  condition:
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_type
   steps:
-    - intent: response_negative
-    - action: utter_order_processing_negative
-
-- rule: User gives positive response
+  - intent: verbose
+  - action: utter_init_request
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+- rule: verbose pizza size
+  condition:
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_size
   steps:
-    - intent: response_positive
-    - action: utter_order_processing_positive
+  - intent: verbose
+  - action: utter_inform_pizza_size
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+- rule: verbose pizza crust
+  condition:
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  steps:
+  - intent: verbose
+  - action: utter_inform_pizza_crust
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+- rule: verbose client name takeaway
+  condition:
+  - active_loop: takeaway_form
+  - slot_was_set:
+    - requested_slot: client_name
+  steps:
+  - intent: verbose
+  - action: utter_client_name
+  - action: takeaway_form
+  - active_loop: takeaway_form
+- rule: verbose client name delivery
+  condition:
+  - active_loop: delivery_form
+  - slot_was_set:
+    - requested_slot: client_name
+  steps:
+  - intent: verbose
+  - action: utter_client_name
+  - action: delivery_form
+  - active_loop: delivery_form
+- rule: verbose client address
+  condition:
+  - active_loop: delivery_form
+  - slot_was_set:
+    - requested_slot: client_address
+  steps:
+  - intent: verbose
+  - action: utter_inform_delivery_address
+  - action: delivery_form
+  - active_loop: delivery_form
+- rule: verbose client payment
+  condition:
+  - active_loop: delivery_form
+  - slot_was_set:
+    - requested_slot: client_payment
+  steps:
+  - intent: verbose
+  - action: utter_inform_delivery_payment
+  - action: delivery_form
+  - active_loop: delivery_form
+- rule: Goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+- rule: change item specific
+  steps:
+  - intent: item_change
+  - action: action_change_order
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+- rule: change item vague
+  steps:
+  - intent: item_change_request_without_entity
+  - action: utter_ask_changes
+  - action: action_wait
+- rule: change delivery vague delivery
+  steps:
+  - intent: delivery_change_request_without_entity
+  - action: utter_ask_changes
+  - action: action_wait
+- rule: change delivery vague
+  steps:
+  - intent: item_change_request_without_entity
+  - action: utter_ask_changes
+  - action: action_wait
+- rule: change delivery 
+  steps:
+  - intent: delivery_change
+  - action: action_change_delivery
+  - action: delivery_form
+  - active_loop: delivery_form
+- rule: change takeaway
+  steps:
+  - intent: delivery_change
+  - action: action_change_delivery
+  - action: takeaway_form
+  - active_loop: takeaway_form
+- rule: rephrase
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+- rule: bot init
+  steps:
+  - intent: bot
+  - action: utter_i_am_bot
+  wait_for_user_input: false
+- rule: bot skills
+  steps:
+  - intent: bot_skills
+  - action: utter_inform_bot_skills
