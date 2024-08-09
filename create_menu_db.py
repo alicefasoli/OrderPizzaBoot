@@ -1,5 +1,6 @@
-import sqlite3
 import os
+import random
+import sqlite3
 
 def create_tables():
     conn = sqlite3.connect('menu.db')
@@ -9,6 +10,17 @@ def create_tables():
         CREATE TABLE IF NOT EXISTS menu (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
+            price_small REAL NOT NULL,
+            price_medium REAL NOT NULL,
+            price_large REAL NOT NULL,
+            price_extra_large REAL NOT NULL
+        )
+    ''')
+    
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS crust (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            type TEXT NOT NULL,
             price REAL NOT NULL
         )
     ''')
@@ -32,15 +44,40 @@ def create_tables():
 
     conn.commit()
     conn.close()
+    
 
-
-def insert_menu_item(name, price):
+def insert_crust_item(name):
+    price = round(random.uniform(1, 3), 2)
+    
     conn = sqlite3.connect('menu.db')
     cursor = conn.cursor()
     cursor.execute('''
-        INSERT INTO menu (name, price)
+        INSERT INTO crust (type, price)
         VALUES (?, ?)
     ''', (name, price))
+    conn.commit()
+    conn.close()
+
+
+def insert_menu_item(name, price):
+    size = {
+        'small': 1,
+        'medium': 0,
+        'large': 3,
+        'extra_large': 5
+    }
+    
+    price_small = price - size['small']
+    price_medium = price - size['medium']
+    price_large = price + size['large']
+    price_extra_large = price + size['extra_large']
+    
+    conn = sqlite3.connect('menu.db')
+    cursor = conn.cursor()
+    cursor.execute('''
+        INSERT INTO menu (name, price_small, price_medium, price_large, price_extra_large)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (name, price_small, price_medium, price_large, price_extra_large))
     conn.commit()
     conn.close()
 
@@ -169,23 +206,31 @@ if __name__ == "__main__":
     
     create_tables()
     
+    crusts = ["thin", "thick", "stuffed", "gluten-free", "whole wheat", "flatbread", "cracker"]
+    for c in crusts:
+        insert_crust_item(c)
+    
     for pizza, ingredients in pizzas.items():
         insert_menu_item(pizza, prices[pizza]) 
         for ingredient in ingredients:
             insert_ingredient(ingredient)
             insert_pizza_ingredient(pizza, ingredient)
     
-    ingredients = show_table_data('ingredients')
-    print('Ingredients in database')
-    for i in ingredients:
-        print(i)
+    # ingredients = show_table_data('ingredients')
+    # print('Ingredients in database')
+    # for i in ingredients:
+    #     print(i)
+    
+    # crusts_table = show_table_data('crust')
+    # print('Crusts in database')
+    # for c in crusts_table:
+    #     print(c)
         
-    # menu = show_table_data('menu')
-    menu = get_pizza_names()
-    print('Menu in database')
-    for m in menu:
-        ingredients = get_ingredients_for_pizza(m)
-        print(m, ":", ingredients)
+    # menu = get_pizza_names()
+    # print('Menu in database')
+    # for m in menu:
+    #     ingredients = get_ingredients_for_pizza(m)
+    #     print(m, ":", ingredients)
         
     
     

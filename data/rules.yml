@@ -4,7 +4,7 @@ rules:
   condition:
     - active_loop: null
   steps:
-  - intent: init_pizza_question
+  - intent: order_pizza_question
   - action: pizza_order_form
   - active_loop: pizza_order_form
 - rule: activate delivery form
@@ -61,64 +61,32 @@ rules:
 - rule: pizza type questions
   steps:
     - intent: request_pizza_types
-    - action: utter_init_request
+    - action: action_get_menu
 - rule: pizza crust questions
   steps:
     - intent: request_pizza_crusts
     - action: utter_inform_pizza_crust
+- rule: pizza crust prices questions
+  steps:
+    - intent: request_pizza_crusts_price
+    - action: action_get_crusts_price
 - rule: pizza size questions
   steps:
     - intent: request_pizza_sizes
     - action: utter_inform_pizza_size
+- rule: pizza toppings questions
+  steps:
+    - intent: request_pizza_toppings
+    - action: action_get_available_toppings
 - rule: delivery payment questions
   steps:
     - intent: request_payment_methods
     - action: utter_inform_delivery_payment
-- rule: anti pizza
+- rule: order anti pizza
   steps:
     - intent: order_anti_pizza
     - action: utter_anti_pizza
-    - action: utter_init_request
-- rule: verbose pizza amount
-  condition:
-  - active_loop: pizza_order_form
-  - slot_was_set:
-    - requested_slot: pizza_amount
-  steps:
-  - intent: verbose
-  - action: utter_inform_pizza_amount
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
-- rule: verbose pizza types
-  condition:
-  - active_loop: pizza_order_form
-  - slot_was_set:
-    - requested_slot: pizza_type
-  steps:
-  - intent: verbose
-  - action: utter_init_request
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
-- rule: verbose pizza size
-  condition:
-  - active_loop: pizza_order_form
-  - slot_was_set:
-    - requested_slot: pizza_size
-  steps:
-  - intent: verbose
-  - action: utter_inform_pizza_size
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
-- rule: verbose pizza crust
-  condition:
-  - active_loop: pizza_order_form
-  - slot_was_set:
-    - requested_slot: pizza_crust
-  steps:
-  - intent: verbose
-  - action: utter_inform_pizza_crust
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
+    - action: action_get_menu
 - rule: verbose client name takeaway
   condition:
   - active_loop: takeaway_form
@@ -174,14 +142,9 @@ rules:
   - intent: item_change_request_without_entity
   - action: utter_ask_changes
   - action: action_wait
-- rule: change delivery vague delivery
-  steps:
-  - intent: delivery_change_request_without_entity
-  - action: utter_ask_changes
-  - action: action_wait
 - rule: change delivery vague
   steps:
-  - intent: item_change_request_without_entity
+  - intent: delivery_change_request_without_entity
   - action: utter_ask_changes
   - action: action_wait
 - rule: change delivery 

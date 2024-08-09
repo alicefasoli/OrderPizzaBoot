@@ -17,7 +17,134 @@ from rasa_sdk import Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 from itertools import islice
+
 import re
+import sqlite3
+
+class ActionGetMenu(Action):
+    def name(self) -> Text:
+        return "action_get_menu"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        connection = sqlite3.connect('menu.db')
+        cursor = connection.cursor()
+
+        cursor.execute("SELECT name, price_small, price_medium, price_large, price_extra_large FROM menu")
+        results = cursor.fetchall()
+
+        if results:
+            menu_text = "Here is our menu:\n\n"
+            for row in results:
+                menu_text += f"{row[0]} | Small: {row[1]:.2f}$ | Medium: {row[2]:.2f}$ | Large: {row[3]:.2f}$ | Extra Large: {row[4]:.2f}\n"
+            menu_text += "\n\n Note that we have also different type of toppings and crusts that you can add. This would add to the order 1$ for each topping and from 1$ to 3$ for different crusts."
+            dispatcher.utter_message(text=menu_text)
+        else:
+            dispatcher.utter_message(text="Sorry, the menu is currently unavailable.")
+
+        connection.close()
+        return []
+    
+class ActionGetCrustPrices(Action):
+    def name(self) -> Text:
+        return "action_get_crusts_price"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        connection = sqlite3.connect('menu.db')
+        cursor = connection.cursor()
+        pizza_crust = tracker.get_slot("pizza_crust")
+        
+        if pizza_crust is None:
+            cursor.execute("SELECT type, price FROM crust")
+            results = cursor.fetchall()
+
+            if results:
+                crust_menu_text = "Here is our crusts prices:\n\n"
+                for row in results:
+                    crust_menu_text += f"{row[0]} : {row[1]:.2f}$\n"
+                dispatcher.utter_message(text=crust_menu_text)
+            else:
+                dispatcher.utter_message(text="Sorry, the crusts menu is currently unavailable.")
+        else:
+            query = "SELECT price FROM crust WHERE type LIKE ?"
+            cursor.execute(query, (pizza_crust,))
+            results = cursor.fetchall()
+
+            if results:
+                crust_menu_text = f"Here is our crusts price:{row[0]:.2f}$\n"
+                dispatcher.utter_message(text=crust_menu_text)
+            else:
+                dispatcher.utter_message(text="Sorry, the crusts menu is currently unavailable.")
+        
+        connection.close()
+        return []
+    
+class ActionGetPizzaIngredients(Action):
+    def name(self) -> Text:
+        return "action_get_pizza_ingredients"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        pizza_type = tracker.get_slot('pizza_type')
+
+        if not pizza_type:
+            dispatcher.utter_message(text="Please provide the pizza type.")
+            return []
+
+        connection = sqlite3.connect('menu.db')
+        cursor = connection.cursor()
+        query = '''
+            SELECT i.ingredient
+            FROM ingredients i
+            JOIN pizza_ingredients pi ON i.id = pi.ingredient_id
+            JOIN menu m ON pi.pizza_id = m.id
+            WHERE m.name = ?
+        '''
+        cursor.execute(query, (pizza_type,))
+        ingredients = cursor.fetchall()
+
+        if ingredients:
+            ingredient_text = f"Ingredients for {pizza_type}:\n\n"
+            for ingredient in ingredients:
+                ingredient_text += f"- {ingredient[0]}\n"
+            dispatcher.utter_message(text=ingredient_text)
+        else:
+            dispatcher.utter_message(text=f"Sorry, I couldn't find the ingredients for the pizza named {pizza_type}.")
+
+        connection.close()
+        return []
+
+class ActionGetAvailableToppings(Action):
+    def name(self) -> Text:
+        return "action_get_available_toppings"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        connection = sqlite3.connect('menu.db')
+        cursor = connection.cursor()
+
+        cursor.execute("SELECT ingredent FROM ingredients")
+        results = cursor.fetchall()
+
+        if results:
+            toppings_text = "Here is our available toppings:\n\n"
+            for row in results:
+                toppings_text += f"{row[0]}\n"
+            dispatcher.utter_message(text=toppings_text)
+        else:
+            dispatcher.utter_message(text="Sorry, the toppings are currently unavailable.")
+
+        connection.close()
+        return []
 
 class ActionRestart(Action):
     def name(self) -> Text:
@@ -58,13 +185,15 @@ class ActionTotalOrder(Action):
         return 'action_total_order'
     async def run(self, dispatcher, tracker, domain):
         total_order = tracker.get_slot("total_order")
+        total_price = tracker.get_slot("total_price")
         if total_order is None:
             dispatcher.utter_message(text="Sorry, there is an error. You have no open order.")
             return []
         else:
             total_order = ", and ".join(total_order)
-            dispatcher.utter_message(text=f"Okay, great! Your total order is {total_order}. Do you prefer take away or home delivery?")
+            dispatcher.utter_message(text=f"Okay, great! Your total order is {total_order}. It will cost ${total_price}. Do you prefer take away or home delivery?")
             return [SlotSet("total_order", total_order)]
+
         
 class ActionCancelCurrentOrder(Action):
     def name(self):
@@ -140,7 +269,36 @@ class ActionPizzaOrderAdd(Action):
         if total_order is None:
             total_order = []
         total_order.extend(tracker.get_slot("current_order"))
+
+        type = tracker.get_slot('pizza_type')
+        size = tracker.get_slot('pizza_size')
+        amount = tracker.get_slot('pizza_amount')
+        crust = tracker.get_slot('pizza_crust')
+        toppings =  tracker.get_slot('pizza_toppings')
+        
+        price_column = f'price_{size}'
+        n_toppings = len(toppings.split(','))
+        
+        try:
+            connection = sqlite3.connect('menu.db')
+            cursor = connection.cursor()
+            query = 'SELECT ? FROM menu WHERE name==?'
+            cursor.execute(query, (price_column, type))
+            pizza_price = cursor.fetchall()
+            
+            query2 = 'SELECT price FROM menu WHERE type==?'
+            cursor.execute(query2, (crust,))
+            crusts_price = cursor.fetchall()
+            
+            connection.close()
+        except sqlite3.Error as e:
+            print(f"An error occurred: {e}")
+            
+        total_price = (pizza_price + crusts_price + n_toppings) * amount        
+        dispatcher.utter_message(text=f"Your pizza(s) has been placed successfully! Your partial price is {total_price}$.")
+        
         return [SlotSet("total_order", total_order), 
+                SlotSet("total_price", total_price), 
                 SlotSet("pizza_type", None),
                 SlotSet("pizza_size", None),
                 SlotSet("pizza_amount", None), 
@@ -174,25 +332,34 @@ class ValidatePizzaOrderForm(FormValidationAction):
         return "validate_pizza_order_form"
     @staticmethod
     def get_menu() -> List[Text]:
-        """Available pizzas"""
-        pizza_menu = [
-            "margherita",
-            "funghi",
-            "hawaii",
-            "pepperoni",
-            "vegetarian",
-            "quattro stagioni",
-            "capricciosa",
-            "crudo and burrata",
-            "marinara",
-            "quattro formaggi",
-            "prosciutto and mushrooms",
-            "tuna and onions",
-            "boscaiola",
-            "salsiccia and friarielli",
-            "gorgonzola and noci"
-        ]
+        """Available pizzas from the database"""
+        pizza_menu = []
+        try:
+            connection = sqlite3.connect('menu.db')
+            cursor = connection.cursor()
+            cursor.execute("SELECT name FROM menu")
+            results = cursor.fetchall()
+            pizza_menu = [row[0] for row in results]
+            connection.close()
+        except sqlite3.Error as e:
+            print(f"An error occurred: {e}")
+
         return pizza_menu
+    @staticmethod
+    def get_toppings() -> List[Text]:
+        """Available toppings from the database"""
+        toppings = []
+        try:
+            connection = sqlite3.connect('menu.db')
+            cursor = connection.cursor()
+            cursor.execute("SELECT ingredent FROM ingredients")
+            results = cursor.fetchall()
+            toppings = [row[0] for row in results]
+            connection.close()
+        except sqlite3.Error as e:
+            print(f"An error occurred: {e}")
+
+        return toppings
     def reset_warn(self):
         self.warn_user = False
     def warn_user_one_at_time(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> None:
@@ -201,11 +368,13 @@ class ValidatePizzaOrderForm(FormValidationAction):
             pizza_size = tracker.get_slot("pizza_size")
             pizza_amount = tracker.get_slot("pizza_amount")
             pizza_crust = tracker.get_slot("pizza_crust")
+            pizza_toppings = tracker.get_slot("pizza_toppings")
             second_pizza_type = tracker.get_slot("second_pizza_type")
             second_pizza_size = tracker.get_slot("second_pizza_size")
             second_pizza_amount = tracker.get_slot("second_pizza_amount")
             second_pizza_crust = tracker.get_slot("second_pizza_crust")
-            if second_pizza_type is not None or second_pizza_size is not None or second_pizza_amount is not None or second_pizza_crust is not None:
+            second_pizza_toppings = tracker.get_slot("second_pizza_toppings")
+            if second_pizza_type is not None or second_pizza_size is not None or second_pizza_amount is not None or second_pizza_crust is not None or second_pizza_toppings is not None:
                 if second_pizza_type is not None and pizza_type is not None:
                     dispatcher.utter_message(text=f"Got it. For now, let’s stick to the {pizza_type} pizza.")
                 elif second_pizza_size is not None and pizza_size is not None:
@@ -214,6 +383,8 @@ class ValidatePizzaOrderForm(FormValidationAction):
                     dispatcher.utter_message(text=f"Alright. We’ll focus on the first {pizza_amount} pizza for now.")
                 elif second_pizza_crust is not None and pizza_crust is not None:
                     dispatcher.utter_message(text=f"Okay. We’ll handle the first {pizza_crust} pizza first.")
+                elif pizza_toppings is not None and second_pizza_toppings is not None:
+                    dispatcher.utter_message(text=f"Okay. We’ll handle the first {pizza_toppings} pizza first.")
                 self.warn_user = True
             return True
         else:
@@ -315,6 +486,36 @@ class ValidatePizzaOrderForm(FormValidationAction):
                 dispatcher.utter_message(text="Please tell me a valid crust type.")
                 dispatcher.utter_message(response="utter_inform_pizza_crust")
                 return {"pizza_crust": None}
+    def validate_toppings(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate the toppings slot, considering it as optional."""
+        if slot_value is None:
+            return {"toppings": []}
+
+        if isinstance(slot_value, str):
+            toppings_list = [topping.strip() for topping in slot_value.split(",") if topping.strip()]
+        elif isinstance(slot_value, list):
+            toppings_list = [topping.strip() for topping in slot_value if topping.strip()]
+        else:
+            dispatcher.utter_message(text="Please provide a valid list of toppings.")
+            dispatcher.utter_message(response="action_get_available_toppings")
+            return {"toppings": None}
+
+        valid_toppings = self.get_toppings()
+        invalid_toppings = [topping for topping in toppings_list if topping.lower() not in valid_toppings]
+
+        if invalid_toppings:
+            dispatcher.utter_message(
+                text=f"The following toppings are not recognized: {', '.join(invalid_toppings)}. Please provide valid toppings."
+            )
+            dispatcher.utter_message(response="action_get_available_toppings")
+            return {"toppings": None}
+        return {"toppings": toppings_list}
     
 
 class ActionTypeMapping(Action):

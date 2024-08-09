@@ -1,2 +1,7 @@
 rasa==1.9.5
 python==3.6.0 
+
+# ngrok http 5005
+# rasa run --enable-api
+# rasa run actions
+# curl -X POST "https://api.telegram.org/bot6764152122:AAHV3Ltvdxv--bcY-S9j-7Aavv6Zbkagm2I/setWebhook?url=https://fc85-193-205-210-83.ngrok-free.app/webhooks/telegram/webhook"

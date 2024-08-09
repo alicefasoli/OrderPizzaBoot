@@ -1,5 +1,9 @@
 version: "3.1"
 nlu:
+- intent: menu
+  examples: |
+    - /menu
+    - What pizzas are available?
 - intent: bot_skills
   examples: |
     - What can you do?
@@ -672,9 +676,19 @@ nlu:
     - hhi I'm [Edoardo](name)
     - hi i'm [Edoardo](name)
     - i'm [Edoardo](name)
-    - Ciao
-    - Ciao, i am [Edoardo](name)
 - intent: init_pizza_question
+  examples: |
+    - I would like to have clarifications about [margherita](pizza_type)
+    - Can you tell me the ingredients of [pepperoni](pizza_type) pizza?
+    - I need more details about [four cheeses](pizza_type)
+    - What are the ingredients in [capricciosa](pizza_type) pizza?
+    - I would like to know what's in [vegetarian](pizza_type) pizza
+    - Could you provide information about [hawaii](pizza_type) pizza?
+    - Please tell me about the ingredients of [tuna and onions](pizza_type) pizza
+    - I want to know more about the [boscaiola](pizza_type) pizza
+    - What is included in [ham and mushrooms](pizza_type) pizza?
+    - Can you give me details about [gorgonzola and walnuts](pizza_type) pizza?
+- intent: order_pizza_question
   examples: |
     - i want to buy a pizza
     - i want to order [olives](toppings) and [onion](toppings) pizza
@@ -1482,6 +1496,20 @@ nlu:
     - I need to order a large quantity of pizzas.
     - How many pizzas can I include in my order?
     - Is there a limit on the number of pizzas I can order?
+- intent: request_pizza_crusts_price
+  examples: |
+    - What is the price of [the crust](pizza_crust)?
+    - Can you tell me the price of [crust](pizza_crust)?
+    - How much does the [crust](pizza_crust) cost?
+    - I want to know the price of the [pizza crust](pizza_crust)
+    - What are the prices for different [crusts](pizza_crust)?
+    - Tell me the price of [pizza crust](pizza_crust)
+    - How much is [crust](pizza_crust)?
+    - What’s the cost of [crust](pizza_crust) for pizza?
+    - Do you have the price for [crusts](pizza_crust)?
+    - How much does the [thin crust](pizza_crust) cost?
+    - Can you provide the price for [stuffed crust](pizza_crust)?
+    - Can you provide all the crusts prices?
 - intent: request_pizza_toppings
   examples: |
     - What toppings do you have?
