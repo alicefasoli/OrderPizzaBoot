@@ -1177,8 +1177,8 @@ class ActionConfirmTime(Action):
         time = tracker.get_slot("time")
         takeaway_flag = tracker.get_slot("takeaway_flag")
         if takeaway_flag:
-            message = f"Perfect! Can you confirm that the order will be picked up at {time}?"
+            message = f"Can you confirm that the order will be picked up at {time}?"
         else:
-            message = f"Perfect! Can you confirm that the order will be delivered at {time}?"
+            message = f"Can you confirm that the order will be delivered at {time}?"
             dispatcher.utter_message(text=message)
         return []

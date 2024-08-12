@@ -220,21 +220,6 @@ nlu:
   examples: |
     - funghi
     - Funghi
-- synonym: 'true'
-  examples: |
-    - sliced
-- synonym: 'false'
-  examples: |
-    - unsliced
-    - not sliced
-- synonym: baby
-  examples: |
-    - 8 inches
-    - 8"
-    - 8 inch
-    - baby
-    - Baby
-    - size XS
 - synonym: small
   examples: |
     - 10 inches
