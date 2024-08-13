@@ -120,17 +120,3 @@ rules:
   steps:
   - intent: bot_skills
   - action: utter_inform_bot_skills
-- rule: no delivery form activation if order active
-  condition:
-    - active_loop: pizza_order_form
-  steps:
-  - intent: order_delivery
-  - action: utter_finish_pizza_order_first 
-  - action: action_wait 
-- rule: no takeway form activation if order active
-  condition:
-    - active_loop: pizza_order_form
-  steps:
-  - intent: order_takeaway
-  - action: utter_finish_pizza_order_first 
-  - action: action_wait 

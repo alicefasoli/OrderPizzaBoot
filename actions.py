@@ -36,10 +36,10 @@ class ActionGetMenu(Action):
         results = cursor.fetchall()
 
         if results:
-            menu_text = "Here is our menu:\n\n"
+            menu_text = "Here is our menu:\n"
             for row in results:
-                menu_text += f"{row[0]} | Small: {row[1]:.2f}$ | Medium: {row[2]:.2f}$ | Large: {row[3]:.2f}$ | Extra Large: {row[4]:.2f}\n"
-            menu_text += "\n\n Note that we have also different type of toppings and crusts that you can add. This would add to the order 1$ for each topping and from 1$ to 3$ for different crusts."
+                menu_text += f"{row[0]} \n\t* Small: {row[1]:.2f}$ \n\t* Medium: {row[2]:.2f}$ \n\t* Large: {row[3]:.2f}$ \n\t* Extra Large: {row[4]:.2f}\n"
+            menu_text += "\nNote that we have also different type of toppings and crusts that you can add. This would add to the order 1$ for each topping and from 1$ to 3$ for different crusts."
             dispatcher.utter_message(text=menu_text)
         else:
             dispatcher.utter_message(text="Sorry, the menu is currently unavailable.")
@@ -76,7 +76,7 @@ class ActionGetCrustPrices(Action):
             results = cursor.fetchall()
 
             if results:
-                crust_menu_text = f"Here is our crusts price:{row[0]:.2f}$\n"
+                crust_menu_text = f"Here is our crusts price:{results[0]:.2f}$\n"
                 dispatcher.utter_message(text=crust_menu_text)
             else:
                 dispatcher.utter_message(text="Sorry, the crusts menu is currently unavailable.")
@@ -132,7 +132,7 @@ class ActionGetAvailableToppings(Action):
         connection = sqlite3.connect('menu.db')
         cursor = connection.cursor()
 
-        cursor.execute("SELECT ingredent FROM ingredients")
+        cursor.execute("SELECT ingredient FROM ingredients")
         results = cursor.fetchall()
 
         if results:

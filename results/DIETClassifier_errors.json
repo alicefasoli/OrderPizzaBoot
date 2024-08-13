@@ -1,0 +1,4105 @@
+[
+  {
+    "text": "I want to change the time to seven thirty in the evening.",
+    "entities": [
+      {
+        "start": 29,
+        "end": 56,
+        "value": "seven thirty in the evening",
+        "entity": "time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "time",
+        "start": 17,
+        "end": 20,
+        "confidence_entity": 0.696691632270813,
+        "value": "the",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "time",
+        "start": 29,
+        "end": 56,
+        "confidence_entity": 0.7461301684379578,
+        "value": "seven thirty in the evening",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Actually, I want to change the time to seven thirty in the evening.",
+    "entities": [
+      {
+        "start": 39,
+        "end": 66,
+        "value": "seven thirty in the evening",
+        "entity": "time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "time",
+        "start": 27,
+        "end": 30,
+        "confidence_entity": 0.6988179087638855,
+        "value": "the",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "time",
+        "start": 39,
+        "end": 66,
+        "confidence_entity": 0.7340435981750488,
+        "value": "seven thirty in the evening",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to pick it up at seven thirty at night",
+    "entities": [
+      {
+        "start": 24,
+        "end": 45,
+        "value": "seven thirty at night",
+        "entity": "time"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "time",
+        "start": 24,
+        "end": 36,
+        "confidence_entity": 0.997582197189331,
+        "value": "seven thirty",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "time",
+        "start": 40,
+        "end": 45,
+        "confidence_entity": 0.9953800439834595,
+        "value": "night",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "at number five roma street",
+    "entities": [
+      {
+        "start": 3,
+        "end": 26,
+        "value": "number five roma street",
+        "entity": "client_address"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_address",
+        "start": 0,
+        "end": 26,
+        "confidence_entity": 0.4397377371788025,
+        "value": "at number five roma street",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order prosciutto e funghi pizza",
+    "entities": [
+      {
+        "start": 16,
+        "end": 35,
+        "value": "prosciutto e funghi",
+        "entity": "anti_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "anti_pizza_type",
+        "start": 16,
+        "end": 28,
+        "confidence_entity": 0.8122562170028687,
+        "value": "prosciutto e",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 29,
+        "end": 35,
+        "confidence_entity": 0.97431480884552,
+        "value": "funghi",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order garlic bread with Cheese",
+    "entities": [
+      {
+        "start": 16,
+        "end": 40,
+        "value": "garlic bread with Cheese",
+        "entity": "anti_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "anti_pizza_type",
+        "start": 16,
+        "end": 28,
+        "confidence_entity": 0.46090805530548096,
+        "value": "garlic bread",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "toppings",
+        "start": 34,
+        "end": 40,
+        "confidence_entity": 0.6386023759841919,
+        "value": "Cheese",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order a calzone and a veggie",
+    "entities": [
+      {
+        "start": 18,
+        "end": 25,
+        "value": "calzone",
+        "entity": "anti_pizza_type"
+      },
+      {
+        "start": 32,
+        "end": 38,
+        "value": "veggie",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "anti_pizza_type",
+        "start": 18,
+        "end": 25,
+        "confidence_entity": 0.9931139349937439,
+        "value": "calzone",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 32,
+        "end": 38,
+        "confidence_entity": 0.6775203943252563,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order a beer and a pepperoni",
+    "entities": [
+      {
+        "start": 18,
+        "end": 22,
+        "value": "beer",
+        "entity": "anti_pizza_type"
+      },
+      {
+        "start": 29,
+        "end": 38,
+        "value": "pepperoni",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "anti_pizza_type",
+        "start": 18,
+        "end": 22,
+        "confidence_entity": 0.9901262521743774,
+        "value": "beer",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 29,
+        "end": 38,
+        "confidence_entity": 0.5953953862190247,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I'd like a pizza half pepperoni half prosciutto and prosciutto",
+    "entities": [
+      {
+        "start": 17,
+        "end": 47,
+        "value": "half pepperoni half prosciutto",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 52,
+        "end": 62,
+        "value": "prosciutto",
+        "entity": "anti_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 17,
+        "end": 21,
+        "confidence_entity": 0.5649273991584778,
+        "value": "half",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 22,
+        "end": 36,
+        "confidence_entity": 0.497840940952301,
+        "value": "pepperoni half",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "anti_pizza_type",
+        "start": 37,
+        "end": 47,
+        "confidence_entity": 0.5141329169273376,
+        "value": "prosciutto",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "anti_pizza_type",
+        "start": 52,
+        "end": 62,
+        "confidence_entity": 0.6009050011634827,
+        "value": "prosciutto",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "pizzas with cheese",
+    "entities": [
+      {
+        "start": 12,
+        "end": 18,
+        "value": "cheese",
+        "entity": "pizza_category"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "toppings",
+        "start": 12,
+        "end": 18,
+        "confidence_entity": 0.4928230941295624,
+        "value": "cheese",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I need more details about four cheeses",
+    "entities": [
+      {
+        "start": 26,
+        "end": 38,
+        "value": "four cheeses",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 26,
+        "end": 30,
+        "confidence_entity": 0.5134667158126831,
+        "value": "four",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "toppings",
+        "start": 31,
+        "end": 38,
+        "confidence_entity": 0.4523182809352875,
+        "value": "cheeses",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Please tell me about the ingredients of tuna and onions pizza",
+    "entities": [
+      {
+        "start": 40,
+        "end": 55,
+        "value": "tuna and onions",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 40,
+        "end": 48,
+        "confidence_entity": 0.4418368637561798,
+        "value": "tuna and",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "toppings",
+        "start": 49,
+        "end": 55,
+        "confidence_entity": 0.6411401033401489,
+        "value": "onions",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order a pizza half Pepperoni and half Margherita",
+    "entities": [
+      {
+        "start": 24,
+        "end": 58,
+        "value": "half Pepperoni and half Margherita",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 24,
+        "end": 28,
+        "confidence_entity": 0.5409836173057556,
+        "value": "half",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 29,
+        "end": 47,
+        "confidence_entity": 0.580409586429596,
+        "value": "Pepperoni and half",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 48,
+        "end": 58,
+        "confidence_entity": 0.8439765572547913,
+        "value": "Margherita",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order a pizza half hawaii and half funghi",
+    "entities": [
+      {
+        "start": 24,
+        "end": 51,
+        "value": "half hawaii and half funghi",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 24,
+        "end": 28,
+        "confidence_entity": 0.5849316120147705,
+        "value": "half",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 29,
+        "end": 44,
+        "confidence_entity": 0.4735430181026459,
+        "value": "hawaii and half",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 45,
+        "end": 51,
+        "confidence_entity": 0.7903446555137634,
+        "value": "funghi",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order a pizza half margarita and half veggie",
+    "entities": [
+      {
+        "start": 24,
+        "end": 54,
+        "value": "half margarita and half veggie",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 24,
+        "end": 47,
+        "confidence_entity": 0.44805973768234253,
+        "value": "half margarita and half",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 48,
+        "end": 54,
+        "confidence_entity": 0.7081926465034485,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order a pizza half funghi and half pepperoni",
+    "entities": [
+      {
+        "start": 24,
+        "end": 54,
+        "value": "half funghi and half pepperoni",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 24,
+        "end": 28,
+        "confidence_entity": 0.5898318886756897,
+        "value": "half",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 29,
+        "end": 44,
+        "confidence_entity": 0.49902209639549255,
+        "value": "funghi and half",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 45,
+        "end": 54,
+        "confidence_entity": 0.6850958466529846,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I hawaii pizza small",
+    "entities": [
+      {
+        "start": 2,
+        "end": 8,
+        "value": "hawaii",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 2,
+        "end": 8,
+        "confidence_entity": 0.9990646839141846,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_size",
+        "start": 15,
+        "end": 20,
+        "confidence_entity": 0.8030155301094055,
+        "value": "small",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "hawaii pizza small",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "hawaii",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.9968377947807312,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_size",
+        "start": 13,
+        "end": 18,
+        "confidence_entity": 0.9497041702270508,
+        "value": "small",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order a funghi and a veggie pizza",
+    "entities": [
+      {
+        "start": 18,
+        "end": 24,
+        "value": "Funghi",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 31,
+        "end": 37,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 18,
+        "end": 24,
+        "confidence_entity": 0.4916875660419464,
+        "value": "funghi",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 31,
+        "end": 37,
+        "confidence_entity": 0.5059431195259094,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order pepperoni and a margherita pizza",
+    "entities": [
+      {
+        "start": 16,
+        "end": 25,
+        "value": "Pepperoni",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 32,
+        "end": 42,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 16,
+        "end": 25,
+        "confidence_entity": 0.635837733745575,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 32,
+        "end": 42,
+        "confidence_entity": 0.5256094932556152,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order margherita and veggie pizza",
+    "entities": [
+      {
+        "start": 16,
+        "end": 26,
+        "value": "Margherita",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 31,
+        "end": 37,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 16,
+        "end": 26,
+        "confidence_entity": 0.5758604407310486,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 31,
+        "end": 37,
+        "confidence_entity": 0.5457251071929932,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order margherita, a veggie and a hawaii",
+    "entities": [
+      {
+        "start": 16,
+        "end": 26,
+        "value": "Margherita",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 30,
+        "end": 36,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 43,
+        "end": 49,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_type",
+        "start": 16,
+        "end": 26,
+        "confidence_entity": 0.5707488059997559,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 30,
+        "end": 36,
+        "confidence_entity": 0.7391493916511536,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 43,
+        "end": 49,
+        "confidence_entity": 0.9963213205337524,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order a hawaii, a pepperoni, a veggie, margherita and funghi",
+    "entities": [
+      {
+        "start": 18,
+        "end": 24,
+        "value": "Hawaii",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 28,
+        "end": 37,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 41,
+        "end": 47,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 49,
+        "end": 59,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 64,
+        "end": 70,
+        "value": "Funghi",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_type",
+        "start": 18,
+        "end": 24,
+        "confidence_entity": 0.820146381855011,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 28,
+        "end": 37,
+        "confidence_entity": 0.7183070778846741,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 41,
+        "end": 47,
+        "confidence_entity": 0.5405799150466919,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 49,
+        "end": 59,
+        "confidence_entity": 0.9793269634246826,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 64,
+        "end": 70,
+        "confidence_entity": 0.952556312084198,
+        "value": "funghi",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order hawaii and a pepperoni pizza",
+    "entities": [
+      {
+        "start": 16,
+        "end": 22,
+        "value": "Hawaii",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 29,
+        "end": 38,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 16,
+        "end": 22,
+        "confidence_entity": 0.8981722593307495,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 29,
+        "end": 38,
+        "confidence_entity": 0.603749692440033,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order veggie and a pepperoni pizza",
+    "entities": [
+      {
+        "start": 16,
+        "end": 22,
+        "value": "Veggie",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 29,
+        "end": 38,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 16,
+        "end": 22,
+        "confidence_entity": 0.5540252923965454,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 29,
+        "end": 38,
+        "confidence_entity": 0.6042255163192749,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order a hawaii and margherita pizza",
+    "entities": [
+      {
+        "start": 18,
+        "end": 24,
+        "value": "Hawaii",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 29,
+        "end": 39,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_type",
+        "start": 18,
+        "end": 24,
+        "confidence_entity": 0.6369012594223022,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 29,
+        "end": 39,
+        "confidence_entity": 0.5272119045257568,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order a hawaii, a pepperoni, veggie, margherita and funghi pizza",
+    "entities": [
+      {
+        "start": 18,
+        "end": 24,
+        "value": "Hawaii",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 28,
+        "end": 37,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 39,
+        "end": 45,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 47,
+        "end": 57,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 62,
+        "end": 68,
+        "value": "Funghi",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_type",
+        "start": 18,
+        "end": 24,
+        "confidence_entity": 0.8199635744094849,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 28,
+        "end": 37,
+        "confidence_entity": 0.7184739112854004,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 39,
+        "end": 45,
+        "confidence_entity": 0.8151906728744507,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 47,
+        "end": 57,
+        "confidence_entity": 0.9797186851501465,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 62,
+        "end": 68,
+        "confidence_entity": 0.782489001750946,
+        "value": "funghi",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I'd like to order hawaii and a pepperoni pizza",
+    "entities": [
+      {
+        "start": 18,
+        "end": 24,
+        "value": "Hawaii",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 31,
+        "end": 40,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 18,
+        "end": 24,
+        "confidence_entity": 0.9803680181503296,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 31,
+        "end": 40,
+        "confidence_entity": 0.5597309470176697,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order a funghi and a margherita pizza",
+    "entities": [
+      {
+        "start": 18,
+        "end": 24,
+        "value": "Funghi",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 31,
+        "end": 41,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 18,
+        "end": 24,
+        "confidence_entity": 0.49191755056381226,
+        "value": "funghi",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 31,
+        "end": 41,
+        "confidence_entity": 0.49853071570396423,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order a margherita, veggie and hawaii",
+    "entities": [
+      {
+        "start": 18,
+        "end": 28,
+        "value": "Margherita",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 30,
+        "end": 36,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 41,
+        "end": 47,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_type",
+        "start": 18,
+        "end": 28,
+        "confidence_entity": 0.5729387998580933,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 30,
+        "end": 36,
+        "confidence_entity": 0.909820020198822,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 41,
+        "end": 47,
+        "confidence_entity": 0.9962969422340393,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order a veggie, a pepperoni, a veggie, margherita and funghi pizza",
+    "entities": [
+      {
+        "start": 18,
+        "end": 24,
+        "value": "Veggie",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 28,
+        "end": 37,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 41,
+        "end": 47,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 49,
+        "end": 59,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 64,
+        "end": 70,
+        "value": "Funghi",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 18,
+        "end": 24,
+        "confidence_entity": 0.5236697196960449,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 28,
+        "end": 37,
+        "confidence_entity": 0.7187744975090027,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 41,
+        "end": 47,
+        "confidence_entity": 0.5413864850997925,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 49,
+        "end": 59,
+        "confidence_entity": 0.979335606098175,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 64,
+        "end": 70,
+        "confidence_entity": 0.7884660363197327,
+        "value": "funghi",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order hawaii a veggie margherita pepperoni and funghi pizza",
+    "entities": [
+      {
+        "start": 16,
+        "end": 22,
+        "value": "Hawaii",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 25,
+        "end": 31,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 32,
+        "end": 42,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 43,
+        "end": 52,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 57,
+        "end": 63,
+        "value": "Funghi",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 16,
+        "end": 22,
+        "confidence_entity": 0.8979538679122925,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 25,
+        "end": 31,
+        "confidence_entity": 0.5436082482337952,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 32,
+        "end": 42,
+        "confidence_entity": 0.5049782395362854,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 43,
+        "end": 52,
+        "confidence_entity": 0.5172120332717896,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 57,
+        "end": 63,
+        "confidence_entity": 0.5384437441825867,
+        "value": "funghi",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I'd like to order veggie and a pepperoni pizza",
+    "entities": [
+      {
+        "start": 18,
+        "end": 24,
+        "value": "Veggie",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 31,
+        "end": 40,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 18,
+        "end": 24,
+        "confidence_entity": 0.537785530090332,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 31,
+        "end": 40,
+        "confidence_entity": 0.5600783824920654,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order one Pepperoni, one Hawaii and six Margherita pizza",
+    "entities": [
+      {
+        "start": 16,
+        "end": 19,
+        "value": "one",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 20,
+        "end": 29,
+        "value": "Pepperoni",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 31,
+        "end": 34,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 35,
+        "end": 41,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 46,
+        "end": 49,
+        "value": "six",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 50,
+        "end": 60,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 16,
+        "end": 19,
+        "confidence_entity": 0.7775642275810242,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 20,
+        "end": 29,
+        "confidence_entity": 0.7059218883514404,
+        "value": "Pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 31,
+        "end": 34,
+        "confidence_entity": 0.8599739670753479,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 35,
+        "end": 41,
+        "confidence_entity": 0.9738315343856812,
+        "value": "Hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 46,
+        "end": 49,
+        "confidence_entity": 0.6829509139060974,
+        "value": "six",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 50,
+        "end": 60,
+        "confidence_entity": 0.8761773705482483,
+        "value": "Margherita",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order three Veggie, four Funghi and one Hawaii",
+    "entities": [
+      {
+        "start": 16,
+        "end": 21,
+        "value": "three",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 22,
+        "end": 28,
+        "value": "Veggie",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 30,
+        "end": 34,
+        "value": "four",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 35,
+        "end": 41,
+        "value": "Funghi",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 46,
+        "end": 49,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 50,
+        "end": 56,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 16,
+        "end": 21,
+        "confidence_entity": 0.5854151844978333,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 22,
+        "end": 28,
+        "confidence_entity": 0.49857571721076965,
+        "value": "Veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 30,
+        "end": 34,
+        "confidence_entity": 0.7877182960510254,
+        "value": "four",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 35,
+        "end": 41,
+        "confidence_entity": 0.7943376302719116,
+        "value": "Funghi",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 46,
+        "end": 49,
+        "confidence_entity": 0.9708083868026733,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 50,
+        "end": 56,
+        "confidence_entity": 0.9968677163124084,
+        "value": "Hawaii",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order four Hawaii, one Pepperoni and two Veggie",
+    "entities": [
+      {
+        "start": 16,
+        "end": 20,
+        "value": "four",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 21,
+        "end": 27,
+        "value": "Hawaii",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 29,
+        "end": 32,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 33,
+        "end": 42,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 47,
+        "end": 50,
+        "value": "two",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 51,
+        "end": 57,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 16,
+        "end": 20,
+        "confidence_entity": 0.7092391848564148,
+        "value": "four",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 21,
+        "end": 27,
+        "confidence_entity": 0.6984329223632812,
+        "value": "Hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 29,
+        "end": 32,
+        "confidence_entity": 0.9458118081092834,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 33,
+        "end": 42,
+        "confidence_entity": 0.6924012899398804,
+        "value": "Pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 47,
+        "end": 50,
+        "confidence_entity": 0.812965452671051,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 51,
+        "end": 57,
+        "confidence_entity": 0.9769560694694519,
+        "value": "Veggie",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order two Pepperoni, eight Hawaii and three Veggie",
+    "entities": [
+      {
+        "start": 16,
+        "end": 19,
+        "value": "two",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 20,
+        "end": 29,
+        "value": "Pepperoni",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 31,
+        "end": 36,
+        "value": "eight",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 37,
+        "end": 43,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 48,
+        "end": 53,
+        "value": "three",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 54,
+        "end": 60,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 16,
+        "end": 19,
+        "confidence_entity": 0.5657734274864197,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 20,
+        "end": 29,
+        "confidence_entity": 0.7241180539131165,
+        "value": "Pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 31,
+        "end": 36,
+        "confidence_entity": 0.9296219944953918,
+        "value": "eight",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 37,
+        "end": 43,
+        "confidence_entity": 0.9730055332183838,
+        "value": "Hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 48,
+        "end": 53,
+        "confidence_entity": 0.8262682557106018,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 54,
+        "end": 60,
+        "confidence_entity": 0.976095974445343,
+        "value": "Veggie",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order one Margherita and one Veggie pizza",
+    "entities": [
+      {
+        "start": 16,
+        "end": 19,
+        "value": "one",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 20,
+        "end": 30,
+        "value": "Margherita",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 35,
+        "end": 38,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 39,
+        "end": 45,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 16,
+        "end": 19,
+        "confidence_entity": 0.6034479141235352,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 20,
+        "end": 30,
+        "confidence_entity": 0.6676589846611023,
+        "value": "Margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 35,
+        "end": 38,
+        "confidence_entity": 0.6312549114227295,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 39,
+        "end": 45,
+        "confidence_entity": 0.6430248618125916,
+        "value": "Veggie",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order seven Pepperoni and two Veggie pizza",
+    "entities": [
+      {
+        "start": 16,
+        "end": 21,
+        "value": "seven",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 22,
+        "end": 31,
+        "value": "Pepperoni",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 36,
+        "end": 39,
+        "value": "two",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 40,
+        "end": 46,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 16,
+        "end": 21,
+        "confidence_entity": 0.9835555553436279,
+        "value": "seven",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 22,
+        "end": 31,
+        "confidence_entity": 0.764487624168396,
+        "value": "Pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 36,
+        "end": 39,
+        "confidence_entity": 0.6714900135993958,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 40,
+        "end": 46,
+        "confidence_entity": 0.5842357873916626,
+        "value": "Veggie",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order one baby Margherita and one large Hawaii pizza",
+    "entities": [
+      {
+        "start": 16,
+        "end": 19,
+        "value": "one",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 20,
+        "end": 24,
+        "value": "baby",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 25,
+        "end": 35,
+        "value": "Margherita",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 40,
+        "end": 43,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 44,
+        "end": 49,
+        "value": "large",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 50,
+        "end": 56,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 16,
+        "end": 19,
+        "confidence_entity": 0.6533947587013245,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_size",
+        "start": 20,
+        "end": 24,
+        "confidence_entity": 0.6453958749771118,
+        "value": "baby",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 25,
+        "end": 35,
+        "confidence_entity": 0.8550578355789185,
+        "value": "Margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 40,
+        "end": 43,
+        "confidence_entity": 0.6795217394828796,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 44,
+        "end": 49,
+        "confidence_entity": 0.5159550309181213,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 50,
+        "end": 56,
+        "confidence_entity": 0.5650429725646973,
+        "value": "Hawaii",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order three large Hawaii and one extra large Margherita",
+    "entities": [
+      {
+        "start": 16,
+        "end": 21,
+        "value": "three",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 22,
+        "end": 27,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 28,
+        "end": 34,
+        "value": "Hawaii",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 39,
+        "end": 42,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 43,
+        "end": 54,
+        "value": "extra large",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 55,
+        "end": 65,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 16,
+        "end": 21,
+        "confidence_entity": 0.566307008266449,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 22,
+        "end": 27,
+        "confidence_entity": 0.5435053706169128,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 28,
+        "end": 34,
+        "confidence_entity": 0.6114895343780518,
+        "value": "Hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 39,
+        "end": 42,
+        "confidence_entity": 0.810811460018158,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 43,
+        "end": 48,
+        "confidence_entity": 0.7015092968940735,
+        "value": "extra",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 49,
+        "end": 54,
+        "confidence_entity": 0.5491417050361633,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 55,
+        "end": 65,
+        "confidence_entity": 0.9298195838928223,
+        "value": "Margherita",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order two small Pepperoni, three baby Hawaii and one large Margherita",
+    "entities": [
+      {
+        "start": 16,
+        "end": 19,
+        "value": "two",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 20,
+        "end": 25,
+        "value": "small",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 26,
+        "end": 35,
+        "value": "Pepperoni",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 37,
+        "end": 42,
+        "value": "three",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 43,
+        "end": 47,
+        "value": "baby",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 48,
+        "end": 54,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 59,
+        "end": 62,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 63,
+        "end": 68,
+        "value": "large",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 69,
+        "end": 79,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 16,
+        "end": 19,
+        "confidence_entity": 0.5244259834289551,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 20,
+        "end": 25,
+        "confidence_entity": 0.8003654479980469,
+        "value": "small",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 26,
+        "end": 35,
+        "confidence_entity": 0.7103524208068848,
+        "value": "Pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 37,
+        "end": 42,
+        "confidence_entity": 0.9535272121429443,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 43,
+        "end": 47,
+        "confidence_entity": 0.8712181448936462,
+        "value": "baby",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 48,
+        "end": 54,
+        "confidence_entity": 0.9742901921272278,
+        "value": "Hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 59,
+        "end": 62,
+        "confidence_entity": 0.9138973951339722,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 63,
+        "end": 68,
+        "confidence_entity": 0.8156588673591614,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 69,
+        "end": 79,
+        "confidence_entity": 0.9932447075843811,
+        "value": "Margherita",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want to order two small Pepperoni, three baby Margherita and one large Hawaii",
+    "entities": [
+      {
+        "start": 16,
+        "end": 19,
+        "value": "two",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 20,
+        "end": 25,
+        "value": "small",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 26,
+        "end": 35,
+        "value": "Pepperoni",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 37,
+        "end": 42,
+        "value": "three",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 43,
+        "end": 47,
+        "value": "baby",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 48,
+        "end": 58,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 63,
+        "end": 66,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 67,
+        "end": 72,
+        "value": "large",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 73,
+        "end": 79,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 16,
+        "end": 19,
+        "confidence_entity": 0.5102826356887817,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 20,
+        "end": 25,
+        "confidence_entity": 0.8073272109031677,
+        "value": "small",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 26,
+        "end": 35,
+        "confidence_entity": 0.710230827331543,
+        "value": "Pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 37,
+        "end": 42,
+        "confidence_entity": 0.954724133014679,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 43,
+        "end": 47,
+        "confidence_entity": 0.8702759742736816,
+        "value": "baby",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 48,
+        "end": 58,
+        "confidence_entity": 0.9530194401741028,
+        "value": "Margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 63,
+        "end": 66,
+        "confidence_entity": 0.9159689545631409,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 67,
+        "end": 72,
+        "confidence_entity": 0.8145199418067932,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 73,
+        "end": 79,
+        "confidence_entity": 0.9961178302764893,
+        "value": "Hawaii",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order one funghi, three pepperoni, and two hawaii",
+    "entities": [
+      {
+        "start": 16,
+        "end": 19,
+        "value": "one",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 20,
+        "end": 26,
+        "value": "Funghi",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 28,
+        "end": 33,
+        "value": "three",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 34,
+        "end": 43,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 49,
+        "end": 52,
+        "value": "two",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 53,
+        "end": 59,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 16,
+        "end": 19,
+        "confidence_entity": 0.8776100277900696,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 20,
+        "end": 26,
+        "confidence_entity": 0.5894892811775208,
+        "value": "funghi",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 28,
+        "end": 33,
+        "confidence_entity": 0.9063900113105774,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 34,
+        "end": 43,
+        "confidence_entity": 0.6002242565155029,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 49,
+        "end": 52,
+        "confidence_entity": 0.83475661277771,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 53,
+        "end": 59,
+        "confidence_entity": 0.9969120025634766,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order three large margherita, one small hawaii, two veggie, and five small pepperoni",
+    "entities": [
+      {
+        "start": 16,
+        "end": 21,
+        "value": "three",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 22,
+        "end": 27,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 28,
+        "end": 38,
+        "value": "Margherita",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 40,
+        "end": 43,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 44,
+        "end": 49,
+        "value": "small",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 50,
+        "end": 56,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 58,
+        "end": 61,
+        "value": "two",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 62,
+        "end": 68,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 74,
+        "end": 78,
+        "value": "five",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 79,
+        "end": 84,
+        "value": "small",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 85,
+        "end": 94,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 16,
+        "end": 21,
+        "confidence_entity": 0.8473623394966125,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 22,
+        "end": 27,
+        "confidence_entity": 0.7319355010986328,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 28,
+        "end": 38,
+        "confidence_entity": 0.8207682967185974,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 40,
+        "end": 43,
+        "confidence_entity": 0.9518011212348938,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 44,
+        "end": 49,
+        "confidence_entity": 0.89425128698349,
+        "value": "small",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 50,
+        "end": 56,
+        "confidence_entity": 0.9196636080741882,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 58,
+        "end": 61,
+        "confidence_entity": 0.7028735876083374,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 62,
+        "end": 68,
+        "confidence_entity": 0.7125799655914307,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 74,
+        "end": 78,
+        "confidence_entity": 0.49073174595832825,
+        "value": "five",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 79,
+        "end": 84,
+        "confidence_entity": 0.9191505908966064,
+        "value": "small",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 85,
+        "end": 94,
+        "confidence_entity": 0.9647904634475708,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order five baby cracker crust pepperoni, three medium thin crust hawaii, one large stuffed crust margherita, two extra large thin crust veggie, four large cracker crust funghi, one baby stuffed crust margherita pizza, and one medium thin crust pepperoni pizza, and three large thin crust veggie",
+    "entities": [
+      {
+        "start": 16,
+        "end": 20,
+        "value": "five",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 21,
+        "end": 25,
+        "value": "baby",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 26,
+        "end": 33,
+        "value": "cracker",
+        "entity": "pizza_crust"
+      },
+      {
+        "start": 40,
+        "end": 49,
+        "value": "Pepperoni",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 51,
+        "end": 56,
+        "value": "three",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 57,
+        "end": 63,
+        "value": "medium",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 64,
+        "end": 68,
+        "value": "thin",
+        "entity": "second_pizza_crust"
+      },
+      {
+        "start": 75,
+        "end": 81,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 83,
+        "end": 86,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 87,
+        "end": 92,
+        "value": "large",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 93,
+        "end": 100,
+        "value": "stuffed",
+        "entity": "second_pizza_crust"
+      },
+      {
+        "start": 107,
+        "end": 117,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 119,
+        "end": 122,
+        "value": "two",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 123,
+        "end": 134,
+        "value": "extra large",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 135,
+        "end": 139,
+        "value": "thin",
+        "entity": "second_pizza_crust"
+      },
+      {
+        "start": 146,
+        "end": 152,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 154,
+        "end": 158,
+        "value": "four",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 159,
+        "end": 164,
+        "value": "large",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 165,
+        "end": 172,
+        "value": "cracker",
+        "entity": "second_pizza_crust"
+      },
+      {
+        "start": 179,
+        "end": 185,
+        "value": "Funghi",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 187,
+        "end": 190,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 191,
+        "end": 195,
+        "value": "baby",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 196,
+        "end": 203,
+        "value": "stuffed",
+        "entity": "second_pizza_crust"
+      },
+      {
+        "start": 210,
+        "end": 220,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 232,
+        "end": 235,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 236,
+        "end": 242,
+        "value": "medium",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 243,
+        "end": 247,
+        "value": "thin",
+        "entity": "second_pizza_crust"
+      },
+      {
+        "start": 254,
+        "end": 263,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 275,
+        "end": 280,
+        "value": "three",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 281,
+        "end": 286,
+        "value": "large",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 287,
+        "end": 291,
+        "value": "thin",
+        "entity": "second_pizza_crust"
+      },
+      {
+        "start": 298,
+        "end": 304,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 16,
+        "end": 20,
+        "confidence_entity": 0.9389456510543823,
+        "value": "five",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 21,
+        "end": 25,
+        "confidence_entity": 0.720771074295044,
+        "value": "baby",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_crust",
+        "start": 26,
+        "end": 33,
+        "confidence_entity": 0.6733958721160889,
+        "value": "cracker",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 40,
+        "end": 49,
+        "confidence_entity": 0.6992312073707581,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 51,
+        "end": 56,
+        "confidence_entity": 0.9553797841072083,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 57,
+        "end": 63,
+        "confidence_entity": 0.8634177446365356,
+        "value": "medium",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_crust",
+        "start": 64,
+        "end": 68,
+        "confidence_entity": 0.9401254653930664,
+        "value": "thin",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 75,
+        "end": 81,
+        "confidence_entity": 0.8798853158950806,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 83,
+        "end": 86,
+        "confidence_entity": 0.9527941346168518,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 87,
+        "end": 92,
+        "confidence_entity": 0.8068727254867554,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_crust",
+        "start": 93,
+        "end": 100,
+        "confidence_entity": 0.9209974408149719,
+        "value": "stuffed",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 107,
+        "end": 117,
+        "confidence_entity": 0.819771945476532,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 119,
+        "end": 122,
+        "confidence_entity": 0.7148715257644653,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 123,
+        "end": 128,
+        "confidence_entity": 0.7919559478759766,
+        "value": "extra",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 129,
+        "end": 134,
+        "confidence_entity": 0.7201145887374878,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_crust",
+        "start": 135,
+        "end": 139,
+        "confidence_entity": 0.9407944679260254,
+        "value": "thin",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 146,
+        "end": 152,
+        "confidence_entity": 0.6467176675796509,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 154,
+        "end": 158,
+        "confidence_entity": 0.9106899499893188,
+        "value": "four",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 159,
+        "end": 164,
+        "confidence_entity": 0.8049749135971069,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_crust",
+        "start": 165,
+        "end": 172,
+        "confidence_entity": 0.6812835335731506,
+        "value": "cracker",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 179,
+        "end": 185,
+        "confidence_entity": 0.6367725133895874,
+        "value": "funghi",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 187,
+        "end": 190,
+        "confidence_entity": 0.9528421759605408,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 191,
+        "end": 195,
+        "confidence_entity": 0.8978922963142395,
+        "value": "baby",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_crust",
+        "start": 196,
+        "end": 203,
+        "confidence_entity": 0.9158334732055664,
+        "value": "stuffed",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 210,
+        "end": 220,
+        "confidence_entity": 0.9490402936935425,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 232,
+        "end": 235,
+        "confidence_entity": 0.9343334436416626,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 236,
+        "end": 242,
+        "confidence_entity": 0.8683702349662781,
+        "value": "medium",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_crust",
+        "start": 243,
+        "end": 247,
+        "confidence_entity": 0.9399210214614868,
+        "value": "thin",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 254,
+        "end": 263,
+        "confidence_entity": 0.7197646498680115,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 275,
+        "end": 280,
+        "confidence_entity": 0.867901086807251,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 281,
+        "end": 286,
+        "confidence_entity": 0.8044279217720032,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_crust",
+        "start": 287,
+        "end": 291,
+        "confidence_entity": 0.9419559240341187,
+        "value": "thin",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 298,
+        "end": 304,
+        "confidence_entity": 0.9839844107627869,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order two medium veggie, one small hawaii, three large margherita, one baby pepperoni, one extra large funghi, two medium veggie, three medium margherita pizza, and one baby pepperoni pizza, and two large pepperoni, and one small hawaii",
+    "entities": [
+      {
+        "start": 16,
+        "end": 19,
+        "value": "two",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 20,
+        "end": 26,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 27,
+        "end": 33,
+        "value": "Veggie",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 35,
+        "end": 38,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 39,
+        "end": 44,
+        "value": "small",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 45,
+        "end": 51,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 53,
+        "end": 58,
+        "value": "three",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 59,
+        "end": 64,
+        "value": "large",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 65,
+        "end": 75,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 77,
+        "end": 80,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 81,
+        "end": 85,
+        "value": "baby",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 86,
+        "end": 95,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 97,
+        "end": 100,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 101,
+        "end": 112,
+        "value": "extra large",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 113,
+        "end": 119,
+        "value": "Funghi",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 121,
+        "end": 124,
+        "value": "two",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 125,
+        "end": 131,
+        "value": "medium",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 132,
+        "end": 138,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 140,
+        "end": 145,
+        "value": "three",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 146,
+        "end": 152,
+        "value": "medium",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 153,
+        "end": 163,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 175,
+        "end": 178,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 179,
+        "end": 183,
+        "value": "baby",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 184,
+        "end": 193,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 205,
+        "end": 208,
+        "value": "two",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 209,
+        "end": 214,
+        "value": "large",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 215,
+        "end": 224,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 230,
+        "end": 233,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 234,
+        "end": 239,
+        "value": "small",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 240,
+        "end": 246,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 16,
+        "end": 19,
+        "confidence_entity": 0.5407010316848755,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 20,
+        "end": 26,
+        "confidence_entity": 0.8107520937919617,
+        "value": "medium",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 27,
+        "end": 33,
+        "confidence_entity": 0.7049418687820435,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 35,
+        "end": 38,
+        "confidence_entity": 0.9550120830535889,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 39,
+        "end": 44,
+        "confidence_entity": 0.9479885101318359,
+        "value": "small",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 45,
+        "end": 51,
+        "confidence_entity": 0.9366059899330139,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 53,
+        "end": 58,
+        "confidence_entity": 0.9509462714195251,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 59,
+        "end": 64,
+        "confidence_entity": 0.8048493266105652,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 65,
+        "end": 75,
+        "confidence_entity": 0.8918997049331665,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 77,
+        "end": 80,
+        "confidence_entity": 0.9517660737037659,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 81,
+        "end": 85,
+        "confidence_entity": 0.90402752161026,
+        "value": "baby",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 86,
+        "end": 95,
+        "confidence_entity": 0.5135794281959534,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 97,
+        "end": 100,
+        "confidence_entity": 0.9505420327186584,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 101,
+        "end": 106,
+        "confidence_entity": 0.7851311564445496,
+        "value": "extra",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 107,
+        "end": 112,
+        "confidence_entity": 0.7245063185691833,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 113,
+        "end": 119,
+        "confidence_entity": 0.7501392364501953,
+        "value": "funghi",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 121,
+        "end": 124,
+        "confidence_entity": 0.708501398563385,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 125,
+        "end": 131,
+        "confidence_entity": 0.8321735858917236,
+        "value": "medium",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 132,
+        "end": 138,
+        "confidence_entity": 0.741424560546875,
+        "value": "veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 140,
+        "end": 145,
+        "confidence_entity": 0.9438595771789551,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 146,
+        "end": 152,
+        "confidence_entity": 0.8429337739944458,
+        "value": "medium",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 153,
+        "end": 163,
+        "confidence_entity": 0.9691630005836487,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 175,
+        "end": 178,
+        "confidence_entity": 0.9327101111412048,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 179,
+        "end": 183,
+        "confidence_entity": 0.9104074239730835,
+        "value": "baby",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 184,
+        "end": 193,
+        "confidence_entity": 0.8336107134819031,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 205,
+        "end": 208,
+        "confidence_entity": 0.5682059526443481,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 209,
+        "end": 214,
+        "confidence_entity": 0.8037812113761902,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 215,
+        "end": 224,
+        "confidence_entity": 0.5165182948112488,
+        "value": "pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 230,
+        "end": 233,
+        "confidence_entity": 0.930481493473053,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 234,
+        "end": 239,
+        "confidence_entity": 0.9679267406463623,
+        "value": "small",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 240,
+        "end": 246,
+        "confidence_entity": 0.9965988993644714,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order two large thin crust hawaii and one medium stuffed crust margherita",
+    "entities": [
+      {
+        "start": 16,
+        "end": 19,
+        "value": "two",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 20,
+        "end": 25,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 26,
+        "end": 30,
+        "value": "thin",
+        "entity": "pizza_crust"
+      },
+      {
+        "start": 37,
+        "end": 43,
+        "value": "Hawaii",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 48,
+        "end": 51,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 52,
+        "end": 58,
+        "value": "medium",
+        "entity": "second_pizza_size"
+      },
+      {
+        "start": 59,
+        "end": 66,
+        "value": "stuffed",
+        "entity": "second_pizza_crust"
+      },
+      {
+        "start": 73,
+        "end": 83,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 16,
+        "end": 19,
+        "confidence_entity": 0.7562280893325806,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_size",
+        "start": 20,
+        "end": 25,
+        "confidence_entity": 0.7748916745185852,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_crust",
+        "start": 26,
+        "end": 30,
+        "confidence_entity": 0.6272178888320923,
+        "value": "thin",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 37,
+        "end": 43,
+        "confidence_entity": 0.8305184245109558,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 48,
+        "end": 51,
+        "confidence_entity": 0.7729172706604004,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 52,
+        "end": 58,
+        "confidence_entity": 0.7731916904449463,
+        "value": "medium",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_crust",
+        "start": 59,
+        "end": 66,
+        "confidence_entity": 0.931449830532074,
+        "value": "stuffed",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 73,
+        "end": 83,
+        "confidence_entity": 0.9089857935905457,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "funghi and hawaii",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "Funghi",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 11,
+        "end": 17,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_type",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.5181592106819153,
+        "value": "funghi",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 11,
+        "end": 17,
+        "confidence_entity": 0.9820054769515991,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want Veggie and Margherita and Hawaii",
+    "entities": [
+      {
+        "start": 7,
+        "end": 13,
+        "value": "Veggie",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 18,
+        "end": 28,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 33,
+        "end": 39,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 7,
+        "end": 13,
+        "confidence_entity": 0.5339035987854004,
+        "value": "Veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 18,
+        "end": 28,
+        "confidence_entity": 0.5766506791114807,
+        "value": "Margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 33,
+        "end": 39,
+        "confidence_entity": 0.9732884764671326,
+        "value": "Hawaii",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want Margherita, Veggie, Hawaii, Funghi, and Pepperoni",
+    "entities": [
+      {
+        "start": 7,
+        "end": 17,
+        "value": "Margherita",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 19,
+        "end": 25,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 27,
+        "end": 33,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 35,
+        "end": 41,
+        "value": "Funghi",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 47,
+        "end": 56,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_type",
+        "start": 7,
+        "end": 17,
+        "confidence_entity": 0.7372904419898987,
+        "value": "Margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 19,
+        "end": 25,
+        "confidence_entity": 0.7952920794487,
+        "value": "Veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 27,
+        "end": 33,
+        "confidence_entity": 0.9442241787910461,
+        "value": "Hawaii",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 35,
+        "end": 41,
+        "confidence_entity": 0.7699069976806641,
+        "value": "Funghi",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 47,
+        "end": 56,
+        "confidence_entity": 0.9578677415847778,
+        "value": "Pepperoni",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I'd like Funghi, Pepperoni, Margherita, Funghi, and Veggie",
+    "entities": [
+      {
+        "start": 9,
+        "end": 15,
+        "value": "Funghi",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 17,
+        "end": 26,
+        "value": "Pepperoni",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 28,
+        "end": 38,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 40,
+        "end": 46,
+        "value": "Funghi",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 52,
+        "end": 58,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_type",
+        "start": 9,
+        "end": 15,
+        "confidence_entity": 0.5245832800865173,
+        "value": "Funghi",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 17,
+        "end": 26,
+        "confidence_entity": 0.5433292984962463,
+        "value": "Pepperoni",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 28,
+        "end": 38,
+        "confidence_entity": 0.9214259386062622,
+        "value": "Margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 40,
+        "end": 46,
+        "confidence_entity": 0.7808160185813904,
+        "value": "Funghi",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 52,
+        "end": 58,
+        "confidence_entity": 0.9803810715675354,
+        "value": "Veggie",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want one Funghi, two Veggie, and three Margherita",
+    "entities": [
+      {
+        "start": 7,
+        "end": 10,
+        "value": "one",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 11,
+        "end": 17,
+        "value": "Funghi",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 19,
+        "end": 22,
+        "value": "two",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 23,
+        "end": 29,
+        "value": "Veggie",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 35,
+        "end": 40,
+        "value": "three",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 41,
+        "end": 51,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 7,
+        "end": 10,
+        "confidence_entity": 0.8940895795822144,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 11,
+        "end": 17,
+        "confidence_entity": 0.5920431613922119,
+        "value": "Funghi",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 19,
+        "end": 22,
+        "confidence_entity": 0.6133822798728943,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 23,
+        "end": 29,
+        "confidence_entity": 0.6069044470787048,
+        "value": "Veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 35,
+        "end": 40,
+        "confidence_entity": 0.9478977918624878,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 41,
+        "end": 51,
+        "confidence_entity": 0.9946494698524475,
+        "value": "Margherita",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I want four small Veggie, two large Funghi and one baby Margherita",
+    "entities": [
+      {
+        "start": 7,
+        "end": 11,
+        "value": "four",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 12,
+        "end": 17,
+        "value": "small",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 18,
+        "end": 24,
+        "value": "Veggie",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 26,
+        "end": 29,
+        "value": "two",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 30,
+        "end": 35,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 36,
+        "end": 42,
+        "value": "Funghi",
+        "entity": "second_pizza_type"
+      },
+      {
+        "start": 47,
+        "end": 50,
+        "value": "one",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 51,
+        "end": 55,
+        "value": "baby",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 56,
+        "end": 66,
+        "value": "Margherita",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 7,
+        "end": 11,
+        "confidence_entity": 0.7285373210906982,
+        "value": "four",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 12,
+        "end": 17,
+        "confidence_entity": 0.8377707600593567,
+        "value": "small",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 18,
+        "end": 24,
+        "confidence_entity": 0.5023396015167236,
+        "value": "Veggie",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 26,
+        "end": 29,
+        "confidence_entity": 0.6835655570030212,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 30,
+        "end": 35,
+        "confidence_entity": 0.7231965065002441,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 36,
+        "end": 42,
+        "confidence_entity": 0.7902617454528809,
+        "value": "Funghi",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 47,
+        "end": 50,
+        "confidence_entity": 0.9228058457374573,
+        "value": "one",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_size",
+        "start": 51,
+        "end": 55,
+        "confidence_entity": 0.915257453918457,
+        "value": "baby",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 56,
+        "end": 66,
+        "confidence_entity": 0.9932296276092529,
+        "value": "Margherita",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "St. Louis crust",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "St. Louis",
+        "entity": "pizza_crust"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_crust",
+        "start": 0,
+        "end": 2,
+        "confidence_entity": 0.5835214853286743,
+        "value": "St",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_crust",
+        "start": 4,
+        "end": 9,
+        "confidence_entity": 0.5409817099571228,
+        "value": "Louis",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order three large margherita and two hawaii",
+    "entities": [
+      {
+        "start": 16,
+        "end": 21,
+        "value": "three",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 22,
+        "end": 27,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 28,
+        "end": 38,
+        "value": "Margherita",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 43,
+        "end": 46,
+        "value": "two",
+        "entity": "second_pizza_amount"
+      },
+      {
+        "start": 47,
+        "end": 53,
+        "value": "Hawaii",
+        "entity": "second_pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "second_pizza_amount",
+        "start": 16,
+        "end": 21,
+        "confidence_entity": 0.570753276348114,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_size",
+        "start": 22,
+        "end": 27,
+        "confidence_entity": 0.4858863353729248,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 28,
+        "end": 38,
+        "confidence_entity": 0.7340599894523621,
+        "value": "margherita",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_amount",
+        "start": 43,
+        "end": 46,
+        "confidence_entity": 0.5571632981300354,
+        "value": "two",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "second_pizza_type",
+        "start": 47,
+        "end": 53,
+        "confidence_entity": 0.9549130797386169,
+        "value": "hawaii",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "I need to order a large quantity of pizzas.",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_size",
+        "start": 18,
+        "end": 23,
+        "confidence_entity": 0.6507920622825623,
+        "value": "large",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "What is the price of the crust?",
+    "entities": [
+      {
+        "start": 21,
+        "end": 30,
+        "value": "the crust",
+        "entity": "pizza_crust"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_crust",
+        "start": 25,
+        "end": 30,
+        "confidence_entity": 0.4870312809944153,
+        "value": "crust",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

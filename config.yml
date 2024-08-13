@@ -20,6 +20,7 @@ pipeline:
     constrain_similarities: true
   - name: ResponseSelector
     epochs: 50
+    constrain_similarities: true
 
 policies:
   - name: TEDPolicy
@@ -35,5 +36,6 @@ policies:
     ambiguity_threshold: 0.1
     core_threshold: 0.3
     fallback_action_name: 'action_default_fallback'
+    enable_fallback_prediction: True
 
 assistant_id: 20231202-221250-mode-flour

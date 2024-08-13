@@ -14,8 +14,6 @@ stories:
 - story: get menu clarification
   steps:
   - checkpoint: menu
-  - intent: menu
-  - action: action_get_menu
   - intent: init_pizza_question
   - action: action_get_pizza_ingredients
   - slot_was_set:
@@ -1429,45 +1427,28 @@ stories:
   - intent: time
   - action: action_confirm_time
   - checkpoint: checkpoint_time
-- story: total order takeaway
-  steps:
-  - checkpoint: complete_delivery
-  - intent: order_takeaway
-  - action: takeaway_form
-  - active_loop: takeaway_form
-  - slot_was_set:
-    - requested_slot: client_name
-  - intent: verbose
-  - action: utter_client_name
-  - action: takeaway_form
-  - slot_was_set:
-    - requested_slot: client_name
-  - slot_was_set:
-    - requested_slot: client_phone_number
-  - action: action_confirm_takeaway
-  - intent: response_negative
-  - intent: takeaway_change
-  - action: action_change_takeaway
-  - action: takeaway_form
-  - active_loop: takeaway_form
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - action: action_confirm_takeaway
-  - intent: response_positive
-  - action: utter_confirm_takeaway
-  - action: action_ask_time
-  - intent: time
-  - action: action_confirm_time
-  - checkpoint: checkpoint_time
-- story: confirm time
-  steps:
-  - checkpoint: checkpoint_time
-  - intent: response_positive
-  - action: utter_final_order
-  - action: utter_goodbye
-  - intent: goodbye
-  - action: utter_goodbye
+# - story: total order takeaway
+#   steps:
+#   - checkpoint: complete_delivery
+#   - intent: order_takeaway
+#   - action: takeaway_form
+#   - active_loop: takeaway_form
+#   - slot_was_set:
+#     - requested_slot: client_name
+#   - intent: verbose
+#   - action: utter_client_name
+#   - action: takeaway_form
+#   - slot_was_set:
+#     - requested_slot: client_name
+#   - slot_was_set:
+#     - requested_slot: client_phone_number
+#   - action: action_confirm_takeaway
+#   - intent: response_positive
+#   - action: utter_confirm_takeaway
+#   - action: action_ask_time
+#   - intent: time
+#   - action: action_confirm_time
+#   - checkpoint: checkpoint_time
 - story: change time
   steps:
   - checkpoint: checkpoint_time
