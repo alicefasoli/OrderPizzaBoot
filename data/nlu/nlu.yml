@@ -1,24 +1,5 @@
 version: "3.1"
 nlu:
-- intent: menu
-  examples: |
-    - /menu
-    - What pizzas are available?
-    - Can I see the menu?
-    - Show me the pizza options
-    - What do you have on the menu?
-    - List all pizzas
-    - What items are on the menu?
-    - What types of pizza do you offer?
-    - Give me the menu
-    - I'd like to see the menu
-    - What are the pizza choices?
-    - Show me the menu options
-    - Can you provide the menu?
-    - What pizza varieties do you have?
-    - What pizzas can I order?
-    - Tell me about your pizza menu
-    - Do you have a menu?
 - intent: bot_skills
   examples: |
     - What can you do?
@@ -565,62 +546,7 @@ nlu:
     - I've changed my mind, i don't want to buy a pizza
 - intent: request_pizza_types
   examples: |
-    - do you have pizzas with [meat](pizza_category)?
-    - do you have pizzas with [cheese](pizza_category)?
-    - do you have pizzas with [pepper](pizza_category)?
-    - do you have pizzas with [vegetables](pizza_category)?
-    - do you have pizzas with [no meat](pizza_category)?
-    - do you have pizzas with [no cheese](pizza_category)?
-    - do you have pizzas without [gluten](pizza_category)?
-    - do you have pizzas without [lactose](pizza_category)?
-    - pizzas with [no pepper](pizza_category)?
-    - pizzas with [no vegetables](pizza_category)?
-    - pizzas with [meat](pizza_category)?
-    - pizzas with [vegetables](pizza_category)?
-    - pizzas with [cheese](pizza_category)
-    - I want to know what pizzas you have
-    - any pizzas with [no meat](pizza_category)?
-    - any pizzas with [no vegetables](pizza_category)?
-    - any pizzas with [meat](pizza_category)?
-    - any pizzas with [vegetables](pizza_category)?
-    - any pizzas with [no meat](pizza_category) please?
-    - what [meat](pizza_category) pizzas do you have?
-    - what [vegetarian](pizza_category) pizzas do you have?
-    - what [vegan](pizza_category) pizzas do you have?
-    - what [vegetable](pizza_category) pizzas do you have?
-    - what [vegetables](pizza_category) pizzas do you have?
-    - which [meat](pizza_category) pizzas do you have?
-    - which [vegetarian](pizza_category) pizzas do you have?
-    - which [vegan](pizza_category) pizzas do you have?
-    - which [vegetable](pizza_category) pizzas do you have?
-    - what pizzas do you have?
-    - what type of pizzas do you have?
-    - what kind of pizzas do you have?
-    - what kind of [meat](pizza_category) pizzas do you have?
-    - what kind of [vegetarian](pizza_category) pizzas do you have?
-    - what kind of [vegan](pizza_category) pizzas do you have?
-    - what kind of [vegetable](pizza_category) pizzas do you have?
-    - what kind of [vegetables](pizza_category) pizzas do you have?
-    - which are your [meat](pizza_category) pizzas?
-    - which are your [vegetarian](pizza_category) pizzas?
-    - which are your [vegan](pizza_category) pizzas?
-    - which are your [vegetable](pizza_category) pizzas?
-    - what pizzas you have with [meat](pizza_category)?
-    - what pizzas you have with [vegetables](pizza_category)?
-    - what pizzas you have with [no meat](pizza_category)?
-    - what pizzas you have with [no vegetables](pizza_category)?
-    - what pizzas you have?
-    - what pizzas do you have
-    - what pizzas with [meat](pizza_category) do you have
-    - what pizzas you have
-    - what [meat](pizza_category) pizzas you have
-    - what pizzas with [meat](pizza_category) you have
-    - what pizzas with [vegetables](pizza_category) you have?
-    - which do you have?
-    - which pizzas do you have?
-    - which pizza types do you have?
-    - what types of pizza do you have?
-    - what pizza types do you have?
+    - /menu
     - menu
     - menu please
     - menu please?
@@ -634,6 +560,22 @@ nlu:
     - do you have pizza with [meat](pizza_category)?
     - do you also have pizza with [pepper](pizza_category)?
     - what types you have
+    - What pizzas are available?
+    - Can I see the menu?
+    - Show me the pizza options
+    - What do you have on the menu?
+    - List all pizzas
+    - What items are on the menu?
+    - What types of pizza do you offer?
+    - Give me the menu
+    - I'd like to see the menu
+    - What are the pizza choices?
+    - Show me the menu options
+    - Can you provide the menu?
+    - What pizza varieties do you have?
+    - What pizzas can I order?
+    - Tell me about your pizza menu
+    - Do you have a menu?
 - intent: request_pizza_crusts
   examples: |
     - what crusts do you have?
@@ -1326,7 +1268,7 @@ nlu:
 - intent: order_takeaway
   examples: |
     - take away
-    - i prefer take away
+    - i prefer takeaway
     - take away please
     - I want to take away
     - I want to take away please

@@ -1,52 +1,47 @@
 version: "3.1"
 rules:
-- rule: activate pizza order form
+- rule: activate pizza form
   condition:
     - active_loop: null
   steps:
   - intent: order_pizza_question
   - action: pizza_order_form
   - active_loop: pizza_order_form
-- rule: activate delivery form
+- rule: activate form delivery
   condition:
     - active_loop: null
   steps:
   - intent: order_delivery
   - action: delivery_form
   - active_loop: delivery_form
-- rule: activate take away form
+- rule: activate form takeaway
   condition:
     - active_loop: null
   steps:
-  - intent: order_takeaway 
+  - intent: order_takeaway
   - action: takeaway_form
   - active_loop: takeaway_form
-- rule: greeting
+- rule: submit form pizza
+  condition:
+    - active_loop: pizza_order_form
   steps:
-  - intent: welcome_greet
-  - action: utter_welcome_greet
+  - action: pizza_order_form      
+  - active_loop: null
+  - action: action_confirm_order 
 - rule: submit form delivery
   condition:
     - active_loop: delivery_form
   steps:
-      - action: delivery_form      
-      - active_loop: null
-      - action: action_confirm_delivery
+  - action: delivery_form      
+  - active_loop: null
+  - action: action_confirm_delivery
 - rule: submit form takeaway
   condition:
     - active_loop: takeaway_form
   steps:
-      - action: takeaway_form      
-      - active_loop: null
-      - action: action_confirm_takeaway
-- rule: finish dialogue
-  condition:
-    - active_loop: null
-  steps:
-    - action: action_confirm_time
-    - intent: response_positive
-    - action: utter_final_order
-    - action: utter_goodbye
+  - action: takeaway_form      
+  - active_loop: null
+  - action: action_confirm_takeaway
 - rule: out-of-scope
   steps:
   - intent: out_of_scope
@@ -71,20 +66,20 @@ rules:
   steps:
     - intent: request_pizza_toppings
     - action: action_get_available_toppings
+- rule: get ingredients
+  steps:
+  - intent: init_pizza_question
+  - action: action_get_pizza_ingredients
 - rule: delivery payment questions
   steps:
     - intent: request_payment_methods
-    - action: utter_inform_delivery_payment
+    - action: utter_inform_client_payment
 - rule: order anti pizza
   steps:
     - intent: order_anti_pizza
     - action: utter_anti_pizza
     - action: action_get_menu
-- rule: Goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
-- rule: change item specific
+- rule: change item
   steps:
   - intent: item_change
   - action: action_change_order
@@ -120,3 +115,7 @@ rules:
   steps:
   - intent: bot_skills
   - action: utter_inform_bot_skills
+- rule: goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye

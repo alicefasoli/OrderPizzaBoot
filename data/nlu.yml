@@ -1,0 +1,27 @@
+version: "3.1"
+nlu:
+- intent: welcome_greet
+  examples: |
+    - hi
+- intent: bot_skills
+  examples: |
+    - what you can do
+- intent: bot
+  examples: |
+    - what are you
+- intent: order_pizza_question
+  examples: |
+    - i want to order a pizza
+    - I want a [margherita](pizza_type)
+    - [3](pizza_amount)
+    - [small](pizza_size)
+    - [thin](pizza_crust)
+- intent: request_pizza_types
+  examples: |
+    - what kind of pizza do you have
+- intent: request_pizza_crusts
+  examples: |
+    - what kind of [crust](pizza_crust) do you offer
+- intent: response_positive
+  examples: |
+    - yes, everything correct

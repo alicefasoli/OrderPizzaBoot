@@ -1,2 +1,9 @@
 .rasa/
+
+models/
+results/
+
 graph.html
+
+__pycache__/
+story_graph.dot

@@ -1,122 +1,131 @@
+version: '3.1'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
-
-version: "3.1"
-
 intents:
-  - welcome_greet
-  - init_pizza_question
-  - order_pizza_question
-  - delivery_change
-  - delivery_change_request_without_entity
-  - takeaway_change
-  - takeaway_change_request_without_entity
-  - order_takeaway
-  - order_delivery
-  - order_anti_pizza
-  - response_negative
-  - response_positive
-  - item_change
-  - item_change_request_without_entity
-  - out_of_scope
-  - request_pizza_crusts
-  - request_pizza_sizes
-  - request_pizza_types
-  - request_pizza_amount
-  - request_pizza_toppings
-  - request_pizza_crusts_price
-  - request_payment_methods
-  - response_client_address
-  - response_client_name
-  - response_client_payment
-  - response_client_phone_number
-  - time
-  - time_change
-  - time_change_request_without_entity
-  - verbose
-  - bot
-  - bot_skills
-  - restart
-  - stop
-  - return
-  - goodbye
-  - menu  
-
+- bot
+- bot_skills
+- delivery_change
+- delivery_change_request_without_entity
+- goodbye
+- init_pizza_question
+- item_change
+- item_change_request_without_entity
+- order_anti_pizza
+- order_delivery
+- order_pizza_question
+- order_takeaway
+- out_of_scope
+- request_payment_methods
+- request_pizza_amount
+- request_pizza_crusts
+- request_pizza_crusts_price
+- request_pizza_sizes
+- request_pizza_toppings
+- request_pizza_types
+- response_client_address
+- response_client_name
+- response_client_payment
+- response_client_phone_number
+- response_negative
+- response_positive
+- restart
+- return
+- stop
+- takeaway_change
+- takeaway_change_request_without_entity
+- time
+- time_change
+- time_change_request_without_entity
+- verbose
+- welcome_greet
 entities:
-  - time
-  - anti_pizza_type
-  - pizza_size
-  - pizza_type
-  - pizza_amount
-  - pizza_crust
-  - pizza_toppings
-  - second_pizza_size
-  - second_pizza_type
-  - second_pizza_amount
-  - second_pizza_crust
-  - second_pizza_toppings
-  - client_name
-  - client_phone_number
-  - client_address
-  - client_payment
-  - order_number
-  - active_form_pizza_order_form
-  - active_form_delivery_form
-  - active_form_takeaway_form
-
-
+- pizza_amount
+- pizza_type
+- pizza_crust
+- pizza_size
+- time
+- anti_pizza_type
+- pizza_toppings
+- second_pizza_size
+- second_pizza_type
+- second_pizza_amount
+- second_pizza_crust
+- second_pizza_toppings
+- client_name
+- client_phone_number
+- client_address
+- client_payment
+- order_number
+- active_form_pizza_order_form
+- active_form_delivery_form
+- active_form_takeaway_form
 slots:
   time:
     type: text
+    influence_conversation: true
     mappings:
-    - type: from_entity
-      entity: time
+    - type: custom
+      action: action_time_mapping
   anti_pizza_type:
     type: any
     mappings:
-      - type: from_entity
-        entity: anti_pizza_type
+    - type: from_entity
+      entity: anti_pizza_type
   pizza_amount:
-    type: any
+    type: text
+    influence_conversation: true
     mappings:
-      - type: from_entity
-        entity: pizza_amount
+    - type: custom
+      action: action_pizza_amount_mapping
   pizza_size:
-    type: any
+    type: text
+    influence_conversation: true
     mappings:
-      - type: from_entity
-        entity: pizza_size
+    - type: custom
+      action: action_pizza_size_mapping
   pizza_type:
-    type: any
+    type: text
+    influence_conversation: true
     mappings:
-      - type: from_entity
-        entity: pizza_type
+    - type: custom
+      action: action_pizza_type_mapping
   pizza_crust:
-    type: any
+    type: text
+    influence_conversation: true
     mappings:
-      - type: from_entity
-        entity: pizza_crust
+    - type: custom
+      action: action_pizza_crust_mapping
+  pizza_toppings:
+    type: list
+    influence_conversation: true
+    mappings:
+    - type: custom
+      action: action_pizza_toppings_mapping
   client_name:
     type: text
+    influence_conversation: true
     mappings:
-    - type: from_entity
-      entity: client_name
+    - type: custom
+      action: action_client_name_mapping
   client_phone_number:
     type: text
+    influence_conversation: true
     mappings:
-    - type: from_entity
-      entity: client_phone_number
+    - type: custom
+      action: action_client_phone_number_mapping
   client_address:
     type: text
+    influence_conversation: true
     mappings:
-    - type: from_entity
-      entity: client_address
+    - type: custom
+      action: action_client_address_mapping
   client_payment:
     type: text
+    influence_conversation: true
     mappings:
-    - type: from_entity
-      entity: client_payment
+    - type: custom
+      action: action_client_payment_mapping
   order_number:
     type: text
     mappings:
@@ -140,7 +149,7 @@ slots:
       intent: delivery_change
       value: true
     - type: from_intent
-      intent: delivery_change_without_entity
+      intent: delivery_change_request_without_entity
       value: true
   modify_takeaway:
     type: bool
@@ -155,11 +164,11 @@ slots:
   total_order:
     type: any
     mappings:
-      - type: custom
+    - type: custom
   total_price:
     type: any
     mappings:
-      - type: custom
+    - type: custom
   current_order:
     type: list
     influence_conversation: true
@@ -172,143 +181,201 @@ slots:
     - type: from_intent
       intent: order_takeaway
       value: true
-
+  second_pizza_amount:
+    type: list
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: second_pizza_amount
+  second_pizza_size:
+    type: list
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: second_pizza_size
+  second_pizza_type:
+    type: list
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: second_pizza_type
+  second_pizza_crust:
+    type: list
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: second_pizza_crust
+  second_pizza_toppings:
+    type: list
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: second_pizza_toppings
 responses:
   utter_out_of_scope:
-    - text: Sorry, I can't handle that request.
+  - text: Sorry, I can't handle that request.
   utter_welcome_greet:
-    - text: Hello There! Welcome to OrderPizzabot. How can I help you?
-    - text: Hi there! Welcome to OrderPizzabot. How can I help you?
-    - text: Hi there! Welcome to OrderPizzabot. What would you like to start with for your pizza order?
+  - text: Hello There! Welcome to OrderPizzabot. How can I help you?
+  - text: Hi there! Welcome to OrderPizzabot. How can I help you?
+  - text: Hi there! Welcome to OrderPizzabot. What would you like to start with for your pizza order?
   utter_order_confirm_negative:
-    - text: What would you like to change?
-    - text: No problem, what would you like to change?
+  - text: What would you like to change?
+  - text: No problem, what would you like to change?
   utter_order_add:
-    - text: Which pizza do you like to add in your order?
+  - text: Which pizza do you like to add in your order?
   utter_default:
-    - text: Sorry, I didn’t understand that. Can you please re-type it?
+  - text: Sorry, I didn’t understand that. Can you please re-type it?
   utter_i_am_bot:
-    - text: I am a bot, powered by Rasa, to help you order pizza.
-    - text: I am a bot, powered by Rasa, to help you order pizza. I am still learning, so please bear with me.
+  - text: I am a bot, powered by Rasa, to help you order pizza.
+  - text: I am a bot, powered by Rasa, to help you order pizza. I am still learning, so please bear with me.
   utter_inform_bot_skills:
-    - text: I can help you order pizza, from choosing the type, size, crust, and toppings, to delivery and payment. I can also handle explanations, modifications and cancellations of the order, and answer questions about the pizza we have. I can also restart the conversation by saying to me '/restart'.
+  - text: I can help you order pizza, from choosing the type, size, crust, and toppings, to delivery and payment. I can also handle explanations, modifications and cancellations of the order, and answer questions about the pizza we have. I can also restart the conversation by saying to me '/restart'.
   utter_anti_pizza:
-    - text: Sorry, we don't have {anti_pizza_type} in our menu.
+  - text: Sorry, we don't have {anti_pizza_type} in our menu.
   utter_ask_changes:
-    - text: What would you like to change?
-    - text: No problem. What would you like to change?
-    - text: Okay. What would you like to change?
+  - text: What would you like to change?
+  - text: No problem. What would you like to change?
+  - text: Okay. What would you like to change?
   utter_final_order:
-    - text: Awesome! Your order is confirmed. Here is your order number {order_number}. Your total order is {total_order}.
-    - text: Great! Your order is confirmed. Here is your order number {order_number}. Your total order is {total_order}.
-    - text: Perfect! Your order is confirmed. Here is your order number {order_number}. Your total order is {total_order}.
-    - text: Wonderful! Your order is confirmed. Here is your order number {order_number}. Your total order is {total_order}.
-  utter_client_name:
-    - text: What is your name?
-  utter_client_phone:
-    - text: What is your phone number?
-  utter_inform_delivery_address:
-    - text: What is your delivery address?
-  utter_inform_delivery_payment:
-    - text: We accept cash, credit card, and debit card for payment. How you want to proceed?
-  utter_confirm_delivery:
-    - text: Great. Now we need to know when you want your order delivered. 
-    - text: Perfect, now we need to know when you want your order delivered. 
-    - text: Alright, now we need to know when you want your order delivered. 
-  utter_confirm_takeaway:
-    - text: Great. Now we need to know when you will pick up your order. 
-    - text: Perfect, now we need to know when you will pick up your order. 
-    - text: Alright, now we need to know when you will pick up your order.      
+  - text: Awesome! Your order is confirmed. Here is your order number {order_number}. Your total order is {total_order}.
+  - text: Great! Your order is confirmed. Here is your order number {order_number}. Your total order is {total_order}.
+  - text: Perfect! Your order is confirmed. Here is your order number {order_number}. Your total order is {total_order}.
+  - text: Wonderful! Your order is confirmed. Here is your order number {order_number}. Your total order is {total_order}.
+  utter_ask_client_name:
+  - text: What is your name?
+  utter_ask_client_phone:
+  - text: What is your phone number?
+  utter_ask_client_address:
+  - text: What is your delivery address?
+  utter_ask_client_payment:
+  - text: How you want to pay?
+  utter_inform_client_payment:
+  - text: We accept cash, credit card, and debit card for payment.
+  utter_time_delivery:
+  - text: Great. Now we need to know when you want your order delivered.
+  - text: Perfect, now we need to know when you want your order delivered.
+  - text: Alright, now we need to know when you want your order delivered.
+  utter_time_takeaway:
+  - text: Great. Now we need to know when you will pick up your order.
+  - text: Perfect, now we need to know when you will pick up your order.
+  - text: Alright, now we need to know when you will pick up your order.
   utter_inform_pizza_size:
-    - text: The sizes that we have are the Small, Medium, Large, and Extra Large.
+  - text: The sizes that we have are the Small, Medium, Large, and Extra Large.
   utter_inform_pizza_crust:
-    - text: The crusts that we have are Thin, Thick, Stuffed, Gluten-free, Whole wheat, Flatbread, Cracker
+  - text: The crusts that we have are Thin, Thick, Stuffed, Gluten-free, Whole wheat, Flatbread, Cracker
   utter_inform_pizza_amount:
-    - text: We can produce from 1 to 20 pizzas of the same type.
+  - text: We can produce from 1 to 20 pizzas of the same type.
+  utter_ask_pizza_type:
+    - text: What type of pizza do you want?
+  utter_ask_pizza_amount:
+    - text: How many pizzas of {pizza_type} do you want?
+  utter_ask_pizza_crust:
+  - text: What type of crust do you want?
+  utter_ask_pizza_size:
+  - text: What type of size do you want?
+  utter_ask_pizza_toppings:
+  - text: What type of toppings do you want?
   utter_something_else:
-    - text: Is there anything else I can do for you?
+  - text: Is there anything else I can do for you?
   utter_ask_confirm:
-    - text: Are you sure?
-    - text: Do you confirm?
+  - text: Are you sure?
+  - text: Do you confirm?
   utter_order_cancelation_confirm:
-    - text: No problem. Your order has been canceled.
-    - text: Okay. Your order has been canceled.
-    - text: Alright. Your order has been canceled.
+  - text: No problem. Your order has been canceled.
+  - text: Okay. Your order has been canceled.
+  - text: Alright. Your order has been canceled.
   utter_continue:
-    - text: No problem. Let's continue.
-    - text: Okay. Let's continue.
-    - text: Alright. Let's continue.
-    - text: Ok, I am not going to do any action about the previous request.
+  - text: No problem. Let's continue.
+  - text: Okay. Let's continue.
+  - text: Alright. Let's continue.
+  - text: Ok, I am not going to do any action about the previous request.
   utter_goodbye:
-    - text: Bye! Thanks for choosing OrderPizzaBot. 
-    - text: Goodbye! Thanks for choosing OrderPizzaBot. 
-  utter_finish_pizza_order_first:
-    - text: You have to complete your pizza order first before proceeding with delivery or take-away.
+  - text: Bye! Thanks for choosing OrderPizzaBot.
+  - text: Goodbye! Thanks for choosing OrderPizzaBot.
+  utter_warning_nothing_to_change:
+  - text: There are no changes. Is this correct?
 actions:
-- utter_something_else
-- utter_i_am_bot
 - utter_inform_bot_skills
-- utter_finish_pizza_order_first
+- action_confirm_order
 - utter_welcome_greet
+- action_total_order
+- action_ask_pizza_crust
+- utter_inform_pizza_crust
+- utter_i_am_bot
+- utter_something_else
+- action_get_menu
 - utter_anti_pizza
-- utter_ask_changes
 - utter_order_confirm_negative
 - utter_final_order
-- utter_client_name
-- utter_client_phone
-- utter_inform_delivery_address
-- utter_inform_delivery_payment
-- utter_confirm_delivery
-- utter_confirm_takeaway 
-- utter_inform_pizza_crust
+- utter_time_delivery
+- utter_time_takeaway
+- utter_ask_changes
+- utter_ask_confirm
+- utter_ask_pizza_type
+- utter_ask_pizza_crust
+- utter_ask_pizza_size
+- utter_ask_pizza_amount
+- utter_ask_pizza_toppings
+- utter_ask_client_name
+- utter_ask_client_phone
+- utter_ask_client_address
+- utter_ask_client_payment
+- utter_inform_client_payment
 - utter_inform_pizza_size
 - utter_inform_pizza_amount
-- utter_ask_confirm
 - utter_order_cancelation_confirm
-- utter_continue 
+- utter_continue
 - utter_order_add
 - utter_default
 - utter_goodbye
 - utter_out_of_scope
+- utter_warning_nothing_to_change
 - action_restart
+- action_new_order
+- action_order_number
+- action_cancel_current_order
+- action_reset_pizza_form
 - action_confirm_time
-- action_change_time
-- action_ask_time
 - action_confirm_delivery
-- action_change_delivery
 - action_confirm_takeaway
+- action_change_time
+- action_change_delivery
 - action_change_takeaway
 - action_change_order
-- action_confirm_order
-- action_reset_pizza_form
-- action_order_number
-- action_total_order
-- action_new_order
-- action_cancel_current_order
+- action_ask_time
 - action_ask_client_name
 - action_ask_client_address
 - action_ask_client_payment
 - action_ask_client_phone_number
 - action_ask_pizza_amount
 - action_ask_pizza_type
-- action_ask_pizza_crust
 - action_ask_pizza_size
-- action_wait
-- action_get_menu
+- action_ask_pizza_toppings
 - action_get_pizza_ingredients
 - action_get_crusts_price
 - action_get_available_toppings
+- action_pizza_order_add
+- action_pizza_type_mapping
+- action_pizza_size_mapping
+- action_pizza_amount_mapping
+- action_pizza_crust_mapping
+- action_pizza_toppings_mapping
+- action_client_name_mapping
+- action_client_phone_number_mapping
+- action_client_address_mapping
+- action_client_payment_mapping
+- action_time_mapping
 - validate_pizza_order_form
 - validate_delivery_form
 - validate_takeaway_form
-
 forms:
   pizza_order_form:
     required_slots:
-    - pizza_amount
     - pizza_type
+    - pizza_amount
     - pizza_size
     - pizza_crust
+    - pizza_toppings
   delivery_form:
     required_slots:
     - client_name
@@ -319,4 +386,3 @@ forms:
     required_slots:
     - client_name
     - client_phone_number
-
