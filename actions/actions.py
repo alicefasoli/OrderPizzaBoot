@@ -258,6 +258,7 @@ class ActionPizzaOrderAdd(Action):
         return 'action_pizza_order_add'
     async def run(self, dispatcher, tracker, domain):
         current_order = tracker.get_slot("current_order")
+        print(current_order)
         if current_order is None:
             dispatcher.utter_message(text="Sorry, there is an error. You have no open order.")
             return []
@@ -273,6 +274,7 @@ class ActionPizzaOrderAdd(Action):
         toppings =  tracker.get_slot('pizza_toppings')
         
         price_column = f'price_{size}'
+        total_price = 0
         
         if toppings is not None:
             n_toppings = len(toppings.split(','))
@@ -290,12 +292,12 @@ class ActionPizzaOrderAdd(Action):
             cursor.execute(query2, (crust,))
             crusts_price = cursor.fetchall()
             
+            total_price = (pizza_price + crusts_price + n_toppings) * amount        
+            dispatcher.utter_message(text=f"Your pizza(s) has been placed successfully! Your partial price is {total_price}$.")
+            
             connection.close()
         except sqlite3.Error as e:
             print(f"An error occurred: {e}")
-            
-        total_price = (pizza_price + crusts_price + n_toppings) * amount        
-        dispatcher.utter_message(text=f"Your pizza(s) has been placed successfully! Your partial price is {total_price}$.")
         
         return [SlotSet("total_order", total_order), 
                 SlotSet("total_price", total_price), 
@@ -327,6 +329,7 @@ class ActionOrderNumber(Action):
         name_person = tracker.get_slot("client_name")
         number_person = tracker.get_slot("client_phone_number")
         order_number =  str(name_person + "_" + number_person)
+        dispatcher.utter_message(text=f"Remember your order number {order_number}.")
         return[SlotSet("order_number", order_number)]
 
 class ValidatePizzaOrderForm(FormValidationAction):
@@ -432,7 +435,7 @@ class ValidatePizzaOrderForm(FormValidationAction):
                 return {"pizza_amount": slot_value}
             else:
                 dispatcher.utter_message(text="Please tell me a valid amount.")
-                dispatcher.utter_message(reponse="utter_inform_pizza_amount")
+                dispatcher.utter_message(response="utter_inform_pizza_amount")
                 return {"pizza_amount": None}
         elif isinstance(slot_value, list):
             if len(slot_value) > 0:
@@ -440,7 +443,7 @@ class ValidatePizzaOrderForm(FormValidationAction):
                 return {"pizza_amount": concatenated_slot}
             else:
                 dispatcher.utter_message(text="Please tell me a valid amount.")
-                dispatcher.utter_message(reponse="utter_inform_pizza_amount")
+                dispatcher.utter_message(response="utter_inform_pizza_amount")
                 return {"pizza_amount": None}
     def validate_pizza_size(
         self,
@@ -453,7 +456,7 @@ class ValidatePizzaOrderForm(FormValidationAction):
             dispatcher.utter_message(text="No size provided. Setting the default size to 'medium'.")
             return {"pizza_size": "medium"}
         
-        if isinstance(slot_value, str):
+        if isinstance(slot_value, str):            
             if slot_value.lower() in ["small", "medium", "large", "extra large"]:
                 self.warn_user_one_at_time(dispatcher, tracker, domain)
                 return {"pizza_size": slot_value}
@@ -497,7 +500,7 @@ class ValidatePizzaOrderForm(FormValidationAction):
                 dispatcher.utter_message(text="Please tell me a valid crust type.")
                 dispatcher.utter_message(response="utter_inform_pizza_crust")
                 return {"pizza_crust": None}
-    def validate_toppings(
+    def validate_pizza_toppings(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
@@ -505,8 +508,8 @@ class ValidatePizzaOrderForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         """Validate the toppings slot, considering it as optional."""
-        if slot_value is None:
-            return {"pizza_toppings": []}
+        if slot_value == "no":
+            return {"pizza_toppings": None}
 
         if isinstance(slot_value, str):
             toppings_list = [topping.strip() for topping in slot_value.split(",") if topping.strip()]
@@ -617,7 +620,7 @@ class ActionAskPizzaAmount(Action):
     def name(self):
         return 'action_ask_pizza_amount'
     async def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message(reponse="utter_ask_pizza_amount")
+        dispatcher.utter_message(response="utter_ask_pizza_amount")
         return []
     
 class ActionAskPizzaType(Action):
@@ -631,23 +634,21 @@ class ActionAskPizzaSize(Action):
     def name(self):
         return 'action_ask_pizza_size'
     async def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message(reponse="utter_ask_pizza_size")
+        dispatcher.utter_message(response="utter_ask_pizza_size")
         return []
 
-    
 class ActionAskPizzaCrust(Action):
     def name(self):
         return 'action_ask_pizza_crust'
     async def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message(reponse="utter_ask_pizza_crust")
+        dispatcher.utter_message(response="utter_ask_pizza_crust")
         return []
-    
-    
+       
 class ActionAskPizzaToppings(Action):
     def name(self):
         return 'action_ask_pizza_toppings'
     async def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message(reponse="utter_ask_pizza_toppings")
+        dispatcher.utter_message(response="utter_ask_pizza_toppings")
         return []
     
 class ActionChangeOrder(Action):
@@ -896,29 +897,29 @@ class ActionAskClientName(Action):
     def name(self):
         return 'action_ask_client_name'
     async def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message(reponse="utter_ask_client_name")
+        dispatcher.utter_message(response="utter_ask_client_name")
         return []
     
 class ActionAskClientPhoneNumber(Action):
     def name(self):
         return 'action_ask_client_phone_number'
     async def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message(reponse="utter_ask_client_phone_number")
+        dispatcher.utter_message(response="utter_ask_client_phone_number")
         return []
     
 class ActionAskClientAddress(Action):
     def name(self):
         return 'action_ask_client_address'
     async def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message(reponse="utter_ask_client_address")
+        dispatcher.utter_message(response="utter_ask_client_address")
         return []
     
 class ActionAskClientPayment(Action):
     def name(self):
         return 'action_ask_client_payment'
     async def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message(reponse="utter_ask_client_payment")
-        dispatcher.utter_message(reponse="utter_inform_client_payment")
+        dispatcher.utter_message(response="utter_ask_client_payment")
+        dispatcher.utter_message(response="utter_inform_client_payment")
         return []
     
 class ActionConfirmDelivery(Action):
@@ -1044,10 +1045,10 @@ class ActionAskTime(Action):
         if time is None:
             takeaway_flag = tracker.get_slot("takeaway_flag")
             if takeaway_flag:
-                dispatcher.utter_message(reponse="utter_time_takeaway")
+                dispatcher.utter_message(response="utter_time_takeaway")
                 return []
             else:
-                dispatcher.utter_message(reponse="utter_time_delivery")
+                dispatcher.utter_message(response="utter_time_delivery")
                 return []
             
         return []

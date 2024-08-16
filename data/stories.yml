@@ -55,16 +55,6 @@ stories:
   - intent: request_pizza_crusts
   - action: utter_inform_pizza_crust
   - action: pizza_order_form
-- story: pizza order toppings
-  steps:
-  - intent: order_pizza_question
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
-  - slot_was_set:
-    - requested_slot: pizza_crust 
-  - intent: request_pizza_crusts
-  - action: utter_inform_pizza_crust
-  - action: pizza_order_form
 - story: pizza order type
   steps:
   - intent: order_pizza_question
@@ -74,6 +64,16 @@ stories:
     - requested_slot: pizza_type 
   - intent: request_pizza_types
   - action: action_get_menu
+  - action: pizza_order_form
+- story: pizza order size
+  steps:
+  - intent: order_pizza_question
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_type 
+  - intent: request_pizza_sizes
+  - action: utter_inform_pizza_size
   - action: pizza_order_form
 - story: pizza order toppings
   steps:

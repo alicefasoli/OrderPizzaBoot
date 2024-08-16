@@ -390,6 +390,7 @@ forms:
     - pizza_amount
     - pizza_size
     - pizza_crust
+    - pizza_toppings
   delivery_form:
     required_slots:
     - client_name

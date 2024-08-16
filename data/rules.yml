@@ -119,6 +119,7 @@ rules:
   steps:
   - intent: goodbye
   - action: utter_goodbye
+  - action: action_order_number
 - rule: change item
   steps:
   - intent: item_change_request_without_entity

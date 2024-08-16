@@ -642,6 +642,8 @@ nlu:
     - Can you give me details about [gorgonzola and walnuts](pizza_type) pizza?
 - intent: order_pizza_question
   examples: |
+    - i want [no](pizza_toppings) toppings
+    - [no](pizza_toppings) toppings
     - i want to buy a pizza
     - i want to order [olives](pizza_toppings) and [onion](pizza_toppings) pizza
     - I want pizza
