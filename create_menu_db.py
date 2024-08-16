@@ -54,7 +54,7 @@ def insert_crust_item(name):
     cursor.execute('''
         INSERT INTO crust (type, price)
         VALUES (?, ?)
-    ''', (name, price))
+    ''', (name.lower(), price))
     conn.commit()
     conn.close()
 
@@ -77,7 +77,7 @@ def insert_menu_item(name, price):
     cursor.execute('''
         INSERT INTO menu (name, price_small, price_medium, price_large, price_extra_large)
         VALUES (?, ?, ?, ?, ?)
-    ''', (name, price_small, price_medium, price_large, price_extra_large))
+    ''', (name.lower(), price_small, price_medium, price_large, price_extra_large))
     conn.commit()
     conn.close()
 
@@ -87,7 +87,7 @@ def insert_ingredient(ingredient):
     cursor.execute('''
         INSERT OR IGNORE INTO ingredients (ingredient)
         VALUES (?)
-    ''', (ingredient,))
+    ''', (ingredient.lower(),))
     conn.commit()
     conn.close()
     
@@ -95,7 +95,7 @@ def get_ingredient_id(ingredient):
     conn = sqlite3.connect('menu.db')
     cursor = conn.cursor()
     cursor.execute('''
-        SELECT id FROM ingredients WHERE ingredient = ?
+        SELECT id FROM ingredients WHERE ingredient LIKE ?
     ''', (ingredient,))
     result = cursor.fetchone()
     conn.close()
@@ -105,7 +105,7 @@ def get_menu_id(name):
     conn = sqlite3.connect('menu.db')
     cursor = conn.cursor()
     cursor.execute('''
-        SELECT id FROM menu WHERE name = ?
+        SELECT id FROM menu WHERE name LIKE ?
     ''', (name,))
     result = cursor.fetchone()
     conn.close()
@@ -145,7 +145,7 @@ def get_ingredients_for_pizza(pizza_name):
         FROM ingredients i
         JOIN pizza_ingredients pi ON i.id = pi.ingredient_id
         JOIN menu m ON pi.pizza_id = m.id
-        WHERE m.name = ?
+        WHERE m.name LIKE ?
     '''
     cursor.execute(query, (pizza_name,))
     ingredients = cursor.fetchall()
@@ -226,8 +226,15 @@ if __name__ == "__main__":
     # for c in crusts_table:
     #     print(c)
         
+    # table = show_table_data('pizza_ingredients')
+    # for t in table:
+    #     print(t)
+        
     # menu = get_pizza_names()
+    # print(menu)
     # print('Menu in database')
+    # ingredients = get_ingredients_for_pizza("margherita")
+    # print(ingredients)
     # for m in menu:
     #     ingredients = get_ingredients_for_pizza(m)
     #     print(m, ":", ingredients)

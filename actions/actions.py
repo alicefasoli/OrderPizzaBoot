@@ -93,7 +93,7 @@ class ActionGetPizzaIngredients(Action):
             FROM ingredients i
             JOIN pizza_ingredients pi ON i.id = pi.ingredient_id
             JOIN menu m ON pi.pizza_id = m.id
-            WHERE m.name = ?
+            WHERE m.name LIKE ?
         '''
         cursor.execute(query, (pizza_type,))
         ingredients = cursor.fetchall()
@@ -107,7 +107,7 @@ class ActionGetPizzaIngredients(Action):
             dispatcher.utter_message(text=f"Sorry, I couldn't find the ingredients for the pizza named {pizza_type}.")
 
         connection.close()
-        return []
+        return [SlotSet("pizza_type", None)]
 
 class ActionGetAvailableToppings(Action):
     def name(self) -> Text:
@@ -160,10 +160,16 @@ class ActionConfirmOrder(Action):
             order_details += f"{pizza_amount} {pizza_size} {pizza_crust} crust {pizza_type} {toppings}"
         else:
             order_details += f"{pizza_amount} {pizza_size} {pizza_crust} crust {pizza_type}"
-        if tracker.get_slot("second_pizza_amount") is not None or tracker.get_slot("second_pizza_type") is not None or tracker.get_slot("second_pizza_size") is not None or tracker.get_slot("second_pizza_crust") is not None:
-            dispatcher.utter_message(text="At the moment, the order is "+ order_details + ". Is everything correct?")
+            
+        last_intent = tracker.get_intent_of_latest_message()
+        if last_intent == "current_order":
+            dispatcher.utter_message(text="Your order is " + order_details)
         else:
-            dispatcher.utter_message(text="Your order is "+ order_details +". Is everything correct?")
+            if tracker.get_slot("second_pizza_amount") is not None or tracker.get_slot("second_pizza_type") is not None or tracker.get_slot("second_pizza_size") is not None or tracker.get_slot("second_pizza_crust") is not None:
+                dispatcher.utter_message(text="At the moment, the order is "+ order_details + ". Is everything correct?")
+            else:
+                dispatcher.utter_message(text="Your order is "+ order_details +". Is everything correct?")
+        
         old_order = tracker.get_slot("current_order")
         current_order = (old_order + [order_details]) if old_order is not None else [order_details]
         return [SlotSet("current_order", current_order)]
@@ -400,7 +406,7 @@ class ValidatePizzaOrderForm(FormValidationAction):
                 self.warn_user_one_at_time(dispatcher, tracker, domain)
                 return {"pizza_type": slot_value}
             else:
-                dispatcher.utter_message(text="Please tell me a valid pizza type.")
+                dispatcher.utter_message(text="Please tell me a valid pizza type. This is not in the menu.")
                 dispatcher.utter_message(response="action_get_menu")
                 return {"pizza_type": None}
         elif isinstance(slot_value, list):
@@ -408,6 +414,8 @@ class ValidatePizzaOrderForm(FormValidationAction):
                 concatenated_slot = ", ".join(slot_value)
                 return {"pizza_type": concatenated_slot}
             else:
+                dispatcher.utter_message(text="Please tell me a valid pizza type.")
+                dispatcher.utter_message(response="action_get_menu")
                 return {"pizza_type": None}
     def validate_pizza_amount(
         self,
@@ -520,9 +528,9 @@ class ValidatePizzaOrderForm(FormValidationAction):
             return {"pizza_toppings": None}
         return {"pizza_toppings": toppings_list}
     
-class ActionPizzaTypeMapping(Action):
+class ActionTypeMapping(Action):
     def name(self) -> Text:
-        return "action_pizza_type_mapping"
+        return "action_type_mapping"
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         last_intent = tracker.get_intent_of_latest_message()
         if last_intent == "order_pizza_question" or last_intent == "init_pizza_question": 
@@ -537,9 +545,9 @@ class ActionPizzaTypeMapping(Action):
                     return [SlotSet("pizza_type", pizza_type)]
         return []
     
-class ActionPizzaSizeMapping(Action):
+class ActionSizeMapping(Action):
     def name(self) -> Text:
-        return "action_pizza_size_mapping"
+        return "action_size_mapping"
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         last_intent = tracker.get_intent_of_latest_message()
         if last_intent == "order_pizza_question": 
@@ -554,9 +562,9 @@ class ActionPizzaSizeMapping(Action):
                     return [SlotSet("pizza_size", pizza_size)]
         return []
     
-class ActionPizzaAmountMapping(Action):
+class ActionAmountMapping(Action):
     def name(self) -> Text:
-        return "action_pizza_amount_mapping"
+        return "action_amount_mapping"
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         last_intent = tracker.get_intent_of_latest_message()
         if last_intent == "order_pizza_question": 
@@ -571,9 +579,9 @@ class ActionPizzaAmountMapping(Action):
                     return [SlotSet("pizza_amount", pizza_amount)]
         return []
     
-class ActionPizzaCrustMapping(Action):
+class ActionCrustMapping(Action):
     def name(self) -> Text:
-        return "action_pizza_crust_mapping"
+        return "action_crust_mapping"
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         last_intent = tracker.get_intent_of_latest_message()
         if last_intent == "order_pizza_question": 
@@ -588,9 +596,9 @@ class ActionPizzaCrustMapping(Action):
                     return [SlotSet("pizza_crust", pizza_crust)]
         return []
 
-class ActionPizzaToppingsMapping(Action):
+class ActionToppingsMapping(Action):
     def name(self) -> Text:
-        return "action_pizza_toppings_mapping"
+        return "action_toppings_mapping"
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         last_intent = tracker.get_intent_of_latest_message()
         if last_intent == "order_pizza_question": 
@@ -609,63 +617,37 @@ class ActionAskPizzaAmount(Action):
     def name(self):
         return 'action_ask_pizza_amount'
     async def run(self, dispatcher, tracker, domain):
-        last_intent = tracker.get_intent_of_latest_message()
-        if last_intent == "request_pizza_amount":
-            dispatcher.utter_message(reponse="utter_inform_pizza_amount")
-        pizza_amount = tracker.get_slot("pizza_amount")
-        if not pizza_amount:
-            dispatcher.utter_message(reponse="utter_ask_pizza_amount")
-            return []
-
-        dispatcher.utter_message(text=f"You have already selected a pizza amount for this pizza {pizza_amount}. Let me know if you want to change it.")
+        dispatcher.utter_message(reponse="utter_ask_pizza_amount")
         return []
     
 class ActionAskPizzaType(Action):
     def name(self):
         return 'action_ask_pizza_type'
     async def run(self, dispatcher, tracker, domain):
-        pizza_type = tracker.get_slot("pizza_type")
-        if pizza_type is None:
-            dispatcher.utter_message(reponse="utter_ask_pizza_type")
-            return []
-
-        dispatcher.utter_message(text=f"You have already selected a {pizza_type} pizza. Let me know if you want to change it.")
+        dispatcher.utter_message(response="utter_ask_pizza_type")
         return []
     
 class ActionAskPizzaSize(Action):
     def name(self):
         return 'action_ask_pizza_size'
     async def run(self, dispatcher, tracker, domain):
-        pizza_size = tracker.get_slot("pizza_size")
-        if not pizza_size:
-            dispatcher.utter_message(reponse="utter_ask_pizza_size")
-            return []
-
-        dispatcher.utter_message(text=f"You have already selected a {pizza_size} pizza. Let me know if you want to change it.")
+        dispatcher.utter_message(reponse="utter_ask_pizza_size")
         return []
+
     
 class ActionAskPizzaCrust(Action):
     def name(self):
         return 'action_ask_pizza_crust'
     async def run(self, dispatcher, tracker, domain):
-        pizza_crust = tracker.get_slot("pizza_crust")
-        if not pizza_crust:
-            dispatcher.utter_message(reponse="utter_ask_pizza_crust")
-            return []
-
-        dispatcher.utter_message(text=f"You have already selected a {pizza_crust} crust for this pizza. Let me know if you want to change it.")
+        dispatcher.utter_message(reponse="utter_ask_pizza_crust")
         return []
+    
     
 class ActionAskPizzaToppings(Action):
     def name(self):
         return 'action_ask_pizza_toppings'
     async def run(self, dispatcher, tracker, domain):
-        pizza_toppings = tracker.get_slot("pizza_toppings")
-        if pizza_toppings is None:
-            dispatcher.utter_message(reponse="utter_ask_pizza_toppings")
-            return []
-        
-        dispatcher.utter_message(text=f"You have already selected the toppings ({pizza_toppings}) for this pizza. Let me know if you want to change it.")
+        dispatcher.utter_message(reponse="utter_ask_pizza_toppings")
         return []
     
 class ActionChangeOrder(Action):
@@ -914,45 +896,29 @@ class ActionAskClientName(Action):
     def name(self):
         return 'action_ask_client_name'
     async def run(self, dispatcher, tracker, domain):
-        client_name = tracker.get_slot("client_name")
-        if client_name is None:
-            dispatcher.utter_message(reponse="utter_ask_client_name")
-            return []
-        
+        dispatcher.utter_message(reponse="utter_ask_client_name")
         return []
     
 class ActionAskClientPhoneNumber(Action):
     def name(self):
         return 'action_ask_client_phone_number'
     async def run(self, dispatcher, tracker, domain):
-        client_phone_number = tracker.get_slot("client_phone_number")
-        if client_phone_number is None:
-            dispatcher.utter_message(reponse="utter_ask_client_phone_number")
-            return []
-        
+        dispatcher.utter_message(reponse="utter_ask_client_phone_number")
         return []
     
 class ActionAskClientAddress(Action):
     def name(self):
         return 'action_ask_client_address'
     async def run(self, dispatcher, tracker, domain):
-        client_address = tracker.get_slot("client_address")
-        if client_address is None:
-            dispatcher.utter_message(reponse="utter_ask_client_address")
-            return []
-        
+        dispatcher.utter_message(reponse="utter_ask_client_address")
         return []
     
 class ActionAskClientPayment(Action):
     def name(self):
         return 'action_ask_client_payment'
     async def run(self, dispatcher, tracker, domain):
-        client_payment = tracker.get_slot("client_payment")
-        if client_payment is None:
-            dispatcher.utter_message(reponse="utter_ask_client_payment")
-            dispatcher.utter_message(reponse="utter_inform_client_payment")
-            return []
-        
+        dispatcher.utter_message(reponse="utter_ask_client_payment")
+        dispatcher.utter_message(reponse="utter_inform_client_payment")
         return []
     
 class ActionConfirmDelivery(Action):

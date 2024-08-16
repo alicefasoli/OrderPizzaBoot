@@ -119,3 +119,12 @@ rules:
   steps:
   - intent: goodbye
   - action: utter_goodbye
+- rule: change item
+  steps:
+  - intent: item_change_request_without_entity
+  - action: utter_ask_changes
+- rule: current order
+  steps:
+  - intent: current_order
+  - action: action_confirm_order
+

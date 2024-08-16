@@ -39,6 +39,7 @@ intents:
 - time_change_request_without_entity
 - verbose
 - welcome_greet
+- current_order
 entities:
 - pizza_amount
 - pizza_type
@@ -77,31 +78,31 @@ slots:
     influence_conversation: true
     mappings:
     - type: custom
-      action: action_pizza_amount_mapping
+      action: action_amount_mapping
   pizza_size:
     type: text
     influence_conversation: true
     mappings:
     - type: custom
-      action: action_pizza_size_mapping
+      action: action_size_mapping
   pizza_type:
     type: text
     influence_conversation: true
     mappings:
     - type: custom
-      action: action_pizza_type_mapping
+      action: action_type_mapping
   pizza_crust:
     type: text
     influence_conversation: true
     mappings:
     - type: custom
-      action: action_pizza_crust_mapping
+      action: action_crust_mapping
   pizza_toppings:
     type: list
     influence_conversation: true
     mappings:
     - type: custom
-      action: action_pizza_toppings_mapping
+      action: action_toppings_mapping
   client_name:
     type: text
     influence_conversation: true
@@ -211,6 +212,20 @@ slots:
     mappings:
     - type: from_entity
       entity: second_pizza_toppings
+  requested_slot:
+    type: categorical
+    influence_conversation: true
+    values:
+      - pizza_amount
+      - pizza_type
+      - pizza_size
+      - pizza_crust
+      - client_name
+      - client_phone_number
+      - client_address
+      - client_payment
+    mappings:
+      - type: custom
 responses:
   utter_out_of_scope:
   - text: Sorry, I can't handle that request.
@@ -268,7 +283,7 @@ responses:
   utter_ask_pizza_type:
     - text: What type of pizza do you want?
   utter_ask_pizza_amount:
-    - text: How many pizzas of {pizza_type} do you want?
+    - text: How many pizzas do you want?
   utter_ask_pizza_crust:
   - text: What type of crust do you want?
   utter_ask_pizza_size:
@@ -355,11 +370,11 @@ actions:
 - action_get_crusts_price
 - action_get_available_toppings
 - action_pizza_order_add
-- action_pizza_type_mapping
-- action_pizza_size_mapping
-- action_pizza_amount_mapping
-- action_pizza_crust_mapping
-- action_pizza_toppings_mapping
+- action_type_mapping
+- action_size_mapping
+- action_amount_mapping
+- action_crust_mapping
+- action_toppings_mapping
 - action_client_name_mapping
 - action_client_phone_number_mapping
 - action_client_address_mapping
@@ -375,7 +390,6 @@ forms:
     - pizza_amount
     - pizza_size
     - pizza_crust
-    - pizza_toppings
   delivery_form:
     required_slots:
     - client_name
