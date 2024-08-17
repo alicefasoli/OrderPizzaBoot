@@ -4,7 +4,7 @@ rules:
   condition:
     - active_loop: null
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
 - rule: activate form delivery
@@ -110,7 +110,7 @@ rules:
   steps:
   - intent: bot
   - action: utter_i_am_bot
-  wait_for_user_input: false
+  - action: utter_something_else
 - rule: bot skills
   steps:
   - intent: bot_skills

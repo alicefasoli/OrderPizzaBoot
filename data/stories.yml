@@ -4,20 +4,10 @@ stories:
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
-  - checkpoint: init
-- story: greeting bot
-  steps:
-  - checkpoint: init
   - intent: bot
   - action: utter_i_am_bot
-- story: get menu
-  steps:
-  - checkpoint: init
   - intent: request_pizza_types
   - action: action_get_menu
-- story: get menu clarification
-  steps:
-  - checkpoint: init
   - intent: request_pizza_types
   - action: action_get_menu
   - intent: init_pizza_question 
@@ -26,18 +16,18 @@ stories:
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_type
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
 - story: pizza order amount
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -47,7 +37,7 @@ stories:
   - action: pizza_order_form
 - story: pizza order crust
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -57,7 +47,7 @@ stories:
   - action: pizza_order_form
 - story: pizza order type
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -67,7 +57,7 @@ stories:
   - action: pizza_order_form
 - story: pizza order size
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -77,7 +67,7 @@ stories:
   - action: pizza_order_form
 - story: pizza order toppings
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -87,7 +77,7 @@ stories:
   - action: pizza_order_form
 - story: amount order pizza 
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -97,12 +87,12 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
 - story: type order pizza 
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -112,12 +102,12 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_type
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
 - story: size order pizza 
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -127,12 +117,12 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_size
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
 - story: crust order pizza without price
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -142,12 +132,12 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_crust
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
 - story: crust order pizza with price
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -159,12 +149,12 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_crust
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
 - story: toppings order pizza 
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -174,12 +164,12 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_toppings
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
 - story: amount and size pizza order 
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -189,11 +179,11 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_size
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: null
@@ -224,24 +214,24 @@ stories:
   - intent: order_anti_pizza
   - action: utter_anti_pizza
   - action: action_get_menu
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_type
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - active_loop: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_size
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_crust
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - intent: response_positive
   - action: pizza_order_form
@@ -252,7 +242,7 @@ stories:
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -262,7 +252,7 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_type
@@ -271,7 +261,7 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_type
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_size
@@ -280,7 +270,7 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_size
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_crust
@@ -289,7 +279,7 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_crust
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - intent: response_positive
   - action: pizza_order_form
@@ -301,7 +291,7 @@ stories:
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -311,7 +301,7 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_type
@@ -320,7 +310,7 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_type
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_size
@@ -329,7 +319,7 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_size
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_crust
@@ -340,7 +330,7 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_crust
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - intent: response_negative
   - action: pizza_order_form
@@ -351,7 +341,7 @@ stories:
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -361,7 +351,7 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_type
@@ -372,7 +362,7 @@ stories:
     - requested_slot: pizza_type
 - story: order correct 2
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -382,7 +372,7 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_type
@@ -391,13 +381,13 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_type
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_size
 - story: stop order 1
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -424,7 +414,7 @@ stories:
   - action: utter_something_else
 - story: stop order 2
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -451,7 +441,7 @@ stories:
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -485,7 +475,7 @@ stories:
     - pizza_amount: null
   - action: utter_order_cancelation_confirm
   - action: utter_something_else
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -494,7 +484,7 @@ stories:
     - requested_slot: pizza_type
 - story: stop order 3
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -523,7 +513,7 @@ stories:
   - action: utter_something_else
 - story: stop order 4
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -556,7 +546,7 @@ stories:
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -575,7 +565,7 @@ stories:
     - current_order: 1 medium Margherita
 - story: stop order 5
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -602,7 +592,7 @@ stories:
   - action: utter_something_else
 - story: stop order 6
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -624,7 +614,7 @@ stories:
   - action: action_confirm_order
 - story: stop order 7
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -646,7 +636,7 @@ stories:
   - action: action_confirm_order
 - story: stop order 8
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -671,7 +661,7 @@ stories:
   - action: action_confirm_order
 - story: stop order 9
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -693,7 +683,7 @@ stories:
   - action: action_confirm_order
 - story: stop order 10
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -715,7 +705,7 @@ stories:
   - action: action_confirm_order
 - story: stop order 11
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -737,7 +727,7 @@ stories:
   - action: action_confirm_order
 - story: stop order 15
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -766,7 +756,7 @@ stories:
   - action: utter_something_else
 - story: stop order 12
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -799,7 +789,7 @@ stories:
   - action: utter_something_else
 - story: stop order 13
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -834,7 +824,7 @@ stories:
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -858,7 +848,7 @@ stories:
     - requested_slot: pizza_type
 - story: order for 3 and stop
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -909,7 +899,7 @@ stories:
   - intent: bot
   - action: utter_i_am_bot
   - action: utter_something_else
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -952,16 +942,16 @@ stories:
   - action: utter_something_else
 - story: amount over informative
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
 - story: change pizza amount
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - intent: item_change
@@ -969,7 +959,7 @@ stories:
   - action: pizza_order_form
 - story: change pizza order
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - intent: item_change
@@ -1000,7 +990,7 @@ stories:
     - current_order: two small tuna and onions. 
 - story: change order vague
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - intent: item_change_request_without_entity
@@ -1010,7 +1000,7 @@ stories:
   - action: pizza_order_form
 - story: change order vague 2
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - intent: item_change_request_without_entity
@@ -1020,7 +1010,7 @@ stories:
   - action: pizza_order_form
 - story: change order vague 3
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - intent: item_change_request_without_entity
@@ -1030,7 +1020,7 @@ stories:
   - action: pizza_order_form
 - story: change order vague 4
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -1042,7 +1032,7 @@ stories:
   - action: pizza_order_form
 - story:  change order vague 5
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - intent: item_change_request_without_entity
@@ -1052,7 +1042,7 @@ stories:
   - action: pizza_order_form
 - story: two different pizzas order
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - active_loop: null
@@ -1083,7 +1073,7 @@ stories:
   - action: action_total_order  
 - story: negative pizza order
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - active_loop: null
@@ -1102,7 +1092,7 @@ stories:
   - checkpoint: new order confirmation
 - story: change and negative order
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - active_loop: null
@@ -1126,7 +1116,7 @@ stories:
   - action: action_total_order
 - story: order over informative
   steps:
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - active_loop: null
@@ -1353,7 +1343,7 @@ stories:
   - action: utter_inform_bot_skills
   - intent: out_of_scope
   - action: utter_out_of_scope
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -1408,7 +1398,7 @@ stories:
   - action: utter_order_add
   - action: action_new_order
   - action: utter_something_else
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -1520,9 +1510,9 @@ stories:
   - action: action_confirm_time
   - intent: response_positive
   - action: utter_final_order
-  - action: utter_goodbye
   - intent: goodbye
   - action: utter_goodbye
+  - action: action_order_number
 - story: change time vague
   steps:
   - checkpoint: checkpoint_time
@@ -1534,7 +1524,9 @@ stories:
   - action: action_confirm_time
   - intent: response_positive
   - action: utter_final_order
+  - intent: goodbye
   - action: utter_goodbye
+  - action: action_order_number
 - story: interactive_story_1
   steps:
   - intent: welcome_greet
@@ -1544,7 +1536,7 @@ stories:
   - intent: bot
   - action: utter_i_am_bot
   - action: utter_something_else
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -1554,7 +1546,7 @@ stories:
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_type
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
     entities:
     - pizza_type: margherita
   - slot_was_set:
@@ -1564,7 +1556,7 @@ stories:
     - pizza_type: Margherita
   - slot_was_set:
     - requested_slot: pizza_amount
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
     entities:
     - pizza_amount: '3'
   - slot_was_set:
@@ -1574,7 +1566,7 @@ stories:
     - pizza_amount: '3'
   - slot_was_set:
     - requested_slot: pizza_size
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
     entities:
     - pizza_size: small
   - slot_was_set:
@@ -1593,13 +1585,13 @@ stories:
     - pizza_crust: crust
   - action: utter_inform_pizza_crust
   - action: action_ask_pizza_crust
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
     entities:
     - pizza_crust: stuffed
   - slot_was_set:
     - pizza_crust: stuffed
   - action: action_default_fallback
-  - intent: order_pizza_question
+  - intent: order_pizza_inform
     entities:
     - pizza_crust: thin
   - slot_was_set:

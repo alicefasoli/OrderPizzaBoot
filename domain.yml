@@ -13,7 +13,7 @@ intents:
 - item_change_request_without_entity
 - order_anti_pizza
 - order_delivery
-- order_pizza_question
+- order_pizza_inform
 - order_takeaway
 - out_of_scope
 - request_payment_methods
@@ -132,7 +132,7 @@ slots:
     mappings:
     - type: from_entity
       entity: order_number
-  modify_pizza_order:
+  modify_pizza_order: 
     type: bool
     influence_conversation: true
     mappings:
@@ -220,10 +220,12 @@ slots:
       - pizza_type
       - pizza_size
       - pizza_crust
+      - pizza_toppings
       - client_name
       - client_phone_number
       - client_address
       - client_payment
+      - time
     mappings:
       - type: custom
 responses:

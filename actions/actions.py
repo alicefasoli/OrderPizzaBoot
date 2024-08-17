@@ -360,7 +360,7 @@ class ValidatePizzaOrderForm(FormValidationAction):
         try:
             connection = sqlite3.connect('menu.db')
             cursor = connection.cursor()
-            cursor.execute("SELECT ingredent FROM ingredients")
+            cursor.execute("SELECT ingredient FROM ingredients")
             results = cursor.fetchall()
             toppings = [row[0] for row in results]
             connection.close()
@@ -536,7 +536,7 @@ class ActionTypeMapping(Action):
         return "action_type_mapping"
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         last_intent = tracker.get_intent_of_latest_message()
-        if last_intent == "order_pizza_question" or last_intent == "init_pizza_question": 
+        if last_intent == "order_pizza_inform" or last_intent == "init_pizza_question": 
             pizza_type = tracker.get_slot("pizza_type")
             ent_pizza_type = next(tracker.get_latest_entity_values("pizza_type"), None)
             if ent_pizza_type is None:
@@ -553,7 +553,7 @@ class ActionSizeMapping(Action):
         return "action_size_mapping"
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         last_intent = tracker.get_intent_of_latest_message()
-        if last_intent == "order_pizza_question": 
+        if last_intent == "order_pizza_inform": 
             pizza_size = tracker.get_slot("pizza_size")
             ent_pizza_size = next(tracker.get_latest_entity_values("pizza_size"), None)
             if ent_pizza_size is None:
@@ -570,7 +570,7 @@ class ActionAmountMapping(Action):
         return "action_amount_mapping"
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         last_intent = tracker.get_intent_of_latest_message()
-        if last_intent == "order_pizza_question": 
+        if last_intent == "order_pizza_inform": 
             pizza_amount = tracker.get_slot("pizza_amount")
             ent_pizza_amount = next(tracker.get_latest_entity_values("pizza_amount"), None)
             if ent_pizza_amount is None:
@@ -587,7 +587,7 @@ class ActionCrustMapping(Action):
         return "action_crust_mapping"
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         last_intent = tracker.get_intent_of_latest_message()
-        if last_intent == "order_pizza_question": 
+        if last_intent == "order_pizza_inform": 
             pizza_crust = tracker.get_slot("pizza_crust")
             ent_pizza_crust = next(tracker.get_latest_entity_values("pizza_crust"), None)
             if ent_pizza_crust is None:
@@ -604,7 +604,7 @@ class ActionToppingsMapping(Action):
         return "action_toppings_mapping"
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         last_intent = tracker.get_intent_of_latest_message()
-        if last_intent == "order_pizza_question": 
+        if last_intent == "order_pizza_inform": 
             pizza_toppings = tracker.get_slot("pizza_toppings")
             ent_pizza_toppings = next(tracker.get_latest_entity_values("pizza_toppings"), None)
             if ent_pizza_toppings is None:

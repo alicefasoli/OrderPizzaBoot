@@ -1,5 +1,10 @@
 version: "3.1"
 nlu:
+- intent: current_order
+  examples: |
+    - What is my current order?
+    - What have I ordered so far?
+    - Can you show me the order summary?
 - intent: bot_skills
   examples: |
     - What can you do?
@@ -18,12 +23,12 @@ nlu:
 - intent: time
   examples: |
     - At [eight o clock](time)
-    - not before [seven pm](time)
+    - [seven pm](time)
     - At [ten pm](time)
 - intent: delivery_change
   examples: |
-    - I want to change the address, the correct one is [roma street number five trento](client_address)
-    - Change the name to [Francesca](person_name)
+    - I want to change the address, the correct one is [sommarive street number 5 Trento](client_address)
+    - Change the name to [Francesca](client_name)
     - Change the payment to [debit card](client_payment)
 - intent: request_payment_methods
   examples: |
@@ -37,19 +42,19 @@ nlu:
     - [cash](client_payment)
 - intent: response_client_name
   examples: |
-    - My name is [Francesca](person_name)
-    - I'm [Leonardo](person_name)
-    - [Luisa](person_name)
+    - My name is [Francesca](client_name)
+    - I'm [Leonardo](client_name)
+    - [Luisa](client_name)
 - intent: response_client_phone_number
   examples: |
-    - My phone number is [+39 340 410 1108](phone_number)
-    - [0458680823](person_name)
-    - My contact is [345 6452500](person_name)
+    - My phone number is [+39 340 410 1108](client_phone_number)
+    - [0458680823](client_phone_number)
+    - My contact is [345 6452500](client_phone_number)
 - intent: response_client_address
   examples: |
-    - I live in [roma street number five trento](client_address)
-    - You can find me at the address [roma street number five trento](client_address)
-    - Deliver it to [roma street number five trento](client_address)
+    - I live in [sommarive street number 5 Trento](client_address)
+    - You can find me at the address [prepositura street number sixtyfour Trento](client_address)
+    - Deliver it to [venezia street number 121 trento](client_address)
 - intent: restart
   examples: |
     - Sorry but I would like to restart the order
@@ -71,8 +76,7 @@ nlu:
 - intent: request_pizza_types
   examples: |
     - What pizza types do you make?
-    - Do you have pizza without [lactose](pizza_category)?
-    - Do you have pizza without [gluten](pizza_category)?
+    - Do you have a menu?
     - Can you tell me the list of pizza types?
 - intent: request_pizza_crusts
   examples: |
@@ -86,20 +90,25 @@ nlu:
     - Can you tell me what sizes you have please?
 - intent: welcome_greet
   examples: |
-    - Good morning I'm [Ludovica](person_name)
+    - Good morning I'm [Ludovica](client_name)
     - Good evening
-    - Hello, I'm [Pietro](person_name)
+    - Hello, I'm [Pietro](client_name)
 - intent: init_pizza_question
+  examples: |
+    - Can you tell me more about [hawaii](pizza_type) pizza?
+    - I want to know the ingredients of [margherita](pizza_type).
+    - Tell me more about [ham and mushrooms](pizza_type)
+- intent: order_pizza_inform
   examples: |
     - I would like a pizza
     - I want to order pizza
     - I want [tuna and onions](pizza_type) pizza please
-    - I want 3 [gorgonzola and noci](pizza_type) pizza please
+    - I want [3](pizza_amount) [gorgonzola and walnuts](pizza_type) pizza please
 - intent: item_change
   examples: |
-    - Sorry instead of [Margherita](pizza_type) I would like [Pepperoni](pizza_type)
-    - I would like to change the [Margherita](pizza_type) to [Hawaii](pizza_type)
-    - Could you change the pizza to [Veggie](pizza_type) please?
+    - Sorry I want to change the pizza to [Pepperoni](pizza_type)
+    - I would like to change the amount to [3](pizza_amount)
+    - Could you change the pizza to [vegetarian](pizza_type) please?
 - intent: response_negative
   examples: |
     - No
@@ -126,6 +135,7 @@ nlu:
     - Sorry can I modify the order?
     - I would like to change something in the order
     - Can I change something in the order?
+    - I want to change the crust
 - intent: delivery_change_request_without_entity
   examples: |
     - I want to change the delivery address
@@ -150,7 +160,7 @@ nlu:
   examples: |
     - Who am I talking to?
     - Am I talking to a bot
-    - Am I talking to a person_name?
+    - Am I talking to a client_name?
 - intent: request_pizza_amount
   examples: |
     - Can I get [30](pizza_amount) pizzas?
@@ -161,15 +171,25 @@ nlu:
     - What are the available toppings?
     - Can I have [ananas] (pizza_toppings) on my pizza?
     - List all the toppings
+- intent: request_pizza_crusts_price
+  examples: |
+    - How much is the crust?
+    - Are the crust options priced differently?
+    - What are the prices for different pizza crusts?
+- intent: request_pizza_toppings
+  examples: |
+    - What toppings do you have?
+    - What toppings do you recommend?
+    - What can I put on my pizza? 
 - intent: return
   examples: |
     - Delete the last pizza
     - No order
-    - Not ok
+    - Delete my order 
 - intent: takeaway_change
   examples: |
     - I want to change the phone number, the correct one is [+39 3404104100](client_phone_number)
-    - Change the name to [Pietro](person_name)
+    - Change the name to [Pietro](client_name)
     - Change the phone to [0458680823](client_phone_number)
 - intent: takeaway_change_request_without_entity
   examples: |
@@ -177,49 +197,40 @@ nlu:
     - I want to change the takeway phone number
     - I want to modify the phone number
     - There's an error, I want to change the name of the takeaway
+
 - synonym: card
   examples: |
     - credit card
     - debit card
     - visa
     - mastercard
-    - american express
-- synonym: Chicken Wings
-  examples: |
-    - chicken wings
-- synonym: Margherita
+
+- synonym: margherita
   examples: |
     - margherita
     - margarita
     - Margherita
-- synonym: Veggie
+
+- synonym: vegetarian
   examples: |
     - veggie
     - Vegetarian
     - Vegetariana
-    - vegetarian
-    - vegetable
-    - Vegetable
     - Veggie
-- synonym: Pepperoni
+
+- synonym: pepperoni
   examples: |
-    - pepperoni
-    - Pepp
     - Pepperoni
     - Peperoni
     - peperoni
-- synonym: Hawaii
+
+- synonym: hawaiian
   examples: |
-    - hawaii
     - Hawaii
     - hawaiian
     - Hawaiian
     - hawai
-    - Hawai
-- synonym: Funghi
-  examples: |
-    - funghi
-    - Funghi
+
 - synonym: small
   examples: |
     - 10 inches
@@ -230,19 +241,19 @@ nlu:
     - small
     - Small
     - size S
+
 - synonym: medium
   examples: |
     - 12 inches
     - standard
     - avg
     - average
-    - Average
     - 12"
     - 12 inch
     - Medium
-    - medium
     - twelve inch
     - size M
+
 - synonym: large
   examples: |
     - 14 inches
@@ -252,6 +263,7 @@ nlu:
     - fourteen inch
     - size L
     - big
+
 - synonym: extra large
   examples: |
     - 18 inches
@@ -260,44 +272,38 @@ nlu:
     - jumbo
     - 18 inch
     - extra large
-    - Extra large
     - XXL
     - size XXL
+
+- synonym: one
+  examples: |
+    - 1
+    - one
+    - One
+
+- synonym: two
+  examples: |
+    - 2
+    - two
+    - Two
+
+- synonym: three
+  examples: |
+    - 3
+    - three
+    - Three
+
 - synonym: thin
   examples: |
     - normal
     - thin
     - Thin
-    - tin
-    - Thinn
-    - thhin
-- synonym: Americana
-  examples: |
-    - Americana
-    - american
-- synonym: Calzone
-  examples: |
-    - Calzone
-    - Calzoni
-- synonym: Caprese
-  examples: |
-    - Caprese
-- synonym: Crudo
-  examples: |
-    - Crudo
-- synonym: Chicken BBC
-  examples: |
-    - Chicken BBC
-- synonym: Rustica
-  examples: |
-    - Rustica
+
 - synonym: cracker
   examples: |
     - cracker
     - Cracker
-    - crecker
-    - Craker
-    - crakcer
+
 - synonym: flatbread
   examples: |
     - flatbread
@@ -305,12 +311,29 @@ nlu:
     - flat bread
     - Flat bread
     - flat-bread
-    - Flat-bread
+
 - synonym: stuffed
   examples: |
     - stuffed
     - Stuffed
-    - stuff
-    - Stuff
-    - stufed
-    - Stufd
+
+- synonym: four
+  examples: |
+    - 4
+    - four
+    - Four
+
+- synonym: seven
+  examples: |
+    - 7
+    - seven
+    - Seven
+
+- synonym: eight thirty
+  examples: |
+    - 830
+
+- synonym: seven thirty
+  examples: |
+    - 730
+

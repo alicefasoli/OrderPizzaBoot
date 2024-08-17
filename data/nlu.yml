@@ -1,27 +1,1660 @@
 version: "3.1"
 nlu:
-- intent: welcome_greet
+- intent: current_order
   examples: |
-    - hi
+    - /current_order
+    - Current order?
+    - Can I have the order?
+    - What's my order status?
+    - Show me my current order.
+    - What did I order?
+    - Can you tell me what I ordered?
+    - I want to see my order.
+    - Display my order.
+    - What is in my order?
+    - Can I check my order?
+    - What's in my cart?
+    - Show my order details.
+    - How does my order look?
+    - Give me an update on my order.
 - intent: bot_skills
   examples: |
-    - what you can do
-- intent: bot
+    - What can you do?
+    - What are you good at?
+    - What can you achieve?
+    - What are your skills?
+    - What are you capable of?
+    - What can you do well?
+    - What are your talents?
+    - What are you able to do?
+    - What are your strengths?
+- intent: time_change_request_without_entity
   examples: |
-    - what are you
-- intent: order_pizza_question
+    - I want to change the time.
+    - I want to change the delivery time.
+    - I want to change the pickup time.
+    - I want to change the order time.
+    - I want to change the takeaway time.
+    - Actually, I want to change the time.
+    - Actually, I want to change the delivery time.
+    - Actually, I want to change the pickup time.
+    - Actually, I want to change the order time.
+    - Actually, I want to change the takeaway time.
+- intent: time_change
   examples: |
-    - i want to order a pizza
-    - I want a [margherita](pizza_type)
-    - [3](pizza_amount)
-    - [small](pizza_size)
-    - [thin](pizza_crust)
+    - I want to change the delivery time to [twelve pm](time).
+    - I want to change the delivery time to [one pm](time).
+    - I want to change the delivery time to [two pm](time).
+    - I want to change the delivery time to [six am](time).
+    - I want to change the delivery time to [seven pm](time).
+    - I want to change the delivery time to [eight pm](time).
+    - I want to change the delivery time to [nine pm](time).
+    - I want to change the delivery time to [ten pm](time).
+    - I want to change the delivery time to [seven](time).
+    - I want to change the time to [six pm](time).
+    - I want to change the time to [seven pm](time).
+    - I want to change the time to [eight pm](time).
+    - I want to change the time to [nine pm](time).
+    - I want to change the time to [seven](time).
+    - I want to change the time to [seven thirty](time).
+    - I want to change the time to [seven thirty pm](time).
+    - I want to change the time to [eight thirty pm](time).
+    - I want to change the time to [nine thirty pm](time).
+    - I want to change the time to [six thirty pm](time).
+    - I want to change the time to [seven thirty in the evening](time).
+    - I want to change the time to [seven thirty at night](time).
+    - I want to change the time to [half past six](time).
+    - I want to change the time to [half past seven](time).
+    - I want to change the time to [half past eight](time).
+    - I want to change the time to [half past nine](time).
+    - I want to change the time to [six fifteen pm](time).
+    - I want to change the time to [seven fifteen pm](time).
+    - I want to change the time to [eight fifteen pm](time).
+    - I want to change the time to [nine fifteen pm](time).
+    - Actually, I want to change the time to [six pm](time).
+    - Actually, I want to change the time to [seven pm](time).
+    - Actually, I want to change the time to [eight pm](time).
+    - Actually, I want to change the time to [nine pm](time).
+    - Actually, I want to change the time to [seven](time).
+    - Actually, I want to change the time to [seven thirty](time).
+    - Actually, I want to change the time to [seven thirty pm](time).
+    - Actually, I want to change the time to [eight thirty pm](time).
+    - Actually, I want to change the time to [nine thirty pm](time).
+    - Actually, I want to change the time to [six thirty pm](time).
+    - Actually, I want to change the time to [seven thirty in the evening](time).
+    - Actually, I want to change the time to [seven thirty at night](time).
+    - Actually, I want to change the time to [half past six](time).
+    - Actually, I want to change the time to [half past seven](time).
+    - Actually, I want to change the time to [half past eight](time).
+    - Actually, I want to change the time to [half past nine](time).
+    - Actually, I want to change the time to [six fifteen pm](time).
+    - Actually, I want to change the time to [seven fifteen pm](time).
+    - I've changed my mind, I want the delivery at [seven pm](time) instead.
+    - I've changed my mind, I want the delivery at [eight pm](time) instead.
+    - I've changed my mind, I want the delivery at [nine pm](time) instead.
+    - Actually, I want to change the time to [eight thirty](time).
+    - I changed my mind, I'll pick it up at [twelve](time).
+- intent: time
+  examples: |
+    - I want to pick it up at [six am](time)
+    - I want to pick it up at [seven am](time)
+    - I want to pick it up at [eight am](time)
+    - I want to pick it up at [nine am](time)
+    - I want to pick it up at [ten am](time)
+    - I want to pick it up at [eleven am](time)
+    - I want to pick it up at [six pm](time)
+    - I want to pick it up at [seven pm](time)
+    - I want to pick it up at [eight pm](time)
+    - I want to pick it up at [nine pm](time)
+    - I want to pick it up at [ten pm](time)
+    - I want to pick it up at [eleven pm](time)
+    - I want to pick it up at [midnight](time)
+    - I want to pick it up at [seven](time)
+    - I want to pick it up at [seven thirty](time)
+    - I want to pick it up at [six thirty pm](time)
+    - I want to pick it up at [eight thirty pm](time)
+    - I want to pick it up at [nine thirty pm](time)
+    - I want to pick it up at [ten thirty pm](time)
+    - I want to pick it up at [eleven thirty pm](time)
+    - I want to pick it up at [six thirty am](time)
+    - I want to pick it up at [eight thirty am](time)
+    - I want to pick it up at [nine thirty am](time)
+    - I want to pick it up at [ten thirty am](time)
+    - I want to pick it up at [eleven thirty am](time)
+    - I want to pick it up at [seven thirty in the evening](time)
+    - I want to pick it up at [seven thirty in the night](time)
+    - I want to pick it up at [seven thirty at night](time)
+    - I want to pick it up at [half past six](time)
+    - I want to pick it up at [half past seven](time)
+    - I want to pick it up at [half past eight](time)
+    - I want to pick it up at [half past nine](time)
+    - I want to pick it up at [half past ten](time)
+    - I want to pick it up at [half past eleven](time)
+    - I want to pick it up at [six fifteen pm](time)
+    - I want to pick it up at [seven fifteen pm](time)
+    - I want to pick it up at [eight fifteen pm](time)
+    - I want to pick it up at [nine fifteen pm](time)
+    - I want to pick it up at [ten fifteen pm](time)
+    - I want to pick it up at [eleven fifteen pm](time)
+    - I want to pick it up at [six forty five pm](time)
+    - I want to pick it up at [seven forty five pm](time)
+    - I want to pick it up at [eight forty five pm](time)
+    - I want to pick it up at [nine forty five pm](time)
+    - I want to pick it up at [ten forty five pm](time)
+    - I want to pick it up at [eleven forty five pm](time)
+    - I want to pick it up at [six o clock](time)
+    - I want to pick it up at [seven o clock](time)
+    - I want to pick it up at [eight o clock](time)
+    - I want to pick it up at [nine o clock](time)
+    - I want to pick it up at [ten o clock](time)
+    - I want to pick it up at [eleven o clock](time)
+    - I'll pick it up at [seven pm](time)
+    - I'll pick it up at [eight pm](time)
+    - I'll pick it up at [nine pm](time)
+    - I'll pick it up at [eleven pm](time)
+    - I'll pick it up at [seven am](time)
+    - I'll pick it up at [eight am](time)
+    - I'll pick it up at [nine am](time)
+    - I'll pick it up at [eleven am](time)
+    - I'll pick it up at [midnight](time)
+    - I'll pick it up at [seven](time)
+    - I'll pick it up at [seven thirty](time)
+    - I'll pick it up at [seven thirty pm](time)
+    - I want it to be delivered at [seven pm](time)
+    - I want it to be delivered at [seven](time)
+    - I want it to be delivered at [seven thirty](time)
+    - I want it to be delivered at [seven thirty pm](time)
+    - I want it to be delivered at [seven thirty in the evening](time)
+    - I want it to be delivered at [seven thirty in the night](time)
+    - I want it to be delivered at [seven thirty at night](time)
+    - at [seven](time)
+    - at [eight](time)
+    - at [nine](time)
+    - at [ten](time)
+    - at [eleven](time)
+    - at [seven thirty](time)
+    - at [eight thirty](time)
+    - at [nine thirty](time)
+    - at [ten thirty](time)
+    - at [eleven thirty](time)
+    - at [seven pm](time)
+    - at [eight pm](time)
+    - at [nine pm](time)
+    - at [ten pm](time)
+    - [in an hour](time)
+    - [in two hours](time)
+    - [in three hours](time)
+    - [in four hours](time)
+    - Ok, i want it to be delivered at [seven thirty](time)
+    - Ok, i want it to be delivered at [7 30](time)
+    - OK i want it to be delivered at [730]{"entity": "time", "value": "seven thirty"}
+    - at [half past seven](time)
+- intent: delivery_change
+  examples: |
+    - Actually I want to change the name to [Giuseppe](client_name)
+    - Actually I want to change the name of the delivery to [Alice](client_name)
+    - Actually I want to change the name of the delivery to [Edoardo](client_name)
+    - I want to change the name for delivery to [Alice](client_name)
+    - I want to change the name for delivery to [Edoardo](client_name)
+    - I want to modify the name for delivery to [Chiara](client_name)
+    - I would like to modify the name for delivery to [Edoardo](client_name)
+    - I'd like to modify the name for delivery to [Alice](client_name)
+    - I'd like to change the name to [Alice](client_name)
+    - I'd like to change the name to [Edoardo](client_name)
+    - I'd like to change the name for delivery to [Alice](client_name)
+    - I'd like to change the name for delivery to [Edoardo](client_name)
+    - Actually I want to change the address to [number six roma street trento](client_address)
+    - I would like to change the address to [number six roma street trento](client_address)
+    - I want to change the address to [number six roma street trento](client_address)
+    - I want to change the address for delivery to [number six roma street trento](client_address)
+    - I'd like to change the address to [number six roma street trento](client_address)
+    - I'd like to change the address for delivery to [number six roma street trento](client_address)
+    - Actually I want to change the payment method to [cash](client_payment)
+    - Actually I want to change the payment method to [credit card]{"entity": "client_payment", "value": "card"}
+    - Actually I want to change the payment method to [debit card]{"entity": "client_payment", "value": "card"}
+    - I want to change the payment method to [cash](client_payment)
+    - I want to change the payment method to [credit card]{"entity": "client_payment", "value": "card"}
+    - I want to change the payment method to [debit card]{"entity": "client_payment", "value": "card"}
+    - I want to change the payment method to [bank transfer](client_payment)
+    - I want to change the payment method to [check](client_payment)
+    - I want to change the payment method for delivery to [cash](client_payment)
+    - I want to change the payment method for delivery to [credit card]{"entity": "client_payment", "value": "card"}
+    - I want to change the payment method for delivery to [debit card]{"entity": "client_payment", "value": "card"}
+    - I'd like to change the payment method to [cash](client_payment)
+    - I'd like to change the payment method to [credit card]{"entity": "client_payment", "value": "card"}
+    - I'd like to change the payment method to [debit card]{"entity": "client_payment", "value": "card"}
+    - I'd like to change the payment method for delivery to [cash](client_payment)
+    - I'd like to change the payment method for delivery to [credit card]{"entity": "client_payment", "value": "card"}
+    - I'd like to change the payment method for delivery to [debit card]{"entity": "client_payment", "value": "card"}
+    - actually i want to change the name [Alice]{"entity": "client_name", "value": "Alice"}
+    - actually i want to change the name to [luigi]{"entity": "client_name", "value": "Luigi"}
+    - actually i want to change the address to [roma street number six trento](client_address)
+    - actually i want to change the payment to [card](client_payment)
+    - i want to change the name to [Alice][{"entity": "client_name", "value": "Alice"}, {"entity": "client_name", "value": "Alice"}]
+    - i want to change the address to [roma street number six trento](client_address)
+    - i want to change the name to [luigi][{"entity": "client_name", "value": "Luigi"}, {"entity": "client_name", "value": "Luigi"}]
+    - actually i want to change the name to [Edoardo][{"entity": "client_name", "value": "Edoardo"}, {"entity": "client_name", "value": "Edoardo"}]
+    - actually i'd like to change the payment method to [card](client_payment)
+    - actually i want to change the payment method to [card](client_payment)
+- intent: request_payment_methods
+  examples: |
+    - what payment methods do you accept?
+    - what payment methods do you accept for delivery?
+    - what payment methods do you accept for takeaway?
+    - what payment methods do you accept for pizza?
+    - what payment methods do you accept for pizza delivery?
+    - what payment methods do you accept for pizza
+    - what payment methods do you accept for pizza takeaway?
+    - what payments options do you have?
+    - how can I pay?
+    - how can I pay for delivery?
+    - how can I pay for takeaway?
+    - how can I pay for pizza?
+    - how can I pay for pizza delivery?
+    - what are the payment methods?
+    - what are the payment methods for delivery?
+    - what are the payment methods for takeaway?
+    - how can I pay
+- intent: response_client_payment
+  examples: |
+    - I want to pay with [cash](client_payment)
+    - I want to pay with [credit card]{"entity": "client_payment", "value": "card"}
+    - I want to pay with [debit card]{"entity": "client_payment", "value": "card"}
+    - I'll pay with [cash](client_payment)
+    - I'll pay with [credit card]{"entity": "client_payment", "value": "card"}
+    - I'll pay with [debit card]{"entity": "client_payment", "value": "card"}
+    - Can I pay with [cash](client_payment)?
+    - Can I pay with [credit card]{"entity": "client_payment", "value": "card"}?
+    - Can I pay with [debit card]{"entity": "client_payment", "value": "card"}?
+    - Do you accept [cash](client_payment)?
+    - Do you accept [credit card]{"entity": "client_payment", "value": "card"}?
+    - Do you accept [debit card]{"entity": "client_payment", "value": "card"}?
+    - Do you accept [cash](client_payment) for delivery?
+    - Do you accept [credit card]{"entity": "client_payment", "value": "card"} for delivery?
+    - Do you accept [debit card]{"entity": "client_payment", "value": "card"} for delivery?
+    - I want to pay with [visa]{"entity": "client_payment", "value": "card"}
+    - I want to pay with [mastercard]{"entity": "client_payment", "value": "card"}
+    - i'll with [cash](client_payment)
+    - [cash](client_payment)
+    - [credit card]{"entity": "client_payment", "value": "card"}
+    - [debit card]{"entity": "client_payment", "value": "card"}
+    - [visa]{"entity": "client_payment", "value": "card"}
+    - [mastercard]{"entity": "client_payment", "value": "card"}
+    - [card](client_payment)
+    - [cash](client_payment)
+- intent: response_client_name
+  examples: |
+    - my name is [Alice](client_name)
+    - I'm [Alice](client_name)
+    - I am [Alice](client_name)
+    - I'm [Giuditta](client_name)
+    - I am [Giuditta](client_name)
+    - I'm [Chiara](client_name)
+    - I am [Chiara](client_name)
+    - I'm [Marco](client_name)
+    - I am [Marco](client_name)
+    - I'm [Edoardo](client_name)
+    - I am [Edoardo](client_name)
+    - my name is [Marco](client_name)
+    - my name is [Giulia](client_name)
+    - my name is [Giuseppe](client_name)
+    - my name is [Giovanni](client_name)
+    - my name is [Gianluca](client_name)
+    - [Alice](client_name)
+    - [Giuditta](client_name)
+    - [Chiara](client_name)
+    - [Marco](client_name)
+    - [Edoardo](client_name)
+    - [Giulia](client_name)
+    - [Giovanni](client_name)
+    - [Luisa](client_name)
+    - [Laura](client_name)
+    - [Luca](client_name)
+    - [Luigi](client_name)
+    - [Andrea](client_name)
+    - [Anna](client_name)
+    - [Antonio](client_name)
+    - [Alessandro](client_name)
+    - [Alessandra](client_name)
+    - [Edoardo]{"entity": "client_name", "value": "Edoardo"}
+    - [Edoardo][{"entity": "client_name"}, {"entity": "client_name"}]
+    - [Luisa][{"entity": "client_name"}, {"entity": "client_name"}]
+    - [Giovanni][{"entity": "client_name"}, {"entity": "client_name"}]
+- intent: response_client_phone_number
+  examples: |
+    - my phone number is [+1 202-555-0134](client_phone_number)
+    - my phone number is [+44 20 7946 0958](client_phone_number)
+    - my phone number is [+39 06 698831](client_phone_number)
+    - my phone number is [+91 22 2929 8765](client_phone_number)
+    - my phone number is [+61 2 9374 4000](client_phone_number)
+    - my phone number is [(202) 555-0134](client_phone_number)
+    - my phone number is [020 7946 0958](client_phone_number)
+    - my phone number is [06 698831](client_phone_number)
+    - my phone number is [022 2929 8765](client_phone_number)
+    - my phone number is [(02) 9374 4000](client_phone_number)
+    - my phone number is [555-0134](client_phone_number)
+    - my phone number is [7946 0958](client_phone_number)
+    - my phone number is [698831](client_phone_number)
+    - my phone number is [2929 8765](client_phone_number)
+    - my phone number is [9374 4000](client_phone_number)
+    - you can reach me at [+1 202-555-0134](client_phone_number)
+    - you can reach me at [+44 20 7946 0958](client_phone_number)
+    - you can reach me at [+39 06 698831](client_phone_number)
+    - you can reach me at [+91 22 2929 8765](client_phone_number)
+    - you can reach me at [+61 2 9374 4000](client_phone_number)
+    - you can reach me at [(202) 555-0134](client_phone_number)
+    - you can reach me at [020 7946 0958](client_phone_number)
+    - you can reach me at [06 698831](client_phone_number)
+    - you can reach me at [022 2929 8765](client_phone_number)
+    - you can reach me at [(02) 9374 4000](client_phone_number)
+    - you can reach me at [555-0134](client_phone_number)
+    - you can reach me at [7946 0958](client_phone_number)
+    - you can reach me at [698831](client_phone_number)
+    - you can reach me at [2929 8765](client_phone_number)
+    - you can reach me at [9374 4000](client_phone_number)
+- intent: response_client_address
+  examples: |
+    - my address is [roma square number 5](client_address)
+    - I live in [roma square number 5](client_address)
+    - I'm at [roma square number five](client_address)
+    - I'm in [roma square number five](client_address)
+    - [roma square number five](client_address)
+    - [number five, roma square](client_address)
+    - [house number five street roma square](client_address)
+    - [house number five roma square street](client_address)
+    - [house number five roma square](client_address)
+    - [number five roma street, trento](client_address)
+    - [number five roma street, trenton](client_address)
+    - [five roma street, trento](client_address)
+    - [five roma square, trenton](client_address)
+    - [roma street, number five, trento](client_address)
+    - [roma street, number five, trenton](client_address)
+    - [at five roma street, trento](client_address)
+    - [at five roma street, trenton](client_address)
+    - my address is [Via Roma 1, Trento](client_address)
+    - I live in [Via Roma 1, Trento](client_address)
+    - I'm at [Via Roma 1, Trento](client_address)
+    - I'm in [Via Roma 1, Trento](client_address)
+    - my address is (house 46, 655 avenue du techno pole)[client_address]
+    - [number 46, 655 avenue du techno polef](client_address)
+    - [house number 46 street 655 avenue du technopole](client_address)
+    - house number 46  655 avenue du techno pole street
+    - House number 46  655 avenue du techno pole street
+    - my address is house number 46 street 655 avenue du techno pole
+    - my address is house num 46  655 avenue du techno pole street
+    - my address is number 46  655 avenue du techno pole street
+    - to [number five roma street trento](client_address)
+    - at [number five roma street](client_address)
+    - to [number five of roma street trento](client_address)
+    - [roma street number five trento](client_address)
+    - to [roma street number five trento](client_address)
+    - to [roma street number 5 trento](client_address)
+    - to [roma street #5 trento](client_address)
+    - deliver it to [roma street number five rovereto](client_address)
+- intent: restart
+  examples: |
+    - /restart
+    - start over
+    - start again
+    - restart
+    - restart please
+    - restart the order
+    - restart the order please
+    - start the order again
+    - start the order again please
+    - start from the beginning
+    - start from the beginning please
+    - start from scratch
+    - reset the order
+- intent: order_anti_pizza
+  examples: |
+    - I want to order [americana](anti_pizza_type) pizza
+    - I want to order [calzone](anti_pizza_type)
+    - I want to order [caprese](anti_pizza_type) pizza
+    - I want to order [crudo](anti_pizza_type)
+    - I want to order [diavola](anti_pizza_type)
+    - I want to order [focaccia](anti_pizza_type) pizza
+    - I want to order [Pioggia](anti_pizza_type)
+    - I want to order [Quattro Stagioni](anti_pizza_type)
+    - I want to order [Quattro Formaggi](anti_pizza_type)
+    - I want to order [salsiccia](anti_pizza_type) pizza
+    - I want to order [siciliana](anti_pizza_type)
+    - I want to order [capricciosa](anti_pizza_type)
+    - I want to order [prosciutto](anti_pizza_type)
+    - I want to order [bufalina](anti_pizza_type) pizza
+    - I want to order [rucola](anti_pizza_type)
+    - I want to order [mustang](anti_pizza_type)
+    - I want to order [chicken](anti_pizza_type)
+    - I want to order [marinara](anti_pizza_type)
+    - I want to order [salsiccia e patate](anti_pizza_type) pizza
+    - I want to order [prosciutto e mushrooms](anti_pizza_type) pizza
+    - I want to order [chicken wings](anti_pizza_type)
+    - I want to order [garlic bread](anti_pizza_type)
+    - I want to order [garlic bread with ricotta](anti_pizza_type)
+    - I want to order [onion rings](anti_pizza_type)
+    - I want to order [potato wedges](anti_pizza_type)
+    - I want to order [Americana](anti_pizza_type) please
+    - I want to order [Calzone](anti_pizza_type) please
+    - I want to order [Caprese](anti_pizza_type) please
+    - I want to order [Crudo](anti_pizza_type) please
+    - I want to order a pizza and a [beer](anti_pizza_type)
+    - I'd like to order a [Diavola](anti_pizza_type) pizza please
+    - I'd like to order a [Focaccia](anti_pizza_type) pizza please
+    - I'd like to order a [Pioggia](anti_pizza_type) pizza please
+    - Can I order a [Quattro Stagioni](anti_pizza_type) pizza please
+    - Can I order a [Quattro Formaggi](anti_pizza_type) pizza please
+    - Can I order a [Siciliana](anti_pizza_type) pizza please
+    - Can I order [chicken wings](anti_pizza_type)
+    - Can I order a [Coke](anti_pizza_type)
+    - Can I order a pizza and a [Coke](anti_pizza_type)
+    - Can I order a pizza and a [beer](anti_pizza_type)
+    - Can I order a pizza and [wine](anti_pizza_type)
+    - [prosciutto](anti_pizza_type) pizza
+    - [bufalina](anti_pizza_type) pizza
+    - [Diavola](anti_pizza_type) please
+    - [focaccia](anti_pizza_type) please
+    - [Pioggia](anti_pizza_type) please
+    - [Quattro Stagioni](anti_pizza_type) please
+    - [Quattro Formaggi](anti_pizza_type) please
+    - [prosciutto](anti_pizza_type)
+    - [chicken wings](anti_pizza_type)
+    - I want to order [chicken wings](anti_pizza_type)
+    - I want to order an [Americana](anti_pizza_type)
+    - I want to order a [Calzone](anti_pizza_type)
+    - I want to order an [Americana](anti_pizza_type) pizza
+    - [garlic bread](anti_pizza_type)
+    - [chicken bbc](anti_pizza_type)
+    - [chicken bbq](anti_pizza_type)
+    - [potato wedges](anti_pizza_type)
+    - [onion rings](anti_pizza_type)
+    - [coca-cola](anti_pizza_type)
+    - [coca cola](anti_pizza_type)
+    - [coke](anti_pizza_type)
+    - [ice tea](anti_pizza_type)
+    - [tea](anti_pizza_type)
+    - [water](anti_pizza_type)
+    - [juice](anti_pizza_type)
+    - [lemonade](anti_pizza_type)
+    - [lemon](anti_pizza_type)
+    - [orange](anti_pizza_type)
+    - [apple](anti_pizza_type)
+    - [steak](anti_pizza_type)
+    - [pasta](anti_pizza_type)
+    - [salad](anti_pizza_type)
+    - [beer](anti_pizza_type)
+    - [wine](anti_pizza_type)
+    - [cider](anti_pizza_type)
+    - [whiskey](anti_pizza_type)
+    - [vodka](anti_pizza_type)
+    - I want to order a [Prosciutto](anti_pizza_type) please
+    - I want to order a [Coca-Cola](anti_pizza_type) please
+    - I want to order a [Coca Cola](anti_pizza_type) please
+    - I want to order a [Coke](anti_pizza_type) please
+    - Do you have [ice tea](anti_pizza_type)?
+    - Do you have [tea](anti_pizza_type)?
+    - Do you have [water](anti_pizza_type)?
+    - Do you have [juice](anti_pizza_type)?
+    - Do you have [lemonade](anti_pizza_type)?
+    - Do you have [rucola](anti_pizza_type)?
+    - Do you have [mustang](anti_pizza_type)?
+    - Do you have [fried chicken](anti_pizza_type)?
+    - Do you have [chicken BBC](anti_pizza_type)?
+    - Do you have [chicken BBQ](anti_pizza_type)?
+    - Do you offer [garlic bread](anti_pizza_type)?
+    - Do you sell [diavola](anti_pizza_type)?
+    - Do you sell [focaccia](anti_pizza_type)?
+    - Do you sell [pioggia](anti_pizza_type)?
+    - I want to order a [margherita](pizza_type) and a [Diavola](anti_pizza_type)
+    - I want to order a [calzone](anti_pizza_type) and a [tuna and onions](pizza_type)
+    - I want to order a [beer](anti_pizza_type) and a [pepperoni](pizza_type)
+    - I want to order a [beer](anti_pizza_type) and a pizza
+    - I want to order a pizza and a [beer](anti_pizza_type)
+    - I want to order a pizza and a [coke](anti_pizza_type)
+    - I want to order a [coke](anti_pizza_type) and a pizza
+    - I want a [margherita](pizza_type) and a [beer](anti_pizza_type)
+    - Yes, I want to order a [beer](anti_pizza_type)
+    - Can I order a pizza and a [beer](anti_pizza_type)
+    - Do you have [fried chicken](anti_pizza_type)
+- intent: stop
+  examples: |
+    - /stop
+    - stop
+    - cancel
+    - cancel order
+    - cancel my order
+    - cancel my pizza
+    - cancel my pizza order
+    - cancel my pizza order please
+    - I want to cancel my order
+    - I want to cancel my pizza
+    - I want to cancel my pizza order
+    - I want to cancel my pizza order please
+    - Actually i want to cancel my order
+    - Actually i want to cancel my pizza
+    - Mmmh, i want to cancel my pizza order
+    - Mmmh, i want to cancel my pizza order please
+    - Delete my order
+    - Delete my pizza
+    - Delete my pizza order
+    - Delete my pizza order please
+    - Is it possible to cancel my order?
+    - Is it possible to cancel my pizza?
+    - Is it possible to cancel my pizza order?
+    - I've changed my mind, i want to cancel my order
+    - stop now
+    - stop please
+    - I want to stop
+    - I have changed my mind, i want to stop
+    - I have changed my mind, i want to stop please
+    - I have changed my mind. I want to cancel my order
+    - I have changed my mind. Cancel my order.
+    - I don't want to order anymore
+    - I don't want to buy anymore
+    - I don't want to buy a pizza anymore
+    - I've changed my mind, i don't want to buy a pizza
 - intent: request_pizza_types
   examples: |
-    - what kind of pizza do you have
+    - /menu
+    - menu
+    - menu please
+    - menu please?
+    - what is on the menu?
+    - what's on the menu?
+    - can i see the menu?
+    - can i see the menu please?
+    - can i have the menu?
+    - what are the pizzas on the menu?
+    - what are the daily pizzas?
+    - what types you have
+    - What pizzas are available?
+    - Can I see the menu?
+    - Show me the pizza options
+    - What do you have on the menu?
+    - List all pizzas
+    - What items are on the menu?
+    - What types of pizza do you offer?
+    - Give me the menu
+    - I'd like to see the menu
+    - What are the pizza choices?
+    - Show me the menu options
+    - Can you provide the menu?
+    - What pizza varieties do you have?
+    - What pizzas can I order?
+    - Tell me about your pizza menu
+    - Do you have a menu?
 - intent: request_pizza_crusts
   examples: |
-    - what kind of [crust](pizza_crust) do you offer
+    - what crusts do you have?
+    - what crusts do you offer?
+    - what crusts do you have for hawaii pizza?
+    - what crusts do you have for margherita?
+    - what crusts do you have for pepperoni?
+    - which crusts do you offer?
+    - what are the crusts options?
+    - what crusts do you have
+    - do you have soft crust
+    - what crusts can i choose
+- intent: request_pizza_sizes
+  examples: |
+    - what sizes do you have?
+    - what sizes do you offer?
+    - what sizes do you have for hawaii pizza?
+    - what sizes do you have for margherita?
+    - what sizes do you have for pepperoni?
+    - which sizes do you have?
+    - which sizes do you offer?
+    - what are the sizes options?
+    - what size you have
+    - do you have small size
+    - do you have medium size
+    - do you have the small size?
+- intent: welcome_greet
+  examples: |
+    - Hi, I'm [Alice](client_name)
+    - Hello, my name is [Alice](client_name)
+    - Hi, my name is [Giuditta](client_name)
+    - Hello, I'm [Giuditta](client_name)
+    - Hello, I'm [Chiara](client_name)
+    - Hi, I'm [Chiara](client_name)
+    - Hello, my name is [Marco](client_name)
+    - Hi, my name is [Marco](client_name)
+    - Hi, I'm [Edoardo](client_name)
+    - just going to say hi
+    - hey
+    - hello hi
+    - Hey
+    - howdy
+    - Howdy
+    - hey there
+    - hi there
+    - Hi
+    - hi
+    - Hi there
+    - greetings
+    - long time no see
+    - hello
+    - hi I'm [Edoardo](client_name)
+    - hhi I'm [Edoardo](client_name)
+    - hi i'm [Edoardo](client_name)
+    - i'm [Edoardo](client_name)
+- intent: init_pizza_question
+  examples: |
+    - I would like to have clarifications about [margherita](pizza_type)
+    - Can you tell me the ingredients of [pepperoni](pizza_type) pizza?
+    - I need more details about [four cheeses](pizza_type)
+    - What are the ingredients in [capricciosa](pizza_type) pizza?
+    - I would like to know what's in [vegetarian](pizza_type) pizza
+    - Could you provide information about [hawaii](pizza_type) pizza?
+    - Please tell me about the ingredients of [tuna and onions](pizza_type) pizza
+    - I want to know more about the [boscaiola](pizza_type) pizza
+    - What is included in [ham and mushrooms](pizza_type) pizza?
+    - Can you give me details about [gorgonzola and walnuts](pizza_type) pizza?
+- intent: order_pizza_inform
+  examples: |
+    - i want [no](pizza_toppings) toppings
+    - [no](pizza_toppings) toppings
+    - i want to buy a pizza
+    - i want to order [olives](pizza_toppings) and [onion](pizza_toppings) pizza
+    - I want pizza
+    - I want to order a pizza
+    - want to order pizza
+    - I want to order pizza
+    - I want to order some pizzas
+    - I want to order some pizza
+    - I want to order pizzas
+    - I want to order
+    - I'd like to order some pizzas
+    - I'd like to order some pizza
+    - I'd like to order pizzas
+    - I'd like to order
+    - pizzas
+    - pizza
+    - pizza please
+    - Pizza please
+    - Pizza will do
+    - pizza will do
+    - Pizza
+    - yes I want to order [two](pizza_amount) more pizza
+    - I want to order [large](pizza_size) pizza with [olives](pizza_toppings)
+    - I want [large](pizza_size) [mushrooms](pizza_toppings) pizza
+    - I want a [medium](pizza_size) [ricotta](pizza_toppings) pizza
+    - I like [small](pizza_size) [olives](pizza_toppings) pizza
+    - [pepperoni](pizza_type) [small](pizza_size) pizza
+    - [large](pizza_size) [onions](pizza_toppings)
+    - My favorite pizza is [Small](pizza_size) with [eggplant](pizza_toppings)
+    - my favorite pizza is [small](pizza_size) with [eggplant](pizza_toppings)
+    - [medium](pizza_size) and [olives](pizza_toppings)
+    - [small](pizza_size) pizza with [mushrooms](pizza_toppings) topping
+    - [medium](pizza_size) with [onion](pizza_toppings)
+    - [large](pizza_size) corns
+    - want to oder [large](pizza_size) [ricotta](pizza_toppings) pizza
+    - want to order [medium](pizza_size) [mushrooms](pizza_toppings) pizza
+    - need [large](pizza_size) [spicy salami](pizza_type)  pizza
+    - want [medium](pizza_size) [onions](pizza_toppings)  pizza
+    - want [large](pizza_size) [spicy salami](pizza_toppings) pizza
+    - I want pizza please
+    - I want pizzas
+    - I want a pizza
+    - I want some pizza
+    - I want some pizzas
+    - we want pizza
+    - we want pizzas
+    - I'd like pizza
+    - I'd like pizzas
+    - I'd like a pizza
+    - I would like pizza
+    - I would like pizzas
+    - I would like a pizza
+    - I would like some pizza
+    - I would like some pizzas
+    - I would like to order pizza
+    - I want pizzas please
+    - I want a pizza please
+    - I want some pizza please
+    - I want some pizzas please
+    - I want [two](pizza_amount) [small](pizza_size) [mushrooms](pizza_type) pizza
+    - I want [one](pizza_amount) [mushrooms](pizza_type) [small](pizza_size) pizza
+    - I want [mushrooms](pizza_type) pizza
+    - I want [mushrooms](pizza_type) pizza please
+    - I [hawaii](pizza_type) pizza small
+    - I want [mushrooms](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
+    - I want [four](pizza_amount) [small](pizza_size) pizza [mushrooms](pizza_type)
+    - I want [2](pizza_amount) [medium](pizza_size) pizza [hawaii](pizza_type) please
+    - [two](pizza_amount) [small](pizza_size) [mushrooms](pizza_type) pizza
+    - [two](pizza_amount) [medium](pizza_size) [Margherita](pizza_type) pizza
+    - [2](pizza_amount) [large](pizza_size) [Hawaii](pizza_type) pizza
+    - [two](pizza_amount) [medium](pizza_size) [Pepperoni](pizza_type) pizza
+    - [4](pizza_amount) [small](pizza_size) [Vegetarian](pizza_type) pizza pizza
+    - [four](pizza_amount) [small](pizza_size) pizza [mushrooms](pizza_type)
+    - [two](pizza_amount) [large](pizza_size) pizza [hawaii](pizza_type)
+    - [four](pizza_amount) [medium](pizza_size) pizza [Margherita](pizza_type)
+    - [4](pizza_amount) [large](pizza_size) pizza [Hawaii](pizza_type)
+    - [four](pizza_amount) [medium](pizza_size) pizza [Pepperoni](pizza_type)
+    - [four](pizza_amount) [small](pizza_size) pizza [Vegetarian](pizza_type)
+    - [one](pizza_amount) [mushrooms](pizza_type) [small](pizza_size) pizza
+    - [one](pizza_amount) [Margherita](pizza_type) [medium](pizza_size) pizza
+    - [1](pizza_amount) [Hawaii](pizza_type) [large](pizza_size) pizza
+    - [one](pizza_amount) [Pepperoni](pizza_type) [medium](pizza_size) pizza
+    - [3](pizza_amount) [Vegetarian](pizza_type) [small](pizza_size) pizza
+    - [one](pizza_amount) [mushrooms](pizza_type) pizza [small](pizza_size)
+    - [one](pizza_amount) [Margherita](pizza_type) pizza [medium](pizza_size)
+    - [1](pizza_amount) [Hawaii](pizza_type) pizza [large](pizza_size)
+    - [one](pizza_amount) [Pepperoni](pizza_type) pizza [medium](pizza_size)
+    - [3](pizza_amount) [Vegetarian](pizza_type) pizza [small](pizza_size)
+    - [mushrooms](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
+    - [Margherita](pizza_type) [medium](pizza_size) pizza [6](pizza_amount)
+    - [Hawaii](pizza_type) [large](pizza_size) pizza [9](pizza_amount)
+    - [Pepperoni](pizza_type) [medium](pizza_size) pizza  [4](pizza_amount)
+    - [Vegetarian](pizza_type) [small](pizza_size) pizza [two](pizza_amount)
+    - [mushrooms](pizza_type) pizza [small](pizza_size)  [three](pizza_amount)
+    - [Margherita](pizza_type) pizza [medium](pizza_size)  [6](pizza_amount)
+    - [Hawaii](pizza_type) pizza [large](pizza_size)  [9](pizza_amount)
+    - [Pepperoni](pizza_type) pizza [medium](pizza_size)   [4](pizza_amount)
+    - [Vegetarian](pizza_type) pizza [small](pizza_size)  [two](pizza_amount)
+    - [one](pizza_amount) [small](pizza_size) [thin](pizza_crust) [mushrooms](pizza_type) pizza
+    - [mushrooms](pizza_type) pizza
+    - [Margherita](pizza_type) pizza
+    - [Hawaii](pizza_type) pizza
+    - [Pepperoni](pizza_type) pizza
+    - [Vegetarian](pizza_type) pizza pizza
+    - [mushrooms](pizza_type)
+    - [Margherita](pizza_type)
+    - [Hawaii](pizza_type)
+    - [Pepperoni](pizza_type)
+    - [Vegetarian](pizza_type)
+    - [hawaii](pizza_type) pizza small
+    - [hawaii](pizza_type) pizza [small](pizza_size) please
+    - [small](pizza_size) [hawaii](pizza_type) pizza
+    - [two](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type) please
+    - [jumbo](pizza_size)
+    - [one](pizza_amount) pizza [mushrooms](pizza_type)
+    - i'd like [three](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type)
+    - I'd like to order [3](pizza_amount)  [small](pizza_size) [hawaii](pizza_type) please
+    - i want to order a [large](pizza_size) [margherita](pizza_type) pizza
+    - I would like to a pizza
+    - i want to buy a [large](pizza_size) pizza
+    - i want to buy a [margherita](pizza_type) pizza
+    - I want to buy a [margherita](pizza_type) pizza
+    - i want to order a [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - I want to order a [margherita]{"entity": "pizza_type", "value": "Margherita"} pizza
+    - I want to order a [hawaii]{"entity": "pizza_type", "value": "Hawaii"} pizza
+    - I want to order a [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} pizza
+    - I want to order a [veggie]{"entity": "pizza_type", "value": "Veggie"} pizza
+    - I want to order a [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - I want to order a [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - I want to order a [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
+    - I want to order a [mushrooms]{"entity": "pizza_type", "value": "mushrooms"}
+    - I want to order a [veggie]{"entity": "pizza_type", "value": "Veggie"}
+    - I want to order a [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}
+    - I want to order [margherita]{"entity": "pizza_type", "value": "Margherita"} pizza
+    - I want to order [hawaii]{"entity": "pizza_type", "value": "Hawaii"} pizza
+    - I want to order [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} pizza
+    - I want to order [veggie]{"entity": "pizza_type", "value": "Veggie"} pizza
+    - I want to order [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - I'd like to order [margherita]{"entity": "pizza_type", "value": "Margherita"} pizza
+    - I'd like to order [hawaii]{"entity": "pizza_type", "value": "Hawaii"} pizza
+    - I'd like to order [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} pizza
+    - I'd like to order [veggie]{"entity": "pizza_type", "value": "Veggie"} pizza
+    - I'd like to order [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - I'd like to order [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - I'd like to order [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
+    - I'd like to order [mushrooms]{"entity": "pizza_type", "value": "mushrooms"}
+    - I'd like to order [veggie]{"entity": "pizza_type", "value": "Veggie"}
+    - I'd like to order [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}
+    - I'd like to order a [margherita]{"entity": "pizza_type", "value": "Margherita"} pizza
+    - I'd like to order a [hawaii]{"entity": "pizza_type", "value": "Hawaii"} pizza
+    - I'd like to order a [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} pizza
+    - I'd like to order a [veggie]{"entity": "pizza_type", "value": "Veggie"} pizza
+    - I'd like to order a [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - I'd like to order a [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - I'd like to order a [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
+    - I'd like to order a [mushrooms]{"entity": "pizza_type", "value": "mushrooms"}
+    - I'd like to order a [veggie]{"entity": "pizza_type", "value": "Veggie"}
+    - I want to order [one](pizza_amount) [extra large](pizza_size) [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - I want to order [two](pizza_amount) [medium](pizza_size) [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
+    - I want to order [three](pizza_amount) [small](pizza_size) [mushrooms]{"entity": "pizza_type", "value": "mushrooms"}
+    - I want to order [four](pizza_amount) [large](pizza_size) [veggie]{"entity": "pizza_type", "value": "Veggie"}
+    - I want to order [five](pizza_amount) [baby](pizza_size) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}
+    - I want to order [one](pizza_amount) [extra large](pizza_size) [margherita]{"entity": "pizza_type", "value": "Margherita"} pizza
+    - I want to order [two](pizza_amount) [medium](pizza_size) [hawaii]{"entity": "pizza_type", "value": "Hawaii"} pizza
+    - I want to order [three](pizza_amount) [small](pizza_size) [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} pizza
+    - I want to order [four](pizza_amount) [large](pizza_size) [veggie]{"entity": "pizza_type", "value": "Veggie"} pizza
+    - I want to order [five](pizza_amount) [baby](pizza_size) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - I'd like to order [one](pizza_amount) [extra large](pizza_size) [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - I'd like to order [two](pizza_amount) [medium](pizza_size) [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
+    - I'd like to order [three](pizza_amount) [small](pizza_size) [mushrooms]{"entity": "pizza_type", "value": "mushrooms"}
+    - I'd like to order [four](pizza_amount) [large](pizza_size) [veggie]{"entity": "pizza_type", "value": "Veggie"}
+    - I'd like to order [five](pizza_amount) [baby](pizza_size) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}
+    - I'd like to order [one](pizza_amount) [extra large](pizza_size) [margherita]{"entity": "pizza_type", "value": "Margherita"} pizza
+    - [mushrooms]{"entity": "pizza_type", "value": "mushrooms"}
+    - [10](pizza_amount) pizzas
+    - I'd like to have a [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - i want pizza
+    - yes i want to order pizza
+    - pizaa
+    - [Margherita](pizza_type) [small](pizza_size) [thin](pizza_crust)
+    - [two](pizza_amount) [Hawaii](pizza_type) [large](pizza_size) [cracker](pizza_crust)
+    - I want to order [one](pizza_amount) [large](pizza_size) [Hawaii](pizza_type) [cracker](pizza_crust) crust
+    - I want to order [three](pizza_amount) [medium](pizza_size) [thin](pizza_crust) crust [mushrooms](pizza_type) pizza
+    - [five](pizza_amount) [baby](pizza_size) [cracker](pizza_crust) crust [Pepperoni](pizza_type) pizza
+    - i want to order a [margherita]{"entity": "pizza_type", "value": "Margherita"} and a [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - i want to order a [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} and a [veggie]{"entity": "second_pizza_type", "value": "Veggie"} pizza
+    - i want to order [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} and a [margherita]{"entity": "second_pizza_type", "value": "Margherita"} pizza
+    - i want to order [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} and a [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"}
+    - i want to order a [veggie]{"entity": "pizza_type", "value": "Veggie"} and [margherita]{"entity": "second_pizza_type", "value": "Margherita"}
+    - i want to order [margherita]{"entity": "pizza_type", "value": "Margherita"} and [veggie]{"entity": "second_pizza_type", "value": "Veggie"} pizza
+    - i want to order [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} and a [margherita]{"entity": "second_pizza_type", "value": "Margherita"}
+    - i want to order a [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}, [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} and [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"} pizza
+    - i want to order [margherita]{"entity": "pizza_type", "value": "Margherita"}, a [veggie]{"entity": "second_pizza_type", "value": "Veggie"} and a [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - i want to order a [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}, [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"} and a [margherita]{"entity": "second_pizza_type", "value": "Margherita"} pizza
+    - i want to order [veggie]{"entity": "pizza_type", "value": "Veggie"}, a [margherita]{"entity": "second_pizza_type", "value": "Margherita"} and [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"}
+    - i want to order a [hawaii]{"entity": "pizza_type", "value": "Hawaii"}, a [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"}, a [veggie]{"entity": "second_pizza_type", "value": "Veggie"}, [margherita]{"entity": "second_pizza_type", "value": "Margherita"} and [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"}
+    - I'd like to order [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} and a [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"}
+    - I'd like to order a [veggie]{"entity": "pizza_type", "value": "Veggie"} and [margherita]{"entity": "second_pizza_type", "value": "Margherita"} pizza
+    - I'd like to order [margherita]{"entity": "pizza_type", "value": "Margherita"} and a [veggie]{"entity": "second_pizza_type", "value": "Veggie"}
+    - I'd like to order a [hawaii]{"entity": "pizza_type", "value": "Hawaii"} and [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"} pizza
+    - I'd like to order [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}, a [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} and [veggie]{"entity": "second_pizza_type", "value": "Veggie"} pizza
+    - I'd like to order [mushrooms]{"entity": "pizza_type", "value": "mushrooms"}, [veggie]{"entity": "second_pizza_type", "value": "Veggie"} and [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - I'd like to order a [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}, [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} and a [margherita]{"entity": "second_pizza_type", "value": "Margherita"} pizza
+    - I'd like to order [veggie]{"entity": "pizza_type", "value": "Veggie"}, a [margherita]{"entity": "second_pizza_type", "value": "Margherita"} and a [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - I want to order [hawaii]{"entity": "pizza_type", "value": "Hawaii"} and a [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"} pizza
+    - I want to order a [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} and a [margherita]{"entity": "second_pizza_type", "value": "Margherita"}
+    - i want to order [veggie]{"entity": "pizza_type", "value": "Veggie"} and a [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"} pizza
+    - i want to order [margherita]{"entity": "pizza_type", "value": "Margherita"} and a [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"}
+    - i want to order a [hawaii]{"entity": "pizza_type", "value": "Hawaii"} and [margherita]{"entity": "second_pizza_type", "value": "Margherita"} pizza
+    - i want to order [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}, [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} and a [veggie]{"entity": "second_pizza_type", "value": "Veggie"}
+    - i want to order a [mushrooms]{"entity": "pizza_type", "value": "mushrooms"}, [veggie]{"entity": "second_pizza_type", "value": "Veggie"} and [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} pizza
+    - i want to order [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}, a [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} and [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"}
+    - i want to order [veggie]{"entity": "pizza_type", "value": "Veggie"}, [margherita]{"entity": "second_pizza_type", "value": "Margherita"} and a [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} pizza
+    - i want to order a [hawaii]{"entity": "pizza_type", "value": "Hawaii"}, a [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"}, [veggie]{"entity": "second_pizza_type", "value": "Veggie"}, [margherita]{"entity": "second_pizza_type", "value": "Margherita"} and [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"} pizza
+    - I'd like to order [hawaii]{"entity": "pizza_type", "value": "Hawaii"} and a [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"} pizza
+    - I'd like to order a [veggie]{"entity": "pizza_type", "value": "Veggie"} and [margherita]{"entity": "second_pizza_type", "value": "Margherita"}
+    - I'd like to order [margherita]{"entity": "pizza_type", "value": "Margherita"} and a [veggie]{"entity": "second_pizza_type", "value": "Veggie"} pizza
+    - I'd like to order [hawaii]{"entity": "pizza_type", "value": "Hawaii"} and [margherita]{"entity": "second_pizza_type", "value": "Margherita"}
+    - I'd like to order a [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}, [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} and [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"}
+    - I'd like to order [mushrooms]{"entity": "pizza_type", "value": "mushrooms"}, a [veggie]{"entity": "second_pizza_type", "value": "Veggie"} and a [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} pizza
+    - I'd like to order a [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}, [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} and [margherita]{"entity": "second_pizza_type", "value": "Margherita"}
+    - I'd like to order [veggie]{"entity": "pizza_type", "value": "Veggie"}, [margherita]{"entity": "second_pizza_type", "value": "Margherita"} and a [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - I want to order a [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} and a [margherita]{"entity": "second_pizza_type", "value": "Margherita"} pizza
+    - I want to order [veggie]{"entity": "pizza_type", "value": "Veggie"} and a [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"}
+    - i want to order a [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} and a [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"} pizza
+    - i want to order [margherita]{"entity": "pizza_type", "value": "Margherita"} and [veggie]{"entity": "second_pizza_type", "value": "Veggie"}
+    - i want to order a [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} and a [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} pizza
+    - i want to order [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}, a [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} and a [veggie]{"entity": "second_pizza_type", "value": "Veggie"} pizza
+    - i want to order a [margherita]{"entity": "pizza_type", "value": "Margherita"}, [veggie]{"entity": "second_pizza_type", "value": "Veggie"} and [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - i want to order [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}, [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} and a [margherita]{"entity": "second_pizza_type", "value": "Margherita"} pizza
+    - i want to order [veggie]{"entity": "pizza_type", "value": "Veggie"}, [margarita]{"entity": "second_pizza_type", "value": "Margherita"} and a [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - i want to order a [veggie]{"entity": "pizza_type", "value": "Veggie"}, a [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"}, a [veggie]{"entity": "second_pizza_type", "value": "Veggie"}, [margherita]{"entity": "second_pizza_type", "value": "Margherita"} and [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"} pizza
+    - i want to order a [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"} [veggie]{"entity": "second_pizza_type", "value": "Veggie"} [margherita]{"entity": "second_pizza_type", "value": "Margherita"} and [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - i want to order [hawaii]{"entity": "pizza_type", "value": "Hawaii"} a [veggie]{"entity": "second_pizza_type", "value": "Veggie"} [margherita]{"entity": "second_pizza_type", "value": "Margherita"} [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"} and [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"} pizza
+    - I'd like to order a [veggie]{"entity": "pizza_type", "value": "Veggie"} and [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"}
+    - I'd like to order [veggie]{"entity": "pizza_type", "value": "Veggie"} and a [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"} pizza
+    - I'd like to order a [margherita]{"entity": "pizza_type", "value": "Margherita"} and [veggie]{"entity": "second_pizza_type", "value": "Veggie"}
+    - I want to order [one](pizza_amount) [Pepperoni](pizza_type), [one](second_pizza_amount) [Hawaii](second_pizza_type) and [six](second_pizza_amount) [Margherita](second_pizza_type) pizza
+    - I want to order [three](pizza_amount) [Veggie](pizza_type), [four](second_pizza_amount) [mushrooms](second_pizza_type) and [one](second_pizza_amount) [Hawaii](second_pizza_type)
+    - I want to order [two](pizza_amount) [mushrooms](pizza_type), [two](second_pizza_amount) [Margherita](second_pizza_type) and [four](second_pizza_amount) [Pepperoni](second_pizza_type) pizza
+    - I want to order [four](pizza_amount) [Hawaii](pizza_type), [one](second_pizza_amount) [Pepperoni](second_pizza_type) and [two](second_pizza_amount) [Veggie](second_pizza_type)
+    - I want to order [six](pizza_amount) [Margherita](pizza_type), [three](second_pizza_amount) [Hawaii](second_pizza_type) and [one](second_pizza_amount) [Pepperoni](second_pizza_type) pizza
+    - I want to order [two](pizza_amount) [Pepperoni](pizza_type), [eight](second_pizza_amount) [Hawaii](second_pizza_type) and [three](second_pizza_amount) [Veggie](second_pizza_type)
+    - I want to order [one](pizza_amount) [Margherita](pizza_type) and [one](second_pizza_amount) [Veggie](second_pizza_type) pizza
+    - I want to order [eight](pizza_amount) [Hawaii](pizza_type) and [three](second_pizza_amount) [Pepperoni](second_pizza_type)
+    - I want to order [seven](pizza_amount) [Pepperoni](pizza_type) and [two](second_pizza_amount) [Veggie](second_pizza_type) pizza
+    - I want to order [two](pizza_amount) [Hawaii](pizza_type) and [one](second_pizza_amount) [Margherita](second_pizza_type)
+    - I want to order [three](pizza_amount) [Veggie](pizza_type) and [one](second_pizza_amount) [mushrooms](second_pizza_type) pizza
+    - I want to order [one](pizza_amount) [Margherita](pizza_type) and [one](second_pizza_amount) [mushrooms](second_pizza_type)
+    - I want to order [two](pizza_amount) [large](pizza_size) [Hawaii](pizza_type) and [one](second_pizza_amount) [baby](second_pizza_size) [Margherita](second_pizza_type)
+    - I want to order [three](pizza_amount) [medium](pizza_size) [Veggie](pizza_type) and [one](second_pizza_amount) [medium](second_pizza_size) [mushrooms](second_pizza_type) pizza
+    - I want to order [two](pizza_amount) [small](pizza_size) [Pepperoni](pizza_type) and [one](second_pizza_amount) [small](second_pizza_size) [Veggie](second_pizza_type)
+    - I want to order [one](pizza_amount) [baby](pizza_size) [Margherita](pizza_type) and [one](second_pizza_amount) [large](second_pizza_size) [Hawaii](second_pizza_type) pizza
+    - I want to order [three](pizza_amount) [medium](pizza_size) [mushrooms](pizza_type) and [one](second_pizza_amount) [medium](second_pizza_size) [Veggie](second_pizza_type)
+    - I want to order [two](pizza_amount) [small](pizza_size) [Veggie](pizza_type) and [one](second_pizza_amount) [small](second_pizza_size) [Pepperoni](second_pizza_type) pizza
+    - I want to order [three](pizza_amount) [large](pizza_size) [Hawaii](pizza_type) and [one](second_pizza_amount) [extra large](second_pizza_size) [Margherita](second_pizza_type)
+    - I want to order [four](pizza_amount) [extra large](pizza_size) [Veggie](pizza_type) and [one](second_pizza_amount) [small](second_pizza_size) [mushrooms](second_pizza_type) pizza
+    - I want to order [two](pizza_amount) [small](pizza_size) [Pepperoni](pizza_type), [three](second_pizza_amount) [baby](second_pizza_size) [Hawaii](second_pizza_type) and [one](second_pizza_amount) [large](second_pizza_size) [Margherita](second_pizza_type)
+    - I want to order [three](pizza_amount) [medium](pizza_size) [mushrooms](pizza_type), [two](second_pizza_amount) [large](second_pizza_size) [Pepperoni](second_pizza_type) and [one](second_pizza_amount) [small](second_pizza_size) [Veggie](second_pizza_type) pizza
+    - I want to order [two](pizza_amount) [small](pizza_size) [Pepperoni](pizza_type), [three](second_pizza_amount) [baby](second_pizza_size) [Margherita](second_pizza_type) and [one](second_pizza_amount) [large](second_pizza_size) [Hawaii](second_pizza_type)
+    - I want to order [three](pizza_amount) [medium](pizza_size) [mushrooms](pizza_type), [two](second_pizza_amount) [large](second_pizza_size) [Veggie](second_pizza_type) and [one](second_pizza_amount) [small](second_pizza_size) [Pepperoni](second_pizza_type) pizza
+    - i want to order [two](pizza_amount) [large](pizza_size) [margherita]{"entity": "pizza_type", "value": "Margherita"} and [three](second_pizza_amount) [baby](second_pizza_size) [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - i want to order [two](pizza_amount) [large](pizza_size) [margherita]{"entity": "pizza_type", "value": "Margherita"} and [three](second_pizza_amount) [small](second_pizza_size) [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - i want to order [two](pizza_amount) [large](pizza_size) [margherita]{"entity": "pizza_type", "value": "Margherita"} and [three](second_pizza_amount) [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - i want to order [two](pizza_amount) [large](pizza_size) [margherita]{"entity": "pizza_type", "value": "Margherita"} and [three](second_pizza_amount) [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"} pizza
+    - i want to order pizza
+    - i also want to order a [hawaii]{"entity": "pizza_type", "value": "Hawaii"} pizza
+    - i want to order [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
+    - I want to order [Hawaii](pizza_type)
+    - i want to order [one](pizza_amount) [mushrooms]{"entity": "pizza_type", "value": "mushrooms"}, [three](second_pizza_amount) [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"}, and [two](second_pizza_amount) [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - i want to order [one](pizza_amount) [large](pizza_size) [thin](pizza_crust) crust [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - i want to order [three](pizza_amount) [large](pizza_size) [margherita]{"entity": "pizza_type", "value": "Margherita"}, [one](second_pizza_amount) [small](second_pizza_size) [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}, [two](second_pizza_amount) [veggie]{"entity": "second_pizza_type", "value": "Veggie"}, and [five](second_pizza_amount) [small](second_pizza_size) [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"}
+    - i want to order [five](pizza_amount) [baby](pizza_size) [cracker](pizza_crust) crust [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}, [three](second_pizza_amount) [medium](second_pizza_size) [thin](second_pizza_crust) crust [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}, [one](second_pizza_amount) [large](second_pizza_size) [stuffed](second_pizza_crust) crust [margherita]{"entity": "second_pizza_type", "value": "Margherita"}, [two](second_pizza_amount) [extra large](second_pizza_size) [thin](second_pizza_crust) crust [veggie]{"entity": "second_pizza_type", "value": "Veggie"}, [four](second_pizza_amount) [large](second_pizza_size) [cracker](second_pizza_crust) crust [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"}, [one](second_pizza_amount) [baby](second_pizza_size) [stuffed](second_pizza_crust) crust [margherita]{"entity": "second_pizza_type", "value": "Margherita"} pizza, and [one](second_pizza_amount) [medium](second_pizza_size) [thin](second_pizza_crust) crust [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"} pizza, and [three](second_pizza_amount) [large](second_pizza_size) [thin](second_pizza_crust) crust [veggie]{"entity": "second_pizza_type", "value": "Veggie"}
+    - i want to order [two](pizza_amount) [medium](pizza_size) [veggie]{"entity": "pizza_type", "value": "Veggie"}, [one](second_pizza_amount) [small](second_pizza_size) [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}, [three](second_pizza_amount) [large](second_pizza_size) [margherita]{"entity": "second_pizza_type", "value": "Margherita"}, [one](second_pizza_amount) [baby](second_pizza_size) [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"}, [one](second_pizza_amount) [extra large](second_pizza_size) [mushrooms]{"entity": "second_pizza_type", "value": "mushrooms"}, [two](second_pizza_amount) [medium](second_pizza_size) [veggie]{"entity": "second_pizza_type", "value": "Veggie"}, [three](second_pizza_amount) [medium](second_pizza_size) [margherita]{"entity": "second_pizza_type", "value": "Margherita"} pizza, and [one](second_pizza_amount) [baby](second_pizza_size) [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"} pizza, and [two](second_pizza_amount) [large](second_pizza_size) [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"}, and [one](second_pizza_amount) [small](second_pizza_size) [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - i want to order [two](pizza_amount) [large](pizza_size) [thin](pizza_crust) crust [hawaii]{"entity": "pizza_type", "value": "Hawaii"} and [one](second_pizza_amount) [medium](second_pizza_size) [stuffed](second_pizza_crust) crust [margherita]{"entity": "second_pizza_type", "value": "Margherita"}
+    - i want to order [one](pizza_amount) [margherita]{"entity": "pizza_type", "value": "Margherita"} and a [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - I'll have [hawaii](pizza_type)
+    - I'll have a [margherita](pizza_type)
+    - I will have [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}
+    - I will have a [vegetarian](pizza_type) pizza
+    - [hawaii](pizza_type)
+    - [margherita](pizza_type)
+    - [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
+    - [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}
+    - [vegetarian](pizza_type)
+    - [veggie](pizza_type)
+    - I want [hawaii](pizza_type)
+    - I want [margherita](pizza_type)
+    - I want [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}
+    - I want [vegetarian](pizza_type)
+    - I want [veggie](pizza_type)
+    - [hawaii](pizza_type) please
+    - [margherita](pizza_type) please
+    - [pepperoni](pizza_type) please
+    - [vegetarian](pizza_type) please
+    - [veggie](pizza_type) please
+    - [hawaii](pizza_type) pizza
+    - [margherita](pizza_type) pizza
+    - [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - [vegetarian](pizza_type) pizza
+    - [veggie](pizza_type) pizza
+    - I'd like [hawaii](pizza_type)
+    - I'd like [margherita](pizza_type)
+    - I'd like [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}
+    - I'd like [vegetarian](pizza_type)
+    - I'd like [veggie](pizza_type)
+    - I'd like [hawaii](pizza_type) pizza
+    - Can I order [margherita](pizza_type) pizza
+    - Can I order [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - Can I order [vegetarian](pizza_type) pizza
+    - Can I order [veggie](pizza_type) pizza
+    - Can I order [hawaii](pizza_type) pizza
+    - I want [baby](pizza_size) [hawaii](pizza_type) pizza
+    - I want [small](pizza_size) [margherita](pizza_type) pizza
+    - I want [medium](pizza_size) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - I want [large](pizza_size) [vegetarian](pizza_type) pizza
+    - I want [extra large](pizza_size) [veggie](pizza_type) pizza
+    - [baby](pizza_size) [hawaii](pizza_type) pizza
+    - [baby](pizza_size) [margherita](pizza_type) pizza
+    - [baby](pizza_size) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - [baby](pizza_size) [vegetarian](pizza_type) pizza
+    - [small](pizza_size) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - [small](pizza_size) [margherita](pizza_type) pizza
+    - [medium](pizza_size) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - [large](pizza_size) [vegetarian](pizza_type) pizza
+    - [extra large](pizza_size) [veggie](pizza_type) pizza
+    - [2](pizza_amount) [hawaii](pizza_type) pizza
+    - [2](pizza_amount) [margherita](pizza_type) pizza
+    - [one](pizza_amount) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}
+    - [one](pizza_amount) [vegetarian](pizza_type) pizza
+    - [two](pizza_amount) [large](pizza_size) [veggie](pizza_type)
+    - [three](pizza_amount) [extra large](pizza_size) [thin](pizza_crust) crust [hawaii](pizza_type) pizza
+    - [four](pizza_amount) [small](pizza_size) [stuffed](pizza_crust) crust [margherita](pizza_type)
+    - [one](pizza_amount) [medium](pizza_size) [thin](pizza_crust) crust [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - [veggie]{"entity": "pizza_type", "value": "Veggie"}
+    - [Veggie](pizza_type)
+    - a [ricotta](pizza_toppings) pizza
+    - I want pizza with [olives](pizza_toppings)
+    - My favourite topping is [ricotta](pizza_toppings)
+    - I like [olive](pizza_toppings)
+    - Definitely [onion](pizza_toppings)
+    - I love [mushrooms](pizza_toppings)
+    - favorite topping is [Corns](pizza_toppings)
+    - I love [ricotta](pizza_toppings)
+    - [ricotta](pizza_toppings)
+    - [Olive](pizza_toppings)
+    - [mushrooms](pizza_toppings)
+    - [Onions](pizza_toppings)
+    - [Corn](pizza_toppings)
+    - the [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} with [onions](pizza_toppings) and [olives](pizza_toppings)
+    - [mushrooms](pizza_toppings), [artichokes](pizza_toppings) and [olives](pizza_toppings)
+    - [ham](pizza_toppings), [mushrooms](pizza_toppings), [bacon](pizza_toppings) and [brie](pizza_toppings)
+    - [onions](pizza_toppings) and [tuna](pizza_toppings)
+    - [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} and [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - i want [margherita]{"entity": "pizza_type", "value": "Margherita"} and [veggie]{"entity": "second_pizza_type", "value": "Veggie"}
+    - i want [Veggie](pizza_type) and [Margherita](second_pizza_type) and [Hawaii](second_pizza_type)
+    - i want [mushrooms](pizza_type) and [Hawaii](second_pizza_type)
+    - i want [Margherita](pizza_type), [Veggie](second_pizza_type), [Hawaii](second_pizza_type), [mushrooms](second_pizza_type), and [Pepperoni](second_pizza_type)
+    - I'd like [mushrooms](pizza_type), [Pepperoni](second_pizza_type), [Margherita](second_pizza_type), [mushrooms](second_pizza_type), and [Veggie](second_pizza_type)
+    - I'd like a [Hawaii](pizza_type) and [Pepperoni](second_pizza_type)
+    - I want [three](pizza_amount) [Hawaii](pizza_type) and [one](second_pizza_amount) [Pepperoni](second_pizza_type)
+    - I want [one](pizza_amount) [mushrooms](pizza_type), [two](second_pizza_amount) [Veggie](second_pizza_type), and [three](second_pizza_amount) [Margherita](second_pizza_type)
+    - I want [three](pizza_amount) [Hawaii](pizza_type) and [three](second_pizza_amount) [Pepperoni](second_pizza_type)
+    - I want [two](pizza_amount) [Veggie](pizza_type), [four](second_pizza_amount) [mushrooms](second_pizza_type) and [three](second_pizza_amount) [Margherita](second_pizza_type)
+    - I want [four](pizza_amount) [small](pizza_size) [Veggie](pizza_type), [two](second_pizza_amount) [large](pizza_size) [mushrooms](second_pizza_type) and [one](second_pizza_amount) [baby](pizza_size) [Margherita](second_pizza_type)
+    - i'll take a [margherita]{"entity": "pizza_type", "value": "Margherita"} and a [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - [8 inches]{"entity": "pizza_size", "value": "baby"}
+    - [10 inches]{"entity": "pizza_size", "value": "small"}
+    - [12 inches]{"entity": "pizza_size", "value": "medium"}
+    - [14 inches]{"entity": "pizza_size", "value": "large"}
+    - [18 inches]{"entity": "pizza_size", "value": "extra large"}
+    - [small](pizza_size)
+    - [large](pizza_size)
+    - I want to order [large](pizza_size) pizza
+    - I want a [large](pizza_size) pizza
+    - I think its [large](pizza_size)
+    - [medium](pizza_size) pizza
+    - [standard]{"entity": "pizza_size", "value": "medium"} pizza
+    - [huge]{"entity": "pizza_size", "value": "extra large"} pizza
+    - [Little]{"entity": "pizza_size", "value": "small"} pizza
+    - Probably [avg]{"entity": "pizza_size", "value": "medium"}
+    - Probably [average]{"entity": "pizza_size", "value": "medium"} pizza
+    - [Average]{"entity": "pizza_size", "value": "medium"}
+    - [medium](pizza_size)
+    - [large](pizza_size) please
+    - [extra large](pizza_size)
+    - [large](pizza_size) and pizza
+    - [large](pizza_size)
+    - I want [baby](pizza_size)
+    - I'll take [large](pizza_size) [cracker](pizza_crust) crust pizza
+    - [large](pizza_size)
+    - [extra large](pizza_size) [cracker](pizza_crust) crust
+    - [baby](pizza_size)
+    - I'll take [medium](pizza_size)
+    - I'll have [baby](pizza_size)
+    - I would like [small](pizza_size)
+    - I would like [medium](pizza_size) please
+    - I'd like [large](pizza_size)
+    - I want it [extra large](pizza_size)
+    - [stuffed](pizza_crust) crust
+    - [cracker](pizza_crust) crust
+    - [cracker](pizza_crust)
+    - [flatbread](pizza_crust) crust
+    - [thin](pizza_crust) crust
+    - I want [thin](pizza_crust) crust
+    - I want [cracker](pizza_crust) crust
+    - I want [flatbread](pizza_crust) crust
+    - I want [stuffed](pizza_crust) crust
+    - I'd like [thin](pizza_crust) crust
+    - I would like [cracker](pizza_crust) crust
+    - I'll have [flatbread](pizza_crust) crust
+    - I'll take [stuffed](pizza_crust) crust
+    - I am going to have [thin](pizza_crust) crust
+    - I am taking the [cracker](pizza_crust) crust
+    - I am taking the [flatbread](pizza_crust) crust
+    - The [stuffed](pizza_crust) crust
+    - I am having [thin](pizza_crust) crust
+    - I am taking [cracker](pizza_crust) crust
+    - [thin](pizza_crust) crust please
+    - [cracker](pizza_crust) crust please
+    - [flatbread](pizza_crust) crust please
+    - [stuffed](pizza_crust) crust please
+    - [stuffed](pizza_crust)
+    - [flatbread](pizza_crust)
+    - [thin](pizza_crust)
+    - [thin](pizza_crust) crust
+    - I want [cracker](pizza_crust) crust pizza
+    - [stuffed](pizza_crust) crust [pepperoni](pizza_type)
+    - [flatbread](pizza_crust) crust [vegetarian](pizza_type)
+    - i'll take the [thin](pizza_crust) crust
+    - [cracker](pizza_crust) crust
+    - [thin](pizza_crust) crust
+    - [thick](pizza_crust) crust
+    - [stuffed](pizza_crust) crust
+    - [flatbread](pizza_crust) crust
+    - I want [one](pizza_amount) [small](pizza_size) [hawaii](pizza_type) pizza
+    - I want [two](pizza_amount) [medium](pizza_size) [margherita](pizza_type) pizza
+    - I want [three](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizza
+    - I'll take [four](pizza_amount) [extra large](pizza_size) [vegetarian](pizza_type) pizza
+    - I'll have [five](pizza_amount) [baby](pizza_size) [veggie](pizza_type) pizza
+    - I would like [six](pizza_amount) [small](pizza_size) [hawaii](pizza_type) pizza
+    - I would like [seven](pizza_amount) [medium](pizza_size) [margherita](pizza_type) pizza
+    - I'd like [eight](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizza
+    - I want to order [one](pizza_amount) pizzas
+    - I want to order [two](pizza_amount) pizzas please
+    - I wanna order [three](pizza_amount) pizzas
+    - I wanna order [four](pizza_amount) pizzas please
+    - I am going to order [five](pizza_amount) pizzas
+    - I'm having [six](pizza_amount) pizzas
+    - I'm taking [seven](pizza_amount) pizzas
+    - [2](pizza_amount) [small](pizza_size) [hawaii](pizza_type) pizzas
+    - [1](pizza_amount) [medium](pizza_size) pizzas
+    - [3](pizza_amount) [pepperoni](pizza_type) pizzas
+    - [nine](pizza_amount) [large](pizza_size) [vegetarian](pizza_type)
+    - [3](pizza_amount)
+    - [2](pizza_amount)
+    - [three](pizza_amount)
+    - [1](pizza_amount)
+    - [dozen](pizza_amount)
+    - [two](pizza_amount)
+    - [two](pizza_amount) please
+    - [2](pizza_amount) please
+    - just [one](pizza_amount)
+    - just [1](pizza_amount)
+    - [one](pizza_amount)
+    - [four](pizza_amount)
+    - [five](pizza_amount)
+    - [six](pizza_amount)
+    - [seven](pizza_amount)
+    - [eight](pizza_amount)
+    - [nine](pizza_amount)
+    - [ten](pizza_amount)
+    - [eleven](pizza_amount)
+    - [twelve](pizza_amount)
+    - [thirteen](pizza_amount)
+    - [fourteen](pizza_amount)
+    - [8](pizza_amount)
+    - [9](pizza_amount)
+    - [10](pizza_amount)
+    - [11](pizza_amount)
+    - [12](pizza_amount)
+    - [13](pizza_amount)
+    - [14](pizza_amount)
+    - [15](pizza_amount)
+    - [16](pizza_amount)
+    - [17](pizza_amount)
+    - [18](pizza_amount)
+    - [8](pizza_amount) please
+    - [9](pizza_amount) please
+    - [10](pizza_amount) please
+    - [11](pizza_amount) please
+    - [12](pizza_amount) please
+    - [13](pizza_amount) please
+    - [14](pizza_amount) please
+    - [15](pizza_amount) please
+    - [16](pizza_amount) please
+    - [17](pizza_amount) please
+    - [18](pizza_amount) please
+    - [6](pizza_amount)
+    - [20](pizza_amount)
+    - I want [one](pizza_amount) pizza
+    - i want [nine](pizza_amount) pizzas
+    - i want [one](pizza_amount) [large](pizza_size) [thin](pizza_crust) crust [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - [margherita]{"entity": "pizza_type", "value": "Margherita"} and [pepperoni]{"entity": "second_pizza_type", "value": "Pepperoni"}
+    - i want [one](pizza_amount) pizza
+    - [one](pizza_amount) [large](pizza_size) [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - i want to order [three](pizza_amount) [large](pizza_size) [margherita]{"entity": "pizza_type", "value": "Margherita"} and [two](second_pizza_amount) [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - the [stuffed](pizza_crust) crust please
+    - [small](pizza_size) [thin](pizza_crust) crust please
+    - yes i want to order [two](pizza_amount) more pizza
+    - i want to order [three](pizza_amount) [large](pizza_size) [cracker](pizza_crust) crust [margherita]{"entity": "pizza_type", "value": "Margherita"} and [two](second_pizza_amount) [medium](second_pizza_size) [thin](second_pizza_crust) crust [hawaii]{"entity": "second_pizza_type", "value": "Hawaii"}
+    - i want to order [two](pizza_amount) more pizza
+    - i want to order [2]{"entity": "pizza_amount", "value": "two"} more pizza
+    - i want the [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} with [olives](pizza_toppings) and [onions](pizza_toppings)
+    - [extra large](pizza_size) [thin](pizza_crust) crust please
+    - I want to order [3]{"entity": "pizza_amount", "value": "three"} [large](pizza_size) [margherita](pizza_type) and [2]{"entity": "second_pizza_amount", "value": "two"} [Hawaii](second_pizza_type) pizza
+    - I want to order [3]{"entity": "pizza_amount", "value": "three"} [large](pizza_size) [margherita]{"entity": "pizza_type", "value": "Margherita"} and [2]{"entity": "second_pizza_amount", "value": "two"} [Hawaii](second_pizza_type) pizza
+    - i would like to order a pizza
+    - [one](pizza_amount) pizza
+    - [one](pizza_amount) [medium](pizza_size) pizza
+    - i want to order another pizza
+    - yes i want to add [one](pizza_amount) pizza
+    - [extra large](pizza_size) with [cracker](pizza_crust) crust
+    - good afternoon i want to order [five](pizza_amount) pizza
+    - all [cracker](pizza_crust) crust
+    - i want a [large](pizza_size) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - [one](pizza_amount) pizza
+    - [cracker](pizza_crust) crust
+- intent: item_change
+  examples: |
+    - I changed my mind. Can I get a [mushrooms](pizza_type) instead?
+    - I'd like a  [margherita](pizza_type) pizza instead.
+    - can i get a [vegetarian](pizza_type) instead?
+    - actually, can I get [margherita](pizza_type)?
+    - actually, i'd like [small](pizza_size) pizza.
+    - I'd like in [small](pizza_size) instead.
+    - actually, i would like a [small](pizza_size) [vegetarian](pizza_type).
+    - wait, can i get  it in [large](pizza_size).
+    - I would like to change the pizza to [Hawaii](pizza_type).
+    - I would like to change the pizza to [Margherita](pizza_type).
+    - I would like to change the pizza to [Pepperoni](pizza_type).
+    - I want [mushrooms](pizza_type) instead
+    - I want to change the size to [medium](pizza_size)
+    - I want to change the size to [large](pizza_size)
+    - I want my pizza in [small](pizza_size) instead
+    - I changed my mind. Can I get [three](pizza_amount) instead?
+    - I changed my mind. Can I get [thin](pizza_crust) crust instead?
+    - I changed my mind. Can I get it [small](pizza_size) instead?
+    - Sorry, I want to change the crust to [thin](pizza_crust) crust.
+    - Sorry, I want to change the size to [baby](pizza_size).
+    - Sorry, I want to change the size to [small](pizza_size).
+    - Sorry, I want to order [three](pizza_amount) pizzas instead.
+    - Sorry, I want to change the pizza to [Hawaii](pizza_type).
+    - Sorry, I want to change the pizza to [Margherita](pizza_type).
+    - Sorry, I want to change the pizza to [Pepperoni](pizza_type).
+    - Actually, I want to change the size to [medium](pizza_size).
+    - Actually, can I order [three](pizza_amount) pizzas instead?
+    - Actually, can I order [four](pizza_amount) pizzas?
+    - actually i want [three](pizza_amount) pizzas
+    - actually i'd like [four](pizza_amount) pizzas
+    - actually, i'd like [Hawaii](pizza_type) pizza
+    - actually, i'd like the [flatbread](pizza_crust) crust
+    - actually, i'd like [small](pizza_size) pizza
+    - actually i'd like [three](pizza_amount) pizzas
+    - actually i'd like [three](pizza_amount) pizzas instead
+    - actually i want [hawaii]{"entity": "pizza_type", "value": "Hawaii"} instead
+    - actually i want it [large](pizza_size)
+    - actually i want [thin](pizza_crust) crust instead
+    - actually i want a [mushrooms]{"entity": "pizza_type", "value": "mushrooms"} instead
+    - actually i want them [extra large](pizza_size)
+    - actually i want [flatbread](pizza_crust) crust instead
+    - actually, i want [seven](pizza_amount) pizza instead
+    - actually i want [five](pizza_amount) [mushrooms]{"entity": "pizza_type", "value": "mushrooms"}
+    - actually I want the [cracker](pizza_crust) crust
+    - actually I want the size to be [medium](pizza_size)
+- intent: response_negative
+  examples: |
+    - actually no
+    - nope
+    - no
+    - Nope
+    - No, I want to make a change
+    - Noo
+    - no that's ok
+    - no that's all
+    - no thank you
 - intent: response_positive
   examples: |
-    - yes, everything correct
+    - all good
+    - yeah all is good
+    - yep
+    - yeah
+    - perfect
+    - yes, that is right
+    - yes
+    - that's right
+    - correct
+    - Yes
+    - Yeah
+    - yes please
+    - es
+    - yes it's okay
+    - yes everything correct
+    - yes I have it
+    - yes in eight parts
+- intent: order_takeaway
+  examples: |
+    - take away
+    - i prefer takeaway
+    - take away please
+    - I want to take away
+    - I want to take away please
+    - I want to take away my order
+    - I want to take away my order please
+    - I'll pick it up
+    - I'll pick it up please
+    - I'll pick it up myself
+    - I'll pick it up myself please
+    - I'll pick my order up
+    - I'll pick my order up please
+    - I want to pick it up
+    - I want to pick it up please
+    - Takeout
+    - I want takeout
+    - I want takeout please
+- intent: order_delivery
+  examples: |
+    - delivery please
+    - delivery
+    - i prefer delivery
+    - i want delivery
+    - i want delivery please
+    - I'd like the delivery
+    - I'd like the delivery please
+    - I want it delivered
+    - I want it delivered please
+    - I want it to be delivered
+    - I want it to be delivered please
+    - I want it to be delivered to my address
+    - I want it to be delivered to my address please
+    - I want my order to be delivered
+    - I want my order to be delivered please
+    - I'd like my order to be delivered
+    - I'd like my order to be delivered please
+    - I would like my order to be delivered
+    - home delivery
+- intent: item_change_request_without_entity
+  examples: |
+    - actually i want to change the size
+    - actually I want to change the size
+    - actually, I want to change the size
+    - Actually i want to modify pizza type.
+    - Actually i want to modify pizza size.
+    - Actually i want to modify pizza crust.
+    - Actually i want to modify pizza amount.
+    - Actually i want to change type.
+    - Actually i want to change size.
+    - Actually i want to change crust.
+    - Actually i want to change amount.
+    - I would like to change the order
+    - I would like to modify the order
+    - Sorry, I want to change my order.
+    - Sorry, I want to modify my order.
+    - Sorry, can I change my order?
+    - I want to modify my order.
+    - I want to change my order.
+    - i want to change my order
+    - Sorry I would like to modify my order
+    - Sorry I would like to change my order
+    - Can I change my order?
+    - Can I modify my order?
+    - Can I change the order
+    - Can I modify the order
+    - actually i want to change something
+- intent: delivery_change_request_without_entity
+  examples: |
+    - Actually i want to modify delivery payment.
+    - Actually i want to modify delivery address.
+    - Actually i want to modify delivery name.
+    - Actually i want to change delivery payment method.
+    - Actually i want to change delivery address.
+    - Actually i want to change delivery payment type.
+    - Sorry, I want to change my delivery.
+    - Sorry, I want to modify my delivery.
+    - Sorry, I want to change the name
+    - Sorry, I want to change type.
+    - Sorry, I want to change address.
+    - Sorry, can I change my delivery?
+    - actually i want to change the name
+    - Actually i want to change address.
+    - Actually i want to change payment.
+    - Actually i want to change payment method.
+    - I want to modify my delivery.
+    - I want to change my delivery.
+    - i want to change my delivery
+    - actually i want to change name
+    - actually i want to change the address
+- intent: verbose
+  examples: |
+    - can you explain more?
+    - can you tell me more about what you mean by that?
+    - what do you mean?
+    - elaborate more on that?
+    - what does it mean?
+    - meaning?
+    - explain
+    - tell me more about it
+    - what do you mean
+    - Huh?
+    - Eh?
+    - Sorry?
+    - huh
+    - sorry?
+    - why?
+    - why
+    - why is that?
+    - why are you asking?
+    - why do you need that?
+    - why do you need that information?
+    - can you repeat
+    - what is that
+- intent: out_of_scope
+  examples: |
+    - What is 2 + 2?
+    - Who's the US President?
+    - do you have shoes
+    - what is your name
+    - do you have a sister
+    - book a flight from milan to ny
+    - how far is the square
+    - give me the directions to time square
+    - what is the weather in new york
+    - what is the weather
+    - how is the weather
+    - what is the weather like
+    - do you have takeaway
+    - what is 2 + 2
+- intent: goodbye
+  examples: |
+    - bye
+    - bye bye
+    - Bye
+    - Bye bye
+    - Goodbye
+    - Goodbye bye
+    - Goodbye thank you
+    - Goodbye thank you bye
+    - Bye thank you
+    - Thanks bye
+    - Thanks goodbye
+- intent: bot
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - who are you?
+    - are you a real name?
+    - are you a chatbot?
+    - are you a robot?
+    - who am I talking to?
+    - who am i talking to?
+    - are you a bot
+- intent: request_pizza_amount
+  examples: |
+    - How many pizzas can I order?
+    - Can I get [2](pizza_amount) pizzas?
+    - How many pizzas do you allow per order?
+    - I would like to order [four](pizza_amount) pizzas.
+    - Can I have [five](pizza_amount) pizzas?
+    - I need to order a large quantity of pizzas.
+    - How many pizzas can I include in my order?
+    - Is there a limit on the number of pizzas I can order?
+- intent: request_pizza_crusts_price
+  examples: |
+    - What is the price of [thin](pizza_crust) crust?
+    - Can you tell me the price of [stuffed](pizza_crust)?
+    - How much does the [stuffed](pizza_crust) cost?
+    - I want to know the price of the pizza crusts
+    - What are the prices for different crusts?
+    - Tell me the price of crusts
+    - How much is [thick](pizza_crust) crust?
+    - What’s the cost of [cracker](pizza_crust) crust for pizza?
+    - Do you have the price for crusts?
+    - How much does the [thin](pizza_crust) crust cost?
+    - Can you provide the price for [stuffed](pizza_crust) crust?
+    - Can you provide all the crusts prices?
+- intent: request_pizza_toppings
+  examples: |
+    - What pizza_toppings do you have?
+    - Can you tell me the available pizza_toppings?
+    - I want to know the pizza pizza_toppings.
+    - What are the topping options?
+    - What pizza_toppings can I choose from?
+    - Do you have [mushrooms] (pizza_toppings) as a topping?
+    - Can I get [extra ricotta] (pizza_toppings) on my pizza?
+    - Do you offer [pepperoni] (pizza_toppings) as a topping?
+    - I would like to know all the pizza_toppings.
+- intent: return
+  examples: |
+    - Can I delete this pizza?
+    - I need to delete my food.
+    - How do I delete my order?
+    - I am not satisfied with my order, can I delete it?
+    - Can I go back to the previous step?
+    - I want to return to the main menu.
+    - How do I go back to the previous screen?
+    - I need to return to the start.
+    - Take me back to the beginning.
+    - Can you return to the last step?
+    - I want to go back and change something.
+    - Can I undo the last action?
+    - Please take me back to the order page.
+    - How can I return to the previous option?
+    - I’d like to go back a step.
+- intent: takeaway_change
+  examples: |
+    - Actually I want to change the name to [Edoardo](client_name)
+    - Actually I want to change the name to [Alice](client_name)
+    - Actually I want to change the name of the order to [Alice](client_name)
+    - Actually I want to change the name of the order to [Edoardo](client_name)
+    - I want to change the name to [Edoardo](client_name)
+    - I want to change the name for the order to [Alice](client_name)
+    - I want to change the name for the order to [Edoardo](client_name)
+    - I want to modify the name to [Edoardo](client_name)
+    - I want to modify the name for the order to [Chiara](client_name)
+    - I would like to modify the name for the order to [Edoardo](client_name)
+    - I would like to modify the name to [Alice](client_name)
+    - I would like to modify the name to [Giuditta](client_name)
+    - I'd like to modify the name for the order to [Alice](client_name)
+    - I'd like to change the name for the order to [Edoardo](client_name)
+    - Actually I want to change the phone number to [202-555-0134](client_phone_number)
+    - Actually I want to change the phone number to [+44 20 7946 0958](client_phone_number)
+    - I want to change the phone number to [202-555-0134](client_phone_number)
+    - I want to change the phone number for the order to [+44 20 7946 0958](client_phone_number)
+    - I want to modify the phone number to [202-555-0134](client_phone_number)
+    - I would like to modify the phone number for the order to [+44 20 7946 0958](client_phone_number)
+    - I'd like to modify the phone number to [202-555-0134](client_phone_number)
+    - I'd like to change the phone number for the order to [+44 20 7946 0958](client_phone_number)
+    - Actually I want to change the phone to [202-555-0134](client_phone_number)
+    - I would like to change the phone to [+44 20 7946 0958](client_phone_number)
+    - I want to change the phone to [202-555-0134](client_phone_number)
+    - I want to change the phone number to [202-555-0134](client_phone_number)
+    - I'd like to change the phone to [+44 20 7946 0958](client_phone_number)
+    - I'd like to change the phone number to [202-555-0134](client_phone_number)
+- intent: takeaway_change_request_without_entity
+  examples: |
+    - I need to change my takeaway order.
+    - Can I modify my takeaway order?
+    - I want to change the details of my takeaway.
+    - How do I update my takeaway order?
+    - I need to make changes to my takeaway order.
+    - Can I alter my takeaway order?
+    - I would like to change my takeaway order.
+    - How can I adjust my takeaway order?
+    - Can I change something in my order?
+    - I need to make a change.
+    - How do I modify my order?
+    - I want to update my order.
+    - Is it possible to change my order?
+    - Can I make changes to my order?
+    - I need to adjust my order.
+    - Can I alter my order?
+- synonym: card
+  examples: |
+    - credit card
+    - debit card
+    - visa
+    - mastercard
+- synonym: margherita
+  examples: |
+    - margherita
+    - margarita
+    - Margherita
+- synonym: vegetarian
+  examples: |
+    - veggie
+    - Vegetarian
+    - Vegetariana
+    - vegetable
+    - Vegetable
+    - Veggie
+- synonym: pepperoni
+  examples: |
+    - Pepperoni
+    - Peperoni
+    - peperoni
+- synonym: hawaii
+  examples: |
+    - Hawaii
+    - hawaiian
+    - Hawaiian
+    - hawai
+    - Hawai
+- synonym: small
+  examples: |
+    - 10 inches
+    - Little
+    - 10"
+    - SMALL
+    - 10 inch
+    - small
+    - Small
+    - size S
+- synonym: medium
+  examples: |
+    - 12 inches
+    - standard
+    - avg
+    - average
+    - Average
+    - 12"
+    - 12 inch
+    - Medium
+    - medium
+    - twelve inch
+    - size M
+- synonym: large
+  examples: |
+    - 14 inches
+    - 14"
+    - 14 inch
+    - large
+    - fourteen inch
+    - size L
+    - big
+- synonym: extra large
+  examples: |
+    - 18 inches
+    - huge
+    - 18"
+    - jumbo
+    - 18 inch
+    - extra large
+    - Extra large
+    - XXL
+    - size XXL
+- synonym: one
+  examples: |
+    - 1
+    - one
+    - One
+- synonym: two
+  examples: |
+    - 2
+    - two
+    - Two
+- synonym: three
+  examples: |
+    - 3
+    - three
+    - Three
+- synonym: thin
+  examples: |
+    - normal
+    - thin
+    - Thin
+    - tin
+    - Thinn
+    - thhin
+- synonym: cracker
+  examples: |
+    - cracker
+    - Cracker
+    - crecker
+    - Craker
+    - crakcer
+- synonym: flatbread
+  examples: |
+    - flatbread
+    - Flatbread
+    - flat bread
+    - Flat bread
+    - flat-bread
+    - Flat-bread
+- synonym: stuffed
+  examples: |
+    - stuffed
+    - Stuffed
+    - stuff
+    - Stuff
+    - stufed
+    - Stufd
+- synonym: four
+  examples: |
+    - 4
+    - four
+    - Four
+- synonym: one
+  examples: |
+    - 1
+    - one
+    - One
+- synonym: seven
+  examples: |
+    - 7
+    - seven
+    - Seven
+- synonym: eight thirty
+  examples: |
+    - 830
+- synonym: seven thirty
+  examples: |
+    - 730

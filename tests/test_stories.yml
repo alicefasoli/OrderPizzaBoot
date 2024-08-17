@@ -9,24 +9,24 @@ stories:
   - action: utter_welcome_greet
   - user : |
       I would like to order a pizza
-    intent: item_start_generic
+    intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
   - user : |
       [one](pizza_amount) please
-    intent: item_start_generic
+    intent: order_pizza_inform
   - slot_was_set:
     - pizza_amount: one
   - action: pizza_order_form
   - slot_was_set:
     - pizza_amount: one
   - slot_was_set:
-    - requested_slot: pizza_type
+    - requested_slot: pizza_size
   - user : |
       [one](pizza_amount)[large](pizza_size) please
-    intent: item_start_generic
+    intent: order_pizza_inform
   - slot_was_set:
     - pizza_amount: one
   - slot_was_set:
@@ -41,18 +41,18 @@ stories:
   - user : |
       what types of pizza are available?
     intent: request_pizza_types
-  - action: utter_init_request
+  - action: action_get_menu
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_type
   - user : |
       I'll take the [Margherita](pizza_type)
-    intent: item_start_generic
+    intent: order_pizza_inform
   - slot_was_set:
-    - pizza_type: Margherita
+    - pizza_type: margherita
   - action: pizza_order_form
   - slot_was_set:
-    - pizza_type: Margherita
+    - pizza_type: margherita
   - slot_was_set:
     - requested_slot: pizza_crust
   - user : |
@@ -64,7 +64,7 @@ stories:
     - requested_slot: pizza_crust
   - user : |
       [stuffed](pizza_crust) crust please
-    intent: item_start_generic
+    intent: order_pizza_inform
   - slot_was_set:
     - pizza_crust: stuffed
   - active_loop: null
@@ -78,7 +78,7 @@ stories:
   - action: utter_default
   - user : |
       I want to order another pizza
-    intent: item_start_generic
+    intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -107,6 +107,9 @@ stories:
     - total_order:
       - one medium stuffed crust Margherita
   - slot_was_set:
+    - total_price:
+      - 8.97
+  - slot_was_set:
     - pizza_type: null
   - slot_was_set:
     - pizza_size: null
@@ -122,7 +125,7 @@ stories:
   - action: utter_anything_else
   - user : |
       I want to order [one](pizza_amount) more pizza
-    intent: item_start_generic
+    intent: order_pizza_inform
   - slot_was_set:
     - pizza_amount: one
   - action: pizza_order_form
@@ -133,7 +136,7 @@ stories:
     - requested_slot: pizza_type
   - user : |
       a [Pepperoni](pizza_type)
-    intent: item_start_generic
+    intent: order_pizza_inform
   - slot_was_set:
     - pizza_type: Pepperoni
   - action: pizza_order_form
@@ -143,7 +146,7 @@ stories:
     - requested_slot: pizza_size
   - user : |
       [extra large](pizza_size) with a [thin](pizza_crust) crust
-    intent: item_start_generic
+    intent: order_pizza_inform
   - slot_was_set:
     - pizza_crust: thin
   - slot_was_set:
@@ -169,6 +172,9 @@ stories:
     - total_order:
       - one medium stuffed crust Margherita
       - one extra large thin crust Pepperoni
+  - slot_was_set:
+    - total_price:
+      - 21.97 
   - slot_was_set:
     - pizza_type: null
   - slot_was_set:
@@ -201,13 +207,23 @@ stories:
   - slot_was_set:
     - requested_slot: client_name
   - user : |
-      [Leonardo](person_name)
-    intent: client_name
+      [Alice](person_name)
+    intent: response_client_name
   - slot_was_set:
-    - client_name: Leonardo
+    - client_name: Alice
   - action: takeaway_form
   - slot_was_set:
-    - client_name: Leonardo
+    - requested_slot: client_phone_number
+  - user : |
+      [+39 3401562203](client_phone_number)
+    intent: response_client_phone_number
+  - slot_was_set:
+    - client_phone_number: +39 3401562203
+  - action: takeaway_form
+  - slot_was_set:
+    - client_name: Alice
+  - slot_was_set:
+    - client_phone_number: +39 3401562203
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
@@ -225,17 +241,18 @@ stories:
     - time: 8
   - action: action_confirm_time
   - user : |
-      I've changed my mind, I'll pick it up at [twelve](time)
+      I've changed my mind, I'll pick it up at [seven](time)
     intent: time_change
   - action: action_change_time
   - slot_was_set:
-    - time: twelve
+    - time: seven
   - action: action_confirm_time
   - user : |
       yes
     intent: response_positive
   - action: utter_final_order
   - action: utter_goodbye
+  - action: action_order_number
 
 - story: test story 2
   steps:
@@ -245,16 +262,16 @@ stories:
     - action: utter_welcome_greet
     - user: |
         I would like to order [five](pizza_amount) pizza
-      intent: order_takeaway
+      intent: order_pizza_inform
     - slot_was_set:
-        - pizza_amount: five
+      - pizza_amount: five
     - action: pizza_order_form
     - active_loop: pizza_order_form
     - slot_was_set:
         - requested_slot: pizza_type
     - user: |
         [Pepperoni](pizza_type)
-      intent: request_pizza_types
+      intent: order_pizza_inform
     - slot_was_set:
         - pizza_type: Pepperoni
     - action: pizza_order_form
@@ -262,7 +279,7 @@ stories:
         - requested_slot: pizza_size
     - user: |
         [medium](pizza_size) size
-      intent: request_pizza_sizes
+      intent: order_pizza_inform
     - slot_was_set:
         - pizza_size: medium
     - action: pizza_order_form
@@ -270,7 +287,7 @@ stories:
         - requested_slot: pizza_crust
     - user: |
         the [cracker](pizza_crust) crust
-      intent: request_pizza_crusts
+      intent: order_pizza_inform
     - slot_was_set:
         - pizza_crust: cracker
     - action: pizza_order_form
@@ -279,15 +296,17 @@ stories:
     - active_loop: null
     - action: action_confirm_order
     - slot_was_set:
-        - current_order:
-            - five medium cracker crust Pepperoni
+      - current_order:
+          - five medium cracker crust Pepperoni
     - user: |
         yes
       intent: response_positive
     - action: action_pizza_order_add
     - slot_was_set:
         - total_order:
-            - five medium cracker crust Pepperoni
+          - five medium cracker crust Pepperoni
+        - total_price:
+          - 42.7
     - slot_was_set:
         - pizza_type: null
     - slot_was_set:
@@ -320,6 +339,13 @@ stories:
       intent: response_client_name
     - slot_was_set:
         - client_name: Francesca
+    - slot_was_set:
+      - requested_slot: client_phone_number
+    - user: |
+        [0458680823](client_phone_number)
+      intent: response_client_phone_number
+    - slot_was_set:
+        - client_phone_number: 0458680823
     - action: takeaway_form
     - slot_was_set:
         - requested_slot: null
@@ -343,7 +369,11 @@ stories:
         yes
       intent: response_positive
     - action: utter_final_order
+    - user: |
+        bye
+      intent: goodbye
     - action: utter_goodbye
+    - action: action_order_number
 
 - story: test story 3
   steps:
@@ -361,27 +391,27 @@ stories:
     - slot_was_set:
         - anti_pizza_type: beer
     - action: utter_anti_pizza
-    - action: utter_init_request
+    - action: action_get_menu
     - user: |
         Do you have [fried chicken](anti_pizza_type)?
       intent: order_anti_pizza
     - slot_was_set:
-        - anti_pizza_type: chicken
+        - anti_pizza_type: fried chicken
     - action: utter_anti_pizza
-    - action: utter_init_request
+    - action: action_get_menu
     - user: |
         I want a [large](pizza_size) [pepperoni](pizza_type) pizza
-      intent: order_pizza
+      intent: order_pizza_inform
     - slot_was_set:
         - pizza_size: large
-        - pizza_type: Pepperoni
+        - pizza_type: pepperoni
     - action: pizza_order_form
     - active_loop: pizza_order_form
     - slot_was_set:
         - requested_slot: pizza_amount
     - user: |
         [one](pizza_amount) please
-      intent: request_pizza_amount
+      intent: order_pizza_inform
     - slot_was_set:
         - pizza_amount: one
     - action: pizza_order_form
@@ -396,17 +426,9 @@ stories:
         - requested_slot: pizza_crust
     - user: |
         [cracker](pizza_crust) crust please
-      intent: request_pizza_crusts
+      intent: order_pizza_inform
     - slot_was_set:
         - pizza_crust: cracker
-    - action: pizza_order_form
-    - slot_was_set:
-        - requested_slot: pizza_sliced
-    - user: |
-        yes
-      intent: response_positive
-    - slot_was_set:
-        - pizza_sliced: true
     - action: pizza_order_form
     - slot_was_set:
         - requested_slot: null
@@ -414,14 +436,14 @@ stories:
     - action: action_confirm_order
     - slot_was_set:
         - current_order:
-            - one large cracker crust Pepperoni, all pizza sliced
+            - one large cracker crust Pepperoni
     - user: |
         yes
       intent: response_positive
     - action: action_pizza_order_add
     - slot_was_set:
         - total_order:
-            - one large cracker crust Pepperoni, all pizza sliced
+            - one large cracker crust Pepperoni
     - slot_was_set:
         - pizza_type: null
     - slot_was_set:
@@ -429,26 +451,22 @@ stories:
     - slot_was_set:
         - pizza_amount: null
     - slot_was_set:
-        - pizza_sliced: null
-    - slot_was_set:
         - pizza_crust: null
     - slot_was_set:
         - current_order: null
-    - action: action_next_order
+    - action: action_new_order
     - action: utter_something_else
     - user: |
         no
       intent: response_negative
     - action: action_total_order
     - slot_was_set:
-        - total_order: one large cracker crust Pepperoni, all pizza sliced
+        - total_order: one large cracker crust Pepperoni
     - user: |
-        takeaway
-      intent: order_takeaway
-    - slot_was_set:
-        - takeaway_flag: true
-    - action: takeaway_form
-    - active_loop: takeaway_form
+        delivery
+      intent: order_delivery
+    - action: delivery_form
+    - active_loop: delivery_form
     - slot_was_set:
         - requested_slot: client_name
     - user: |
@@ -456,15 +474,23 @@ stories:
       intent: response_client_name
     - slot_was_set:
         - client_name: Giovanni
-    - action: takeaway_form
+    - action: delivery_form
+      - slot_was_set:
+          - requested_slot: client_phone_number
+      - user: |
+          my phone number is [3456521123](client_phone_number)
+        intent: response_client_phone_number
+      - slot_was_set:
+          - client_phone_number: 3456521123
+    - action: delivery_form
     - slot_was_set:
         - requested_slot: client_address
     - user: |
-        to [roma street number five rovereto](client_address)
+        to [mazzini street number 5 verona](client_address)
       intent: response_client_address
     - slot_was_set:
-        - client_address: roma street number five rovereto
-    - action: takeaway_form
+        - client_address: mazzini street number 5 verona
+    - action: delivery_form
     - slot_was_set:
         - requested_slot: client_payment
     - user: |
@@ -472,17 +498,15 @@ stories:
       intent: response_client_payment
     - slot_was_set:
         - client_payment: cash
-    - action: takeaway_form
+    - action: delivery_form
     - slot_was_set:
         - requested_slot: null
     - active_loop: null
-    - action: action_confirm_takeaway
+    - action: action_confirm_delivery
     - user: |
         yes
       intent: response_positive
-    - action: utter_confirm_takeaway
-    - action: action_ask_time_takeaway
-    - active_loop: time_form
+    - action: utter_time_delivery
     - slot_was_set:
         - requested_slot: time
     - user: |
@@ -496,3 +520,4 @@ stories:
       intent: response_positive
     - action: utter_final_order
     - action: utter_goodbye
+    - action: action_order_number
