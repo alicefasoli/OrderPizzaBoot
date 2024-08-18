@@ -1,22 +1,26 @@
+recipe: default.v1
+
 language: en
 
 pipeline:
-  - name: "WhitespaceTokenizer"
-  - name: "LanguageModelFeaturizer"
-    model_name: "bert"
-    model_weights: "bert-base-uncased"
-  - name: "RegexFeaturizer"
-  - name: "LexicalSyntacticFeaturizer"
-  - name: "DIETClassifier"
+  - name: SpacyNLP
+    model: en_core_web_md
+  - name: EntitySynonymMapper
+  - name: SpacyTokenizer
+  - name: SpacyFeaturizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
     epochs: 100
-    random_seed: 42
-    entity_recognition: True
-  - name: "EntitySynonymMapper"
-  - name: "ResponseSelector"
+    constrain_similarities: true
+  - name: ResponseSelector
     epochs: 100
-    retrieval_intent: "faq"
-    clean_up_tokenization_spaces: True
-
+    constrain_similarities: true
 
 policies:
   - name: TEDPolicy

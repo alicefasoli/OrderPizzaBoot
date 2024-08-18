@@ -1,9 +1,10 @@
 .rasa/
 
 models/
-results/
+results*/
 
 graph.html
 
 __pycache__/
 story_graph.dot
+data_analysis.py

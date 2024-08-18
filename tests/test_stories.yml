@@ -356,7 +356,6 @@ stories:
       intent: response_positive
     - action: utter_confirm_takeaway
     - action: action_ask_time_takeaway
-    - active_loop: time_form
     - slot_was_set:
         - requested_slot: time
     - user: |
@@ -475,13 +474,13 @@ stories:
     - slot_was_set:
         - client_name: Giovanni
     - action: delivery_form
-      - slot_was_set:
-          - requested_slot: client_phone_number
-      - user: |
-          my phone number is [3456521123](client_phone_number)
-        intent: response_client_phone_number
-      - slot_was_set:
-          - client_phone_number: 3456521123
+    - slot_was_set:
+        - requested_slot: client_phone_number
+    - user: |
+        my phone number is [3456521123](client_phone_number)
+      intent: response_client_phone_number
+    - slot_was_set:
+        - client_phone_number: 3456521123
     - action: delivery_form
     - slot_was_set:
         - requested_slot: client_address

@@ -169,7 +169,6 @@ if __name__ == "__main__":
     create_tables()
     
     pizzas = {
-        'Mushrooms': ['Mushrooms'],
         'Hawaii': ['Pineapple', 'Ham'],
         'Margherita': ['Tomato', 'Mozzarella', 'Basil'],
         'Pepperoni': ['Tomato', 'Mozzarella', 'Spicy Salami'],
@@ -187,7 +186,6 @@ if __name__ == "__main__":
     }
 
     prices = {
-        'Mushrooms': 8.99,
         'Hawaii': 14.99,
         'Margherita': 5.99,
         'Pepperoni': 6.99,
