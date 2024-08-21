@@ -1,0 +1,122 @@
+[
+  {
+    "text": "I'd like to change the name to Edoardo",
+    "intent": "delivery_change",
+    "intent_prediction": {
+      "name": "takeaway_change",
+      "confidence": 0.6993663907051086
+    }
+  },
+  {
+    "text": "what are the payment methods?",
+    "intent": "request_payment_methods",
+    "intent_prediction": {
+      "name": "request_pizza_types",
+      "confidence": 0.5140398740768433
+    }
+  },
+  {
+    "text": "actually, I want to change the size",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.47960177063941956
+    }
+  },
+  {
+    "text": "Actually i want to change type.",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "delivery_change_request_without_entity",
+      "confidence": 0.6081034541130066
+    }
+  },
+  {
+    "text": "Sorry, can I change my order?",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "delivery_change_request_without_entity",
+      "confidence": 0.47206738591194153
+    }
+  },
+  {
+    "text": "Can I change my order?",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "takeaway_change_request_without_entity",
+      "confidence": 0.3790942430496216
+    }
+  },
+  {
+    "text": "actually i want to change the name",
+    "intent": "delivery_change_request_without_entity",
+    "intent_prediction": {
+      "name": "delivery_change",
+      "confidence": 0.5009316802024841
+    }
+  },
+  {
+    "text": "actually i want to change name",
+    "intent": "delivery_change_request_without_entity",
+    "intent_prediction": {
+      "name": "delivery_change",
+      "confidence": 0.3397164046764374
+    }
+  },
+  {
+    "text": "do you have takeaway",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "order_takeaway",
+      "confidence": 0.3978933095932007
+    }
+  },
+  {
+    "text": "Can I get 2 pizzas?",
+    "intent": "request_pizza_amount",
+    "intent_prediction": {
+      "name": "order_anti_pizza",
+      "confidence": 0.18170830607414246
+    }
+  },
+  {
+    "text": "I would like to order four pizzas.",
+    "intent": "request_pizza_amount",
+    "intent_prediction": {
+      "name": "order_anti_pizza",
+      "confidence": 0.21718992292881012
+    }
+  },
+  {
+    "text": "Can I have five pizzas?",
+    "intent": "request_pizza_amount",
+    "intent_prediction": {
+      "name": "request_payment_methods",
+      "confidence": 0.19790363311767578
+    }
+  },
+  {
+    "text": "What are the topping options?",
+    "intent": "request_pizza_topping",
+    "intent_prediction": {
+      "name": "request_pizza_types",
+      "confidence": 0.35597559809684753
+    }
+  },
+  {
+    "text": "Actually I want to change the name to Edoardo",
+    "intent": "takeaway_change",
+    "intent_prediction": {
+      "name": "delivery_change",
+      "confidence": 0.5486143231391907
+    }
+  },
+  {
+    "text": "Actually I want to change the name to Alice",
+    "intent": "takeaway_change",
+    "intent_prediction": {
+      "name": "delivery_change",
+      "confidence": 0.7462778091430664
+    }
+  }
+]

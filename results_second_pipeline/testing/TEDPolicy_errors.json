@@ -1,0 +1,352 @@
+[
+  {
+    "text": "I'd like a Margherita",
+    "entities": [
+      {
+        "start": 11,
+        "end": 21,
+        "value": "Margherita",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "two please",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "two",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Both medium",
+    "entities": [
+      {
+        "start": 5,
+        "end": 11,
+        "value": "medium",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "thin crust for both",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "thin",
+        "entity": "pizza_crust"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want olives",
+    "entities": [
+      {
+        "start": 7,
+        "end": 13,
+        "value": "olives",
+        "entity": "pizza_topping"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "takeaway and My name is Alice",
+    "entities": [
+      {
+        "start": 24,
+        "end": 29,
+        "value": "Alice",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "takeaway and My phone number is 3405102260",
+    "entities": [
+      {
+        "start": 32,
+        "end": 42,
+        "value": "3405102260",
+        "entity": "client_phone_number"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "at seven thirty",
+    "entities": [
+      {
+        "start": 3,
+        "end": 15,
+        "value": "seven thirty",
+        "entity": "time"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order a beer",
+    "entities": [
+      {
+        "start": 18,
+        "end": 22,
+        "value": "beer",
+        "entity": "anti_pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order three large pizza",
+    "entities": [
+      {
+        "start": 16,
+        "end": 21,
+        "value": "three",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 22,
+        "end": 27,
+        "value": "large",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I'd like a Pepperoni",
+    "entities": [
+      {
+        "start": 11,
+        "end": 20,
+        "value": "Pepperoni",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "stuffed crust please",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "stuffed",
+        "entity": "pizza_crust"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "ricotta",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "ricotta",
+        "entity": "pizza_topping"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "actually i want Vegetarian instead",
+    "entities": [
+      {
+        "start": 16,
+        "end": 26,
+        "value": "Vegetarian",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "delivery and My name is Gina",
+    "entities": [
+      {
+        "start": 24,
+        "end": 28,
+        "value": "Gina",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "delivery and My phone number is +39 3405102260",
+    "entities": [
+      {
+        "start": 32,
+        "end": 46,
+        "value": "+39 3405102260",
+        "entity": "client_phone_number"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "to number five roma street trento",
+    "entities": [
+      {
+        "start": 3,
+        "end": 33,
+        "value": "number five roma street trento",
+        "entity": "client_address"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "cash",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "cash",
+        "entity": "client_payment"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "at eight thirty",
+    "entities": [
+      {
+        "start": 3,
+        "end": 15,
+        "value": "eight thirty",
+        "entity": "time"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I would like to have clarifications about Margherita",
+    "entities": [
+      {
+        "start": 42,
+        "end": 52,
+        "value": "Margherita",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order one boscaiola pizza",
+    "entities": [
+      {
+        "text": "I want to order one boscaiola pizza",
+        "start": 16,
+        "end": 19,
+        "entity": "pizza_amount",
+        "value": "one"
+      },
+      {
+        "text": "I want to order one boscaiola pizza",
+        "start": 20,
+        "end": 29,
+        "entity": "pizza_type",
+        "value": "boscaiola"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order two hawaii pizza",
+    "entities": [
+      {
+        "start": 16,
+        "end": 19,
+        "value": "two",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 20,
+        "end": 26,
+        "value": "hawaii",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Both small and with thick crust",
+    "entities": [
+      {
+        "start": 5,
+        "end": 10,
+        "value": "small",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 20,
+        "end": 25,
+        "value": "thick",
+        "entity": "pizza_crust"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want none",
+    "entities": [
+      {
+        "start": 7,
+        "end": 11,
+        "value": "none",
+        "entity": "pizza_topping"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "takeaway and My name is Alice",
+    "entities": [
+      {
+        "start": 24,
+        "end": 29,
+        "value": "Alice",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "takeaway and My phone number is 3405102260",
+    "entities": [
+      {
+        "start": 32,
+        "end": 42,
+        "value": "3405102260",
+        "entity": "client_phone_number"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "at eight thirty",
+    "entities": [
+      {
+        "start": 3,
+        "end": 15,
+        "value": "eight thirty",
+        "entity": "time"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

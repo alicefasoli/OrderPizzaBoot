@@ -1,0 +1,10 @@
+[
+  {
+    "text": "actually i want to change the name to Edoardo",
+    "intent": "delivery_change",
+    "intent_prediction": {
+      "name": "takeaway_change",
+      "confidence": 0.6173732876777649
+    }
+  }
+]
