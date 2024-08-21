@@ -22,6 +22,28 @@ pipeline:
     epochs: 100
     constrain_similarities: true
 
+# pipeline:
+#   - name: "SpacyNLP"
+#     model: "en_core_web_md"
+#   - name: SpacyTokenizer
+#   - name: CountVectorsFeaturizer
+#   - name: CountVectorsFeaturizer
+#     analyzer: "char_wb"
+#     min_ngram: 1
+#     max_ngram: 4
+#   - name: LexicalSyntacticFeaturizer
+#   - name: "SpacyFeaturizer"
+#   - name: RegexEntityExtractor
+#     case_sensitive: false
+#     use_lookup_tables: true
+#     use_regexes: true
+#   - name: DIETClassifier
+#     epochs: 25
+#     constrain_similarities: true
+#   - name: EntitySynonymMapper
+#   - name: FallbackClassifier
+#     threshold: 0.5
+
 policies:
   - name: TEDPolicy
     max_history: 5

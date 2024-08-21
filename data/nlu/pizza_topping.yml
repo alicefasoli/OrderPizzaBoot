@@ -1,0 +1,29 @@
+version: "3.1"
+nlu:
+- lookup: pizza_topping
+  examples: |
+    - no extra topping
+    - pineapple
+    - ham
+    - tomato
+    - mozzarella
+    - basil
+    - spicy salami
+    - bell peppers
+    - mushrooms
+    - olives
+    - eggplant
+    - artichokes
+    - prosciutto crudo
+    - burrata
+    - garlic
+    - gorgonzola
+    - parmesan
+    - ricotta
+    - tuna
+    - onion
+    - sausage
+    - broccoli rabe
+    - walnuts
+
+

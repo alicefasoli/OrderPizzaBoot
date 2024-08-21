@@ -214,10 +214,10 @@ if __name__ == "__main__":
             insert_ingredient(ingredient)
             insert_pizza_ingredient(pizza, ingredient)
     
-    # ingredients = show_table_data('ingredients')
-    # print('Ingredients in database')
-    # for i in ingredients:
-    #     print(i)
+    ingredients = show_table_data('ingredients')
+    print('Ingredients in database')
+    for i in ingredients:
+        print(i)
     
     # crusts_table = show_table_data('crust')
     # print('Crusts in database')

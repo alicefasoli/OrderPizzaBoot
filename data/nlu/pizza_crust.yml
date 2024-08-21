@@ -2,10 +2,10 @@ version: "3.1"
 nlu:
 - lookup: crust_type
   examples: |
-    - Thin
-    - Thick
-    - Stuffed
-    - Gluten-free
+    - thin
+    - thick
+    - stuffed
+    - luten-free
     - Whole wheat
     - Flatbread
     - Cracker

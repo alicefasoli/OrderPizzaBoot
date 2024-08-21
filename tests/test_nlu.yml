@@ -35,26 +35,6 @@ nlu:
     - How can I pay?
     - What payment methods do you have?
     - Can i know the payment methods?
-- intent: response_client_payment
-  examples: |
-    - [debit card]{"entity": "client_payment", "value": "card"}
-    - [bancomat]{"entity": "client_payment", "value": "card"}
-    - [cash](client_payment)
-- intent: response_client_name
-  examples: |
-    - My name is [Francesca](client_name)
-    - I'm [Leonardo](client_name)
-    - [Luisa](client_name)
-- intent: response_client_phone_number
-  examples: |
-    - My phone number is [+39 340 410 1108](client_phone_number)
-    - [0458680823](client_phone_number)
-    - My contact is [345 6452500](client_phone_number)
-- intent: response_client_address
-  examples: |
-    - I live in [sommarive street number 5 Trento](client_address)
-    - You can find me at the address [prepositura street number sixtyfour Trento](client_address)
-    - Deliver it to [venezia street number 121 trento](client_address)
 - intent: restart
   examples: |
     - Sorry but I would like to restart the order
@@ -102,6 +82,7 @@ nlu:
   examples: |
     - I would like a pizza
     - I want to order pizza
+    - [none](pizza_topping) toppings
     - I want [tuna and onions](pizza_type) pizza please
     - I want [3](pizza_amount) [gorgonzola and walnuts](pizza_type) pizza please
 - intent: item_change
@@ -124,12 +105,30 @@ nlu:
     - To take away
     - I'll pick it up
     - I would like to take it away
+    - takeaway and My name is [Francesca](client_name)
+    - takeaway and I'm [Leonardo](client_name)
+    - takeaway and [Luisa](client_name)
+    - takeaway and My phone number is [+39 340 410 1108](client_phone_number)
+    - takeaway and [0458680823](client_phone_number)
+    - takeaway and My contact is [345 6452500](client_phone_number)
 - intent: order_delivery
   examples: |
     - I would like to have it delivered to my house
     - I would like it delivered
     - I want it delivered
     - delivery please
+    - delivery and My name is [Francesca](client_name)
+    - delivery and I'm [Leonardo](client_name)
+    - delivery and [Luisa](client_name)
+    - delivery and My phone number is [+39 340 410 1108](client_phone_number)
+    - delivery and [0458680823](client_phone_number)
+    - delivery and My contact is [345 6452500](client_phone_number)
+    - [debit card]{"entity": "client_payment", "value": "card"}
+    - [bancomat]{"entity": "client_payment", "value": "card"}
+    - [cash](client_payment)
+    - I live in [sommarive street number 5 Trento](client_address)
+    - You can find me at the address [prepositura street number sixtyfour Trento](client_address)
+    - Deliver it to [venezia street number 121 trento](client_address)
 - intent: item_change_request_without_entity
   examples: |
     - Sorry can I modify the order?
@@ -141,11 +140,6 @@ nlu:
     - I want to change the delivery address
     - I want to modify the payment method
     - There's an error, I want to change the name
-- intent: verbose
-  examples: |
-    - can you repeat please
-    - I didn't understand
-    - what did you say?
 - intent: out_of_scope
   examples: |
     - Is it crowded right now?
@@ -156,6 +150,9 @@ nlu:
     - Goodbye, thanks
     - Bye, see you next time
     - Bye, see you later
+    - Ok, bye
+    - Bye
+    - Thanks bye
 - intent: bot
   examples: |
     - Who am I talking to?
@@ -166,26 +163,21 @@ nlu:
     - Can I get [30](pizza_amount) pizzas?
     - Can I get [10](pizza_amount) pizzas?
     - Can I get [1](pizza_amount) pizzas?
-- intent: request_pizza_toppings
+- intent: request_pizza_topping
   examples: |
     - What are the available toppings?
-    - Can I have [ananas] (pizza_toppings) on my pizza?
+    - Can I have [ananas] (pizza_topping) on my pizza?
     - List all the toppings
 - intent: request_pizza_crusts_price
   examples: |
     - How much is the crust?
     - Are the crust options priced differently?
     - What are the prices for different pizza crusts?
-- intent: request_pizza_toppings
+- intent: request_pizza_topping
   examples: |
     - What toppings do you have?
     - What toppings do you recommend?
     - What can I put on my pizza? 
-- intent: return
-  examples: |
-    - Delete the last pizza
-    - No order
-    - Delete my order 
 - intent: takeaway_change
   examples: |
     - I want to change the phone number, the correct one is [+39 3404104100](client_phone_number)

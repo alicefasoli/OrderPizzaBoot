@@ -8,6 +8,7 @@ from rasa_sdk import Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 import re
+import ast
 import sqlite3
 
 class ActionGetMenu(Action):
@@ -151,11 +152,8 @@ class ActionConfirmOrder(Action):
         pizza_amount = tracker.get_slot("pizza_amount")
         pizza_crust = tracker.get_slot("pizza_crust")        
         order_details = ""
-        toppings = tracker.get_slot("pizza_toppings")
-        if toppings is not None:
-            toppings = ", ".join(toppings) if toppings is not None else ""
-            toppings = toppings.rsplit(', ', 1)
-            toppings = " and ".join(toppings)
+        toppings = tracker.get_slot("pizza_topping")
+        if toppings is not None or toppings != "none":
             toppings = "with " + toppings
             order_details += f"{pizza_amount} {pizza_size} {pizza_crust} crust {pizza_type} {toppings}"
         else:
@@ -164,6 +162,7 @@ class ActionConfirmOrder(Action):
         last_intent = tracker.get_intent_of_latest_message()
         if last_intent == "current_order":
             dispatcher.utter_message(text="Your order is " + order_details)
+            return []
         else:
             if tracker.get_slot("second_pizza_amount") is not None or tracker.get_slot("second_pizza_type") is not None or tracker.get_slot("second_pizza_size") is not None or tracker.get_slot("second_pizza_crust") is not None:
                 dispatcher.utter_message(text="At the moment, the order is "+ order_details + ". Is everything correct?")
@@ -210,13 +209,13 @@ class ActionNewOrder(Action):
         second_pizza_size = tracker.get_slot("second_pizza_size")
         second_pizza_amount = tracker.get_slot("second_pizza_amount")
         second_pizza_crust = tracker.get_slot("second_pizza_crust")
-        second_pizza_toppings = tracker.get_slot("second_pizza_toppings")
+        second_pizza_topping = tracker.get_slot("second_pizza_topping")
 
         next_pizza_type = None
         next_pizza_size = None
         next_pizza_amount = None
         next_pizza_crust = None
-        next_pizza_toppings = None
+        next_pizza_topping = None
         events = []
         if second_pizza_type is not None:
             next_pizza_type = second_pizza_type.pop(0)
@@ -238,27 +237,49 @@ class ActionNewOrder(Action):
             events +=  [SlotSet("pizza_crust", next_pizza_crust), SlotSet("second_pizza_crust", second_pizza_crust if len(second_pizza_crust) > 0 else None)]
         else:
             events += [SlotSet("pizza_crust", None)]
-        if second_pizza_toppings is not None:
-            next_pizza_toppings = second_pizza_toppings.pop(0)
-            events +=  [SlotSet("pizza_toppings", next_pizza_toppings), SlotSet("second_pizza_toppings", second_pizza_toppings if len(second_pizza_toppings) > 0 else None)]
+        if second_pizza_topping is not None:
+            next_pizza_topping = second_pizza_topping.pop(0)
+            events +=  [SlotSet("pizza_topping", next_pizza_topping), SlotSet("second_pizza_topping", second_pizza_topping if len(second_pizza_topping) > 0 else None)]
         else:
-            events += [SlotSet("pizza_toppings", None)]
+            events += [SlotSet("pizza_topping", None)]
         if next_pizza_type is not None or next_pizza_size is not None or next_pizza_amount is not None or next_pizza_crust is not None:
             next_order= ""
             next_order += f"{next_pizza_amount} " if next_pizza_amount is not None else ""
             next_order += f"{next_pizza_size} " if next_pizza_size is not None else ""
             next_order += f"{next_pizza_crust} crust " if next_pizza_crust is not None else ""
             next_order += f"{next_pizza_type}" if next_pizza_type is not None else ""
-            next_order += f"{next_pizza_toppings}" if next_pizza_toppings is not None else ""
+            next_order += f"{next_pizza_topping}" if next_pizza_topping is not None else ""
             dispatcher.utter_message(text=f"Alright, let's go through the next {next_order} pizza.")
-        return []
+        return [FollowupAction("utter_something_else")]
         
 class ActionPizzaOrderAdd(Action):
     def name(self):
         return 'action_pizza_order_add'
     async def run(self, dispatcher, tracker, domain):
+        numbers_dict = {
+            "one": 1,
+            "two": 2,
+            "three": 3,
+            "four": 4,
+            "five": 5,
+            "six": 6,
+            "seven": 7,
+            "eight": 8,
+            "nine": 9,
+            "ten": 10,
+            "eleven": 11,
+            "twelve": 12,
+            "thirteen": 13,
+            "fourteen": 14,
+            "fifteen": 15,
+            "sixteen": 16,
+            "seventeen": 17,
+            "eighteen": 18,
+            "nineteen": 19,
+            "twenty": 20
+        }
+        
         current_order = tracker.get_slot("current_order")
-        print(current_order)
         if current_order is None:
             dispatcher.utter_message(text="Sorry, there is an error. You have no open order.")
             return []
@@ -267,32 +288,47 @@ class ActionPizzaOrderAdd(Action):
             total_order = []
         total_order.extend(tracker.get_slot("current_order"))
 
-        type = tracker.get_slot('pizza_type')
-        size = tracker.get_slot('pizza_size')
-        amount = tracker.get_slot('pizza_amount')
-        crust = tracker.get_slot('pizza_crust')
-        toppings =  tracker.get_slot('pizza_toppings')
+        pizza_type = tracker.get_slot('pizza_type').lower()
+        size = tracker.get_slot('pizza_size').lower()
+        amount = tracker.get_slot('pizza_amount').lower()
+        crust = tracker.get_slot('pizza_crust').lower()
+        toppings =  tracker.get_slot('pizza_topping')
         
-        price_column = f'price_{size}'
-        total_price = 0
-        
-        if toppings is not None:
-            n_toppings = len(toppings.split(','))
+        total_price = tracker.get_slot("total_price")
+        if total_price is None:
+            total_price = 0
         else:
+            total_price = int(total_price)
+        
+        if toppings == "no extra topping":
             n_toppings = 0
+        else:
+            n_toppings = 1
+            
+        if amount.lower() in numbers_dict:
+            n_pizzas = numbers_dict[amount.lower()]
+        else:
+            n_pizzas = int(amount)
         
         try:
             connection = sqlite3.connect('menu.db')
             cursor = connection.cursor()
-            query = 'SELECT ? FROM menu WHERE name==?'
-            cursor.execute(query, (price_column, type))
+            if size == "small":
+                query = 'SELECT price_small FROM menu WHERE name LIKE ?'
+            elif size == "medium":
+                query = 'SELECT price_medium FROM menu WHERE name LIKE ?'
+            elif size == "large":
+                query = 'SELECT price_large FROM menu WHERE name LIKE ?'
+            elif size == "extra large":
+                query = 'SELECT price_extra_large FROM menu WHERE name LIKE ?'
+            cursor.execute(query, (pizza_type, ))
             pizza_price = cursor.fetchall()
             
-            query2 = 'SELECT price FROM menu WHERE type==?'
+            query2 = 'SELECT price FROM crust WHERE type LIKE ?'
             cursor.execute(query2, (crust,))
             crusts_price = cursor.fetchall()
             
-            total_price = (pizza_price + crusts_price + n_toppings) * amount        
+            total_price += (int(pizza_price[0][0]) + int(crusts_price[0][0]) + n_toppings) * n_pizzas      
             dispatcher.utter_message(text=f"Your pizza(s) has been placed successfully! Your partial price is {total_price}$.")
             
             connection.close()
@@ -305,7 +341,7 @@ class ActionPizzaOrderAdd(Action):
                 SlotSet("pizza_size", None),
                 SlotSet("pizza_amount", None), 
                 SlotSet("pizza_crust", None),  
-                SlotSet("pizza_toppings", None), 
+                SlotSet("pizza_topping", None), 
                 SlotSet("current_order", None)
         ]
 
@@ -318,7 +354,7 @@ class ActionResetPizzaForm(Action):
             SlotSet("pizza_size", None),
             SlotSet("pizza_amount", None), 
             SlotSet("pizza_crust", None), 
-            SlotSet("pizza_toppings", None), 
+            SlotSet("pizza_topping", None), 
             SlotSet("current_order", None)
         ]
 
@@ -376,13 +412,13 @@ class ValidatePizzaOrderForm(FormValidationAction):
             pizza_size = tracker.get_slot("pizza_size")
             pizza_amount = tracker.get_slot("pizza_amount")
             pizza_crust = tracker.get_slot("pizza_crust")
-            pizza_toppings = tracker.get_slot("pizza_toppings")
+            pizza_topping = tracker.get_slot("pizza_topping")
             second_pizza_type = tracker.get_slot("second_pizza_type")
             second_pizza_size = tracker.get_slot("second_pizza_size")
             second_pizza_amount = tracker.get_slot("second_pizza_amount")
             second_pizza_crust = tracker.get_slot("second_pizza_crust")
-            second_pizza_toppings = tracker.get_slot("second_pizza_toppings")
-            if second_pizza_type is not None or second_pizza_size is not None or second_pizza_amount is not None or second_pizza_crust is not None or second_pizza_toppings is not None:
+            second_pizza_topping = tracker.get_slot("second_pizza_topping")
+            if second_pizza_type is not None or second_pizza_size is not None or second_pizza_amount is not None or second_pizza_crust is not None or second_pizza_topping is not None:
                 if second_pizza_type is not None and pizza_type is not None:
                     dispatcher.utter_message(text=f"Got it. For now, let’s stick to the {pizza_type} pizza.")
                 elif second_pizza_size is not None and pizza_size is not None:
@@ -391,8 +427,8 @@ class ValidatePizzaOrderForm(FormValidationAction):
                     dispatcher.utter_message(text=f"Alright. We’ll focus on the first {pizza_amount} pizza for now.")
                 elif second_pizza_crust is not None and pizza_crust is not None:
                     dispatcher.utter_message(text=f"Okay. We’ll handle the first {pizza_crust} pizza first.")
-                elif pizza_toppings is not None and second_pizza_toppings is not None:
-                    dispatcher.utter_message(text=f"Okay. We’ll handle the first {pizza_toppings} pizza first.")
+                elif pizza_topping is not None and second_pizza_topping is not None:
+                    dispatcher.utter_message(text=f"Okay. We’ll handle the first {pizza_topping} pizza first.")
                 self.warn_user = True
             return True
         else:
@@ -410,7 +446,7 @@ class ValidatePizzaOrderForm(FormValidationAction):
                 return {"pizza_type": slot_value}
             else:
                 dispatcher.utter_message(text="Please tell me a valid pizza type. This is not in the menu.")
-                dispatcher.utter_message(response="action_get_menu")
+                dispatcher.utter_message(text=f"Choose from this available pizzas: {self.get_menu()}")
                 return {"pizza_type": None}
         elif isinstance(slot_value, list):
             if len(slot_value) > 0:
@@ -418,7 +454,7 @@ class ValidatePizzaOrderForm(FormValidationAction):
                 return {"pizza_type": concatenated_slot}
             else:
                 dispatcher.utter_message(text="Please tell me a valid pizza type.")
-                dispatcher.utter_message(response="action_get_menu")
+                dispatcher.utter_message(text=f"Choose from this available pizzas: {self.get_menu()}")
                 return {"pizza_type": None}
     def validate_pizza_amount(
         self,
@@ -500,7 +536,7 @@ class ValidatePizzaOrderForm(FormValidationAction):
                 dispatcher.utter_message(text="Please tell me a valid crust type.")
                 dispatcher.utter_message(response="utter_inform_pizza_crust")
                 return {"pizza_crust": None}
-    def validate_pizza_toppings(
+    def validate_pizza_topping(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
@@ -508,28 +544,19 @@ class ValidatePizzaOrderForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         """Validate the toppings slot, considering it as optional."""
-        if slot_value == "no":
-            return {"pizza_toppings": None}
-
-        if isinstance(slot_value, str):
-            toppings_list = [topping.strip() for topping in slot_value.split(",") if topping.strip()]
-        elif isinstance(slot_value, list):
-            toppings_list = [topping.strip() for topping in slot_value if topping.strip()]
-        else:
-            dispatcher.utter_message(text="Please provide a valid list of toppings.")
-            dispatcher.utter_message(response="action_get_available_toppings")
-            return {"pizza_toppings": None}
+        if slot_value == "none":
+            return {"pizza_topping": "none"}
 
         valid_toppings = self.get_toppings()
-        invalid_toppings = [topping for topping in toppings_list if topping.lower() not in valid_toppings]
-
-        if invalid_toppings:
-            dispatcher.utter_message(
-                text=f"The following toppings are not recognized: {', '.join(invalid_toppings)}. Please provide valid toppings."
-            )
-            dispatcher.utter_message(response="action_get_available_toppings")
-            return {"pizza_toppings": None}
-        return {"pizza_toppings": toppings_list}
+        if isinstance(slot_value, str):
+            if slot_value.lower() in valid_toppings:
+                return {"pizza_topping": slot_value.lower()}
+            else:
+                dispatcher.utter_message(
+                    text=f"The following topping is not recognized: {slot_value.lower()}. Please provide valid topping."
+                )
+                dispatcher.utter_message(text=f"Choose from this available toppings: {valid_toppings}")
+                return {"pizza_topping": None}
     
 class ActionTypeMapping(Action):
     def name(self) -> Text:
@@ -599,21 +626,21 @@ class ActionCrustMapping(Action):
                     return [SlotSet("pizza_crust", pizza_crust)]
         return []
 
-class ActionToppingsMapping(Action):
+class ActionToppingMapping(Action):
     def name(self) -> Text:
-        return "action_toppings_mapping"
+        return "action_topping_mapping"
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
         last_intent = tracker.get_intent_of_latest_message()
         if last_intent == "order_pizza_inform": 
-            pizza_toppings = tracker.get_slot("pizza_toppings")
-            ent_pizza_toppings = next(tracker.get_latest_entity_values("pizza_toppings"), None)
-            if ent_pizza_toppings is None:
+            pizza_topping = tracker.get_slot("pizza_topping")
+            ent_pizza_topping = next(tracker.get_latest_entity_values("pizza_topping"), None)
+            if ent_pizza_topping is None:
                 return []
             else:
-                if pizza_toppings is None:
-                    return [SlotSet("pizza_toppings", ent_pizza_toppings)]
+                if pizza_topping is None:
+                    return [SlotSet("pizza_topping", ent_pizza_topping)]
                 else:
-                    return [SlotSet("pizza_toppings", pizza_toppings)]
+                    return [SlotSet("pizza_topping", pizza_topping)]
         return []
  
 class ActionAskPizzaAmount(Action):
@@ -646,9 +673,9 @@ class ActionAskPizzaCrust(Action):
        
 class ActionAskPizzaToppings(Action):
     def name(self):
-        return 'action_ask_pizza_toppings'
+        return 'action_ask_pizza_topping'
     async def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message(response="utter_ask_pizza_toppings")
+        dispatcher.utter_message(response="utter_ask_pizza_topping")
         return []
     
 class ActionChangeOrder(Action):
@@ -659,13 +686,13 @@ class ActionChangeOrder(Action):
         pizza_type = tracker.get_slot("pizza_type")
         pizza_amount = tracker.get_slot("pizza_amount")
         pizza_crust = tracker.get_slot("pizza_crust")
-        pizza_toppings = tracker.get_slot("pizza_toppings")
+        pizza_topping = tracker.get_slot("pizza_topping")
         
         pizza_size_changed = next(tracker.get_latest_entity_values("pizza_size"), None)
         pizza_type_changed = next(tracker.get_latest_entity_values("pizza_type"), None)
         pizza_amount_changed = next(tracker.get_latest_entity_values("pizza_amount"), None)
         pizza_crust_changed = next(tracker.get_latest_entity_values("pizza_crust"), None)
-        pizza_toppings_changed = next(tracker.get_latest_entity_values("pizza_toppings"), None)
+        pizza_topping_changed = next(tracker.get_latest_entity_values("pizza_topping"), None)
         
         if pizza_size is None and pizza_type is None and pizza_amount is None and pizza_crust is None:
             dispatcher.utter_message(response="utter_warning_nothing_to_change")
@@ -683,9 +710,9 @@ class ActionChangeOrder(Action):
         if pizza_crust_changed:
             pizza_crust = pizza_crust_changed
             changes_string.append(f"the crust to {pizza_crust}")
-        if pizza_toppings_changed:
-            pizza_toppings = pizza_toppings_changed
-            changes_string.append(f"the toppings to {pizza_toppings}")
+        if pizza_topping_changed:
+            pizza_topping = pizza_topping_changed
+            changes_string.append(f"the toppings to {pizza_topping}")
         if len(changes_string) > 0:
             if len(changes_string) > 1:
                 changes_string[-1] = "and " + changes_string[-1]
@@ -696,7 +723,7 @@ class ActionChangeOrder(Action):
             SlotSet("pizza_size", pizza_size),
             SlotSet("pizza_amount", pizza_amount),
             SlotSet("pizza_crust", pizza_crust),
-            SlotSet("pizza_toppings", pizza_toppings),
+            SlotSet("pizza_topping", pizza_topping),
             SlotSet("modify_order", None),
             SlotSet("current_order", None)
         ]
@@ -720,7 +747,7 @@ class ValidataDeliveryForm(FormValidationAction):
             else:
                 dispatcher.utter_message(text="Please tell me your name.")
                 return {"client_name": None}
-    async def validate_phone_number(
+    async def validate_client_phone_number(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
@@ -803,7 +830,7 @@ class ValidateTakeawayForm(FormValidationAction):
             else:
                 dispatcher.utter_message(text="Please tell me your name.")
                 return {"client_name": None}
-    async def validate_phone_number(
+    async def validate_client_phone_number(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
@@ -825,14 +852,14 @@ class ValidateTakeawayForm(FormValidationAction):
                 dispatcher.utter_message(text="Please tell me your phone number.")
                 return {"client_phone_number": None}
             
-class ActionClientNameMapping(Action):
+class ActionNameMapping(Action):
     def name(self):
-        return "action_client_name_mapping"
+        return "action_name_mapping"
     async def run(self, dispatcher, tracker, domain):
         last_intent = tracker.get_intent_of_latest_message()
-        if last_intent == "client_name":
+        if last_intent == "order_delivery" or last_intent == "order_takeaway":
             client_name = tracker.get_slot("client_name")
-            ent_client_name = next(tracker.get_latest_entity_values("person_name"), None)
+            ent_client_name = next(tracker.get_latest_entity_values("client_name"), None)
             if ent_client_name is None:
                 return []
             else:
@@ -842,12 +869,12 @@ class ActionClientNameMapping(Action):
                     return [SlotSet("client_name", client_name)]
         return []
     
-class ActionClientPhoneNumberMapping(Action):
+class ActionPhoneNumberMapping(Action):
     def name(self):
-        return "action_client_phone_number_mapping"
+        return "action_phone_number_mapping"
     async def run(self, dispatcher, tracker, domain):
         last_intent = tracker.get_intent_of_latest_message()
-        if last_intent == "response_client_phone_number":
+        if last_intent == "order_delivery" or last_intent == "order_takeaway":
             client_phone_number = tracker.get_slot("client_phone_number")
             ent_client_phone_number = next(tracker.get_latest_entity_values("client_phone_number"), None)
             if ent_client_phone_number is None:
@@ -859,12 +886,12 @@ class ActionClientPhoneNumberMapping(Action):
                     return [SlotSet("client_phone_number", client_phone_number)]
         return []
     
-class ActionClientAddressMapping(Action):
+class ActionAddressMapping(Action):
     def name(self):
-        return "action_client_address_mapping"
+        return "action_address_mapping"
     async def run(self, dispatcher, tracker, domain):
         last_intent = tracker.get_intent_of_latest_message()
-        if last_intent == "response_client_address":
+        if last_intent == "order_delivery":
             client_address = tracker.get_slot("client_address")
             ent_client_address = next(tracker.get_latest_entity_values("client_address"), None)
             if ent_client_address is None:
@@ -876,12 +903,12 @@ class ActionClientAddressMapping(Action):
                     return [SlotSet("client_address", client_address)]
         return []
     
-class ActionClientPaymentMapping(Action):
+class ActionPaymentMapping(Action):
     def name(self):
-        return "action_client_payment_mapping"
+        return "action_payment_mapping"
     async def run(self, dispatcher, tracker, domain):
         last_intent = tracker.get_intent_of_latest_message()
-        if last_intent == "response_client_payment":
+        if last_intent == "order_delivery":
             client_payment = tracker.get_slot("client_payment")
             ent_client_payment = next(tracker.get_latest_entity_values("client_payment"), None)
             if ent_client_payment is None:
@@ -930,8 +957,7 @@ class ActionConfirmDelivery(Action):
         client_address = tracker.get_slot("client_address")
         client_payment = tracker.get_slot("client_payment")
         client_phone_number = tracker.get_slot("client_phone_number")
-        time = tracker.get_slot("time")
-        message = f"Perfect! We need that you confirm all the informations: the order will be for {client_name}, it will be delivered at {time} to {client_address}. The payment method is {client_payment}. In case of problem we will contact at {client_phone_number}."
+        message = f"Perfect! We need that you confirm all the informations: the order will be for {client_name}, to {client_address}. The payment method is {client_payment}. In case of problem we will contact at {client_phone_number}. Everything correct?"
         dispatcher.utter_message(text=message)
         return []
     
@@ -941,8 +967,7 @@ class ActionConfirmTakeaway(Action):
     async def run(self, dispatcher, tracker, domain):
         client_name = tracker.get_slot("client_name")
         client_phone_number = tracker.get_slot("client_phone_number")
-        time = tracker.get_slot("time")
-        message = f"Perfect! We need that you confirm all the informations: the order will be for {client_name} at {time} to take away. In case of problem we will contact at {client_phone_number}."
+        message = f"Perfect! We need that you confirm all the informations: the order will be for {client_name} to take away. In case of problem we will contact at {client_phone_number}. Everything correct?"
         dispatcher.utter_message(text=message)
         return []
     
@@ -960,7 +985,7 @@ class ActionChangeDelivery(Action):
         client_address_changed = next(tracker.get_latest_entity_values("client_address"), None)
         client_payment_changed = next(tracker.get_latest_entity_values("client_payment"), None)
         
-        if client_name is None and client_address is None and client_payment is None:
+        if client_name is None and client_address is None and client_payment is None and client_phone_number is None:
             dispatcher.utter_message(response="utter_warning_nothing_to_change")
             return []
         

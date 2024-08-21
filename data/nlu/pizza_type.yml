@@ -2,18 +2,19 @@ version: "3.1"
 nlu:
 - lookup: pizza_type
   examples: |
-    - Margherita
-    - Funghi
     - Hawaii
+    - Margherita
     - Pepperoni
-    - Vegetariana
-    - Quattro Stagioni
+    - Vegetarian
+    - Four Seasons
+    - Capricciosa
     - Capricciosa
     - Crudo and Burrata
     - Marinara
-    - Quattro Formaggi
-    - Prosciutto and mushrooms
-    - Tuna and onions
+    - Four Cheeses
+    - Ham and Mushrooms
+    - Tuna and Onions
     - Boscaiola
-    - Salsiccia and Friarielli
-    - Gorgonzola and Noci
+    - Sausage and Broccoli Rabe
+    - Gorgonzola and Walnuts
+
