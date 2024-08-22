@@ -1,5 +1,5 @@
 conda create --name rasa_env python=3.8
-pip install rasa
+pip install rasa==
 pip install spacy
 python -m spacy download en_core_web_md
 
@@ -8,6 +8,5 @@ export SQLALCHEMY_SILENCE_UBER_WARNING=1
 
 
 # ngrok http 5005
-# rasa run --enable-api
+# rasa run 
 # rasa run actions
-# curl -X POST "https://api.telegram.org/bot6764152122:AAHV3Ltvdxv--bcY-S9j-7Aavv6Zbkagm2I/setWebhook?url=https://3f44-2001-b07-6473-6aef-d739-4942-fef7-cbff.ngrok-free.app/webhooks/telegram/webhook"

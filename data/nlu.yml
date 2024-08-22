@@ -413,6 +413,21 @@ nlu:
     - I don't want to buy anymore
     - I don't want to buy a pizza anymore
     - I've changed my mind, i don't want to buy a pizza
+- intent: stop_positive
+  examples: |
+    - yes, stop
+    - yes, delete
+    - yes, cancel
+    - yes, cancel order
+    - yes, cancel my order
+    - yes, cancel my pizza
+    - yes, cancel my pizza order
+    - yes, cancel my pizza order please
+    - yes, I want to cancel my order
+    - yes, I want to cancel my pizza
+    - yes, I want to cancel my pizza order
+    - yes, I want to cancel my pizza order please
+    - yes, Actually i want to cancel my order
 - intent: request_pizza_types
   examples: |
     - /menu

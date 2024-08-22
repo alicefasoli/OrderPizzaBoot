@@ -29,6 +29,7 @@ intents:
 - response_positive
 - restart
 - stop
+- stop_positive
 - takeaway_change
 - takeaway_change_request_without_entity
 - time

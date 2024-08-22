@@ -221,7 +221,7 @@ rules:
     - active_loop: pizza_order_form
   steps:
   - action: utter_ask_confirm
-  - intent: stop
+  - intent: stop_positive
   - active_loop: null
   - action: action_reset_pizza_form
   - action: utter_order_cancelation_confirm

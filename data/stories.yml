@@ -141,7 +141,7 @@ stories:
     - requested_slot: pizza_amount
   - intent: stop
   - action: utter_ask_confirm
-  - intent: stop
+  - intent: stop_positive
   - active_loop: null
   - action: action_reset_pizza_form
   - action: utter_order_cancelation_confirm
@@ -521,7 +521,7 @@ stories:
     - requested_slot: pizza_crust
   - intent: stop
   - action: utter_ask_confirm
-  - intent: stop
+  - intent: stop_positive
   - active_loop: null
   - action: action_reset_pizza_form
   - action: utter_order_cancelation_confirm

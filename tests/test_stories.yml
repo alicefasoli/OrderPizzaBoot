@@ -297,20 +297,19 @@ stories:
       - pizza_type: null
   - action: utter_init_order
   - user: |
-      I want to order [one](pizza_amount) [boscaiola](pizza_type) pizza
+      I want to order [one](pizza_amount) pizza
     intent: order_pizza_inform
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
       - pizza_amount: one
-      - pizza_type: boscaiola
   - user: |
       I want to cancel my order
     intent: stop
   - action: utter_ask_confirm
   - user: |
-      cancel
-    intent: stop
+      yes, cancel
+    intent: stop_positive
   - active_loop: null
   - action: action_reset_pizza_form
   - action: utter_order_cancelation_confirm

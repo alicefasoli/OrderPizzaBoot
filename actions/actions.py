@@ -160,11 +160,13 @@ class ActionConfirmOrder(Action):
             
         last_intent = tracker.get_intent_of_latest_message()
         current_order = tracker.get_slot("current_order")
-        if last_intent == "current_order" and current_order is not None:
-            dispatcher.utter_message(text="Your order is " + order_details)
+        total_order = tracker.get_slot("total_order")
+        if last_intent == "current_order" and total_order is not None:
+            total_order = ", and ".join(total_order)
+            dispatcher.utter_message(text="Your confirmed order at the moment is " + total_order)
             return []
-        elif last_intent == "current_order" and current_order is None:
-            dispatcher.utter_message(text="There is no pending order")
+        elif last_intent == "current_order" and total_order is None:
+            dispatcher.utter_message(text="There is no confirmed order at the moment")
             return []
         else:
             if tracker.get_slot("second_pizza_amount") is not None or tracker.get_slot("second_pizza_type") is not None or tracker.get_slot("second_pizza_size") is not None or tracker.get_slot("second_pizza_crust") is not None:
@@ -183,7 +185,7 @@ class ActionTotalOrder(Action):
         total_order = tracker.get_slot("total_order")
         total_price = tracker.get_slot("total_price")
         if total_order is None:
-            dispatcher.utter_message(text="Sorry, there is an error. You have no open order.")
+            dispatcher.utter_message(text="You have no open order. That's correct?")
             return []
         else:
             total_order = ", and ".join(total_order)
@@ -303,7 +305,7 @@ class ActionPizzaOrderAdd(Action):
         else:
             total_price = int(total_price)
         
-        if toppings == "no extra topping":
+        if toppings == "none":
             n_toppings = 0
         else:
             n_toppings = 1
@@ -368,8 +370,12 @@ class ActionOrderNumber(Action):
         name_person = tracker.get_slot("client_name")
         number_person = tracker.get_slot("client_phone_number")
         order_number =  str(name_person + "_" + number_person)
-        dispatcher.utter_message(text=f"Remember your order number {order_number}.")
-        return[SlotSet("order_number", order_number)]
+        if name_person is not None and number_person is not None:
+            dispatcher.utter_message(text=f"Remember your order number {order_number}.")
+            return[SlotSet("order_number", order_number)]
+        
+        dispatcher.utter_message(text=f"You have to conclude the order before.")
+        return []
 
 class ValidatePizzaOrderForm(FormValidationAction):
     def __init__(self) -> None:
@@ -1021,6 +1027,7 @@ class ActionChangeTakeAway(Action):
     def name(self):
         return 'action_change_takeaway'
     async def run(self, dispatcher, tracker, domain):
+        print("change")
         client_name = tracker.get_slot("client_name")
         client_phone_number = tracker.get_slot("client_phone_number")
         
