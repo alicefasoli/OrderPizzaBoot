@@ -15,6 +15,7 @@ rasa train
 ```
 
 ### Test chatbot
+If you don't want to train the model copy the pre-trained weight contained into results* directory into a new directory called models.
 ```
 rasa test
 ```
