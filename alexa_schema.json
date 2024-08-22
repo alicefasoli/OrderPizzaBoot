@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "restaurant booking assistant",
+            "invocationName": "order pizza",
             "intents": [
                 {
                     "name": "ReturnUserInput",
