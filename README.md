@@ -50,7 +50,7 @@ export SQLALCHEMY_SILENCE_UBER_WARNING=1
 ```
 
 ### Telegram bot
-The token is not accessible. But to make it work I run thi commands.
+The token is not accessible. But to make it work I run the commands.
 ```
 ngrok http 5005
 rasa run 
