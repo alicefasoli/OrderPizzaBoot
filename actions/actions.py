@@ -154,14 +154,17 @@ class ActionConfirmOrder(Action):
         order_details = ""
         toppings = tracker.get_slot("pizza_topping")
         if toppings is not None or toppings != "none":
-            toppings = "with " + toppings
-            order_details += f"{pizza_amount} {pizza_size} {pizza_crust} crust {pizza_type} {toppings}"
+            order_details += f"{pizza_amount} {pizza_size} {pizza_crust} crust {pizza_type} with {toppings}"
         else:
             order_details += f"{pizza_amount} {pizza_size} {pizza_crust} crust {pizza_type}"
             
         last_intent = tracker.get_intent_of_latest_message()
-        if last_intent == "current_order":
+        current_order = tracker.get_slot("current_order")
+        if last_intent == "current_order" and current_order is not None:
             dispatcher.utter_message(text="Your order is " + order_details)
+            return []
+        elif last_intent == "current_order" and current_order is None:
+            dispatcher.utter_message(text="There is no pending order")
             return []
         else:
             if tracker.get_slot("second_pizza_amount") is not None or tracker.get_slot("second_pizza_type") is not None or tracker.get_slot("second_pizza_size") is not None or tracker.get_slot("second_pizza_crust") is not None:

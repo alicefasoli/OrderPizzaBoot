@@ -249,18 +249,16 @@
     "text": "I want to order one boscaiola pizza",
     "entities": [
       {
-        "text": "I want to order one boscaiola pizza",
         "start": 16,
         "end": 19,
-        "entity": "pizza_amount",
-        "value": "one"
+        "value": "one",
+        "entity": "pizza_amount"
       },
       {
-        "text": "I want to order one boscaiola pizza",
         "start": 20,
         "end": 29,
-        "entity": "pizza_type",
-        "value": "boscaiola"
+        "value": "boscaiola",
+        "entity": "pizza_type"
       }
     ],
     "predicted_entities": []

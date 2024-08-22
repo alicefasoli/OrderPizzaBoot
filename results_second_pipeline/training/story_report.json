@@ -1,45 +1,9 @@
 {
-  "action_get_pizza_ingredients": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 432
-  },
-  "utter_final_order": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1368
-  },
-  "action_pizza_order_add": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1710
-  },
   "action_ask_time": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 1368
-  },
-  "takeaway_form": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 684
-  },
-  "action_order_number": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1368
-  },
-  "utter_want_something": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 864
   },
   "utter_i_am_bot": {
     "precision": 1.0,
@@ -47,121 +11,13 @@
     "f1-score": 1.0,
     "support": 864
   },
-  "action_confirm_order": {
+  "utter_welcome_greet": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 2394
-  },
-  "utter_goodbye": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1368
-  },
-  "action_listen": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 24082
-  },
-  "utter_ask_confirm": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 432
-  },
-  "utter_inform_pizza_size": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1
-  },
-  "action_restart": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1368
-  },
-  "utter_ask_changes_item": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1026
-  },
-  "utter_ask_changes_time": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1368
+    "support": 1296
   },
   "utter_ask_changes_takeaway": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 684
-  },
-  "utter_ask_changes_delivery": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 684
-  },
-  "pizza_order_form": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 2584
-  },
-  "utter_order_cancelation_confirm": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 432
-  },
-  "utter_inform_pizza_crust": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 217
-  },
-  "action_total_order": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1368
-  },
-  "action_change_time": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 912
-  },
-  "delivery_form": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 684
-  },
-  "action_change_takeaway": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 456
-  },
-  "action_change_delivery": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 456
-  },
-  "utter_inform_pizza_amount": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1
-  },
-  "action_change_order": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
@@ -173,29 +29,41 @@
     "f1-score": 1.0,
     "support": 1
   },
+  "action_get_pizza_ingredients": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 432
+  },
+  "action_change_delivery": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 456
+  },
   "utter_something_else": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 2142
   },
-  "action_confirm_delivery": {
+  "utter_inform_pizza_size": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 1140
+    "support": 1
   },
-  "utter_welcome_greet": {
+  "pizza_order_form": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 1296
+    "support": 2584
   },
-  "utter_init_order": {
+  "action_listen": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 432
+    "support": 24082
   },
   "utter_anti_pizza": {
     "precision": 1.0,
@@ -203,17 +71,11 @@
     "f1-score": 1.0,
     "support": 648
   },
-  "action_new_order": {
+  "utter_inform_pizza_amount": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 1710
-  },
-  "utter_order_add": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 774
+    "support": 1
   },
   "action_get_menu": {
     "precision": 1.0,
@@ -221,11 +83,101 @@
     "f1-score": 1.0,
     "support": 1081
   },
-  "action_confirm_takeaway": {
+  "action_order_number": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1368
+  },
+  "action_reset_pizza_form": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 432
+  },
+  "utter_ask_changes_delivery": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 684
+  },
+  "action_confirm_order": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2394
+  },
+  "utter_ask_changes_time": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1368
+  },
+  "action_pizza_order_add": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1710
+  },
+  "delivery_form": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 684
+  },
+  "action_restart": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1368
+  },
+  "action_new_order": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1710
+  },
+  "utter_order_cancelation_confirm": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 432
+  },
+  "action_total_order": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1368
+  },
+  "utter_goodbye": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1368
+  },
+  "action_change_takeaway": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 456
+  },
+  "utter_want_something": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 864
+  },
+  "action_confirm_delivery": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 1140
+  },
+  "utter_ask_confirm": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 432
   },
   "action_confirm_time": {
     "precision": 1.0,
@@ -233,11 +185,59 @@
     "f1-score": 1.0,
     "support": 2280
   },
-  "action_reset_pizza_form": {
+  "action_change_time": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 912
+  },
+  "utter_order_add": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 774
+  },
+  "utter_final_order": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1368
+  },
+  "utter_init_order": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 432
+  },
+  "action_confirm_takeaway": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1140
+  },
+  "utter_inform_pizza_crust": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 217
+  },
+  "takeaway_form": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 684
+  },
+  "action_change_order": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 684
+  },
+  "utter_ask_changes_item": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1026
   },
   "accuracy": 1.0,
   "macro avg": {

@@ -472,6 +472,7 @@ nlu:
     - do you have the small size?
 - intent: welcome_greet
   examples: |
+    - /start
     - Hi, I'm [Alice](client_name)
     - Hello, my name is [Alice](client_name)
     - Hi, my name is [Giuditta](client_name)

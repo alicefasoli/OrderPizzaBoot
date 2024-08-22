@@ -1,1 +1,135 @@
-# None of the test stories failed - all good!
+version: "3.1"
+stories:
+- story: test story 2 (./tests/test_stories.yml)
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - intent: order_anti_pizza
+    entities:
+    - anti_pizza_type: beer
+  - slot_was_set:
+    - anti_pizza_type: beer
+  - slot_was_set:
+    - anti_pizza_type: beer
+  - action: utter_anti_pizza
+  - action: action_get_menu
+  - intent: order_pizza_inform
+    entities:
+    - pizza_amount: three
+    - pizza_size: large
+  - slot_was_set:
+    - pizza_amount: three
+  - slot_was_set:
+    - pizza_size: large
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - intent: order_pizza_inform
+    entities:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: request_pizza_crusts  # predicted: nlu_fallback: what crusts do you offer?
+  - action: utter_inform_pizza_crust
+  - action: pizza_order_form
+  - intent: order_pizza_inform
+    entities:
+    - pizza_crust: stuffed
+  - slot_was_set:
+    - pizza_crust: stuffed
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_topping
+  - intent: order_pizza_inform
+    entities:
+    - pizza_topping: ricotta
+  - slot_was_set:
+    - pizza_topping: ricotta
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_confirm_order
+  - slot_was_set:
+    - current_order:
+      - three large stuffed crust Pepperoni with ricotta
+  - intent: response_negative
+  - action: utter_ask_changes_item
+  - intent: item_change
+    entities:
+    - pizza_type: Vegetarian
+  - slot_was_set:
+    - pizza_type: Vegetarian
+  - action: action_change_order
+  - action: action_confirm_order
+  - slot_was_set:
+    - current_order:
+      - three large stuffed crust Vegetarian with ricotta
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - three large stuffed crust Vegetarian with ricotta
+  - action: action_new_order
+  - action: utter_something_else
+  - intent: response_negative
+  - action: action_total_order
+  - intent: order_delivery
+  - action: delivery_form
+  - active_loop: delivery_form
+  - slot_was_set:
+    - requested_slot: client_name
+  - intent: order_delivery
+    entities:
+    - client_name: Gina
+  - slot_was_set:
+    - client_name: Gina
+  - action: delivery_form
+  - slot_was_set:
+    - requested_slot: client_phone_number
+  - intent: order_delivery
+    entities:
+    - client_phone_number: +39 3405102260
+  - slot_was_set:
+    - client_phone_number: +39 3405102260
+  - action: delivery_form
+  - slot_was_set:
+    - requested_slot: client_address
+  - intent: order_delivery
+    entities:
+    - client_address: number five roma street trento
+  - slot_was_set:
+    - client_address: number five roma street trento
+  - action: delivery_form
+  - slot_was_set:
+    - requested_slot: client_payment
+  - intent: order_delivery
+    entities:
+    - client_payment: cash
+  - slot_was_set:
+    - client_payment: cash
+  - action: delivery_form
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_confirm_delivery
+  - intent: response_positive
+  - action: action_ask_time
+  - slot_was_set:
+    - requested_slot: time
+  - intent: time
+    entities:
+    - time: eight thirty
+  - slot_was_set:
+    - time: seven thirty
+  - action: action_confirm_time
+  - intent: response_positive
+  - action: action_order_number
+  - action: utter_final_order
+  - intent: goodbye
+  - action: utter_goodbye
+  - action: action_restart

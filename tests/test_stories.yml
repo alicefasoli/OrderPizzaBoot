@@ -209,7 +209,7 @@ stories:
     intent: response_negative
   - action: action_total_order
   - user: |
-      I'll like delivery
+      I'd like the delivery
     intent: order_delivery
   - action: delivery_form
   - active_loop: delivery_form
@@ -316,7 +316,7 @@ stories:
   - action: utter_order_cancelation_confirm
   - action: utter_something_else
   - user: |
-      yes, i want to order
+      Yes please
     intent: response_positive
   - action: utter_order_add
   - user: |

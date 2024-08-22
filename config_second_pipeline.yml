@@ -18,7 +18,8 @@ pipeline:
     retrieval_intent: "faq"
     clean_up_tokenization_spaces: True
     constrain_similarities: True
-
+  - name: FallbackClassifier
+    threshold: 0.2
 
 policies:
   - name: TEDPolicy

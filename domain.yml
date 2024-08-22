@@ -55,6 +55,9 @@ entities:
 - active_form_pizza_order_form
 - active_form_delivery_form
 - active_form_takeaway_form
+- modify_pizza_order
+- modify_delivery
+- modify_takeaway
 slots:
   time:
     type: text
@@ -226,9 +229,9 @@ responses:
   utter_out_of_scope:
   - text: Sorry, I can't handle that request.
   utter_welcome_greet:
-  - text: Hello There! Welcome to OrderPizzabot. How can I help you?
-  - text: Hi there! Welcome to OrderPizzabot. How can I help you?
-  - text: Hi there! Welcome to OrderPizzabot. What would you like to start with for your pizza order?
+  - text: Hello There! Welcome to OrderPizzaBoot. How can I help you?
+  - text: Hi there! Welcome to OrderPizzaBoot. How can I help you?
+  - text: Hi there! Welcome to OrderPizzaBoot. What would you like to start with for your pizza order?
   utter_want_something:
   - text: Do you want to order?
   - text: Is there something I can do for you?
@@ -258,10 +261,10 @@ responses:
   - text: No problem. What would you like to change in the takeaway?
   - text: Okay. What would you like to change in the takeaway?
   utter_final_order:
-  - text: Awesome! Your order is confirmed. Here is your order number {order_number}. Your total order is {total_order}.
-  - text: Great! Your order is confirmed. Here is your order number {order_number}. Your total order is {total_order}.
-  - text: Perfect! Your order is confirmed. Here is your order number {order_number}. Your total order is {total_order}.
-  - text: Wonderful! Your order is confirmed. Here is your order number {order_number}. Your total order is {total_order}.
+  - text: Awesome! Your order is confirmed. Your total order is {total_order} and it will cost {total_price}$.
+  - text: Great! Your order is confirmed. Your total order is {total_order} and it will cost {total_price}$.
+  - text: Perfect! Your order is confirmed. Your total order is {total_order} and it will cost {total_price}$.
+  - text: Wonderful! Your order is confirmed. Your total order is {total_order} and it will cost {total_price}$.
   utter_ask_changes_time:
   - text: At which time do you want to change it?
   utter_ask_client_name:
@@ -308,8 +311,8 @@ responses:
   - text: Okay. Your order has been canceled.
   - text: Alright. Your order has been canceled.
   utter_goodbye:
-  - text: Bye! Thanks for choosing OrderPizzaBot.
-  - text: Goodbye! Thanks for choosing OrderPizzaBot.
+  - text: Bye! Thanks for choosing OrderPizzaBoot.
+  - text: Goodbye! Thanks for choosing OrderPizzaBoot.
   utter_warning_nothing_to_change:
   - text: There are no changes. Is this correct?
 actions:
